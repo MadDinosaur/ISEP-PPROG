@@ -62,6 +62,7 @@ public class CreditoHabitacao extends CreditoBancario {
      * Calcula o montante total que a instituição bancária irá receber pelo crédito concedido, tendo em conta os juros mensais
      * @return montante recebido acumulado no final do prazo do crédito
      */
+    @Override
     public float calcularMontanteAReceberPorCadaCredito() {
         return super.getMontante() + calcularMontanteTotalJuros();
     }
@@ -70,11 +71,12 @@ public class CreditoHabitacao extends CreditoBancario {
      * Calcula o montante total de juros a ser pagos à instituição bancária ao longo do prazo do crédito
      * @return montante acumulado de juros recebidos no final do prazo do crédito
      */
+    @Override
     public float calcularMontanteTotalJuros() {
         float juros = 0;
         float capital = super.getMontante();
         float amortizacao = getCapitalAmortizadoMensal();
-        float taxaJuro = (this.spread + this.taxaEuribor) / 100;
+        float taxaJuro = (this.spread + CreditoHabitacao.taxaEuribor) / 100;
 
         for (int i = 0; i < super.getMesesFinanciamento(); i++) {
             juros += taxaJuro * capital;
@@ -83,6 +85,7 @@ public class CreditoHabitacao extends CreditoBancario {
         return juros;
     }
 
+    @Override
     public String toString() {
         return String.format("Crédito Habitação contratado à taxa de %.2f%%n." + this.spread + this.taxaEuribor);
     }
