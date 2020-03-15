@@ -19,13 +19,13 @@ public abstract class CreditoBancario {
     
     private int mesesFinanciamento;
     
-    private static String NOME_POR_OMISSAO = "";
+    private final String NOME_POR_OMISSAO = "";
     
-    private static String PROFISSAO_POR_OMISSAO = "";
+    private final String PROFISSAO_POR_OMISSAO = "";
     
-    private static float MONTANTE_POR_OMISSAO = 0;
+    private final float MONTANTE_POR_OMISSAO = 0;
     
-    private static int MESESFINANCIAMENTO_POR_OMISSAO = 0;
+    private final int MESESFINANCIAMENTO_POR_OMISSAO = 0;
     
     /**
      * Constrói uma instância de CreditoBancario recebendo o nome, a profissão 
