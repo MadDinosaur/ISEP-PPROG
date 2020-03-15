@@ -26,6 +26,17 @@ public abstract class CreditoBancario {
     
     private static int MESESFINANCIAMENTO_POR_OMISSAO = 0;
     
+    /**
+     * Constrói uma instância de CreditoBancario recebendo o nome, a profissão 
+     * , o montante e os meses de financiamento. 
+     * 
+     *
+     * @param nome o nome do cliente
+     * @param profissao a profissao do cliente
+     * @param montante o montante do cliente
+     * @param mesesFinanciamento os meses de financiamento do cliente
+     * 
+     */
     public CreditoBancario(String nome, String profissao, float montante, int mesesFinanciamento){
         this.nome = nome;
         this.profissao = profissao;
@@ -33,6 +44,10 @@ public abstract class CreditoBancario {
         this.mesesFinanciamento = mesesFinanciamento;
     }
     
+    /**
+     * Constrói uma instância de CreditoBancario recebendo o nome por omissão , a profissão 
+     * por omissão, o montante por omissão e os meses de financiamento por omissão. 
+     */
     public CreditoBancario(){
         this.nome = NOME_POR_OMISSAO;
         this.profissao = PROFISSAO_POR_OMISSAO;
