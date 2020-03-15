@@ -39,12 +39,15 @@ public class CreditoHabitacao extends CreditoBancario {
         taxaEuribor = aTaxaEuribor;
     }
 
+    /**
+     * Inicializa um objeto de CreditoHabitacao com spread = 0
+     */
     public CreditoHabitacao() {
         this.spread = SPREAD_POR_OMISSAO;
     }
     /**
-     * Inicializa
-     * @param spread 
+     * Inicializa um objeto de CreditoHabitacao com o spread indicado como parâmetro
+     * @param spread: taxa de spread, em percentagem
      */
     public CreditoHabitacao(float spread) {
         this.spread = spread;
@@ -84,7 +87,11 @@ public class CreditoHabitacao extends CreditoBancario {
         }
         return juros;
     }
-
+    
+    /**
+     * Devolve a descrição textual de um crédito à habitação
+     * @return as características do crédito à habitação
+     */
     @Override
     public String toString() {
         return String.format("Crédito Habitação contratado à taxa de %.2f%%n." + this.spread + this.taxaEuribor);
