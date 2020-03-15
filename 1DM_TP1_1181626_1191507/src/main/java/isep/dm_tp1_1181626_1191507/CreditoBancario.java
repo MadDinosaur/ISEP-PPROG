@@ -143,6 +143,14 @@ public abstract class CreditoBancario {
     }
     
     /**
+     * Obtém o montante de capital a amortizar a cada mês tendo em conta o prazo e o montante do crédito
+     * @return capital amortizado mensal
+     */
+    public float getCapitalAmortizadoMensal() {
+        return montante / mesesFinanciamento;
+    }
+    
+    /**
      * Devolve o montante a receber por cada credito.
      *
      * @return montantePorCredito do crédito bancário
