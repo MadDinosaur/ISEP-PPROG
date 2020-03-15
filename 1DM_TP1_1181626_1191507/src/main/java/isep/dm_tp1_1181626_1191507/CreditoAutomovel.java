@@ -63,6 +63,17 @@ public class CreditoAutomovel extends CreditoBancario {
 
     /**
      * Inicializa um objeto de CreditoAutomovel com os valores pretendidos de
+     * desconto
+     *
+     * @param desconto: desconto mensal para créditos com prazo inferior ou
+     * igual a 24 meses
+     */
+    public CreditoAutomovel(float desconto) {
+        this.desconto = desconto;
+    }
+
+    /**
+     * Inicializa um objeto de CreditoAutomovel com os valores pretendidos de
      * taxa de juro e desconto
      *
      * @param taxaJuro: taxa de juro dos créditos automóveis
@@ -73,28 +84,51 @@ public class CreditoAutomovel extends CreditoBancario {
         CreditoAutomovel.taxaJuro = taxaJuro;
         this.desconto = desconto;
     }
-    //TODO: criar construtores
 
+    /**
+     * Calcula o montante total que a instituição bancária irá receber pelo
+     * crédito concedido, tendo em conta os juros mensais
+     *
+     * @return montante recebido acumulado no final do prazo do crédito
+     */
     @Override
     public float calcularMontanteAReceberPorCadaCredito() {
+        return super.getMontante() + calcularMontanteTotalJuros();
     }
 
+    /**
+     * Calcula o montante total de juros a ser pagos à instituição bancária ao
+     * longo do prazo do crédito
+     *
+     * @return montante acumulado de juros recebidos no final do prazo do
+     * crédito
+     */
     @Override
     public float calcularMontanteTotalJuros() {
         float juros = 0;
         boolean aplicarDesconto = super.getMesesFinanciamento() <= periodoDesconto;
-        
+
         float capital = super.getMontante();
         float amortizacao = getCapitalAmortizadoMensal();
 
         for (int i = 0; i < super.getMesesFinanciamento(); i++) {
-            if (aplicarDesconto)
-                juros += (taxaJuro * capital)*(1-desconto);
-            else
+            if (aplicarDesconto) {
+                juros += (taxaJuro * capital) * (1 - desconto);
+            } else {
                 juros += taxaJuro * capital;
+            }
             capital -= amortizacao;
         }
         return juros;
     }
 
+    /**
+     * Devolve a descrição textual de um crédito à habitação
+     *
+     * @return as características do crédito à habitação
+     */
+    @Override
+    public String toString() {
+        return String.format("Crédito Automóvel contratado à taxa de %.2f%%n." + taxaJuro);
+    }
 }
