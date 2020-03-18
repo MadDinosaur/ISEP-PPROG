@@ -13,5 +13,7 @@ public class MainCredito {
 
     public static void main(String[] args) {
         CreditoHabitacao c1 = new CreditoHabitacao();
+        System.out.println(c1.calcularMontanteAReceberPorCadaCredito());
+       
     }
 }
