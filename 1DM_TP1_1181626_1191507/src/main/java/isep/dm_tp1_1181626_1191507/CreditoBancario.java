@@ -23,6 +23,9 @@ public abstract class CreditoBancario {
     private final float MONTANTE_POR_OMISSAO = 0;
 
     private final int MESESFINANCIAMENTO_POR_OMISSAO = 0;
+    
+    public final int MESES_POR_ANO = 12;
+   
 
     /**
      * Constrói uma instância de CreditoBancario recebendo o nome, a profissão ,
@@ -137,7 +140,7 @@ public abstract class CreditoBancario {
      */
     @Override
     public String toString() {
-        return String.format("Cliente %s, com a profissão %s, tem um montante %f $ com %d meses de financiamento", nome, profissao, montante, mesesFinanciamento);
+        return String.format("Cliente %s, com a profissão %s, tem um montante %f $ com %d meses de financiamento%n", nome, profissao, montante, mesesFinanciamento);
     }
 
     /**

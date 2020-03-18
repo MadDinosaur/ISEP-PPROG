@@ -105,9 +105,9 @@ public class CreditoEducacao extends CreditoBancario {
         float juros = 0;
         float capital = super.getMontante();
         float amortizacao = capital / (super.getMesesFinanciamento() - periodoCarencia);
-        juros += taxaJuro * capital * periodoCarencia;
+        juros += taxaJuro/MESES_POR_ANO * capital * periodoCarencia;
         for (int i = 0; i < super.getMesesFinanciamento() - periodoCarencia; i++) {
-            juros += taxaJuro * capital;
+            juros += taxaJuro/MESES_POR_ANO * capital;
             capital -= amortizacao;
         }
         return juros;

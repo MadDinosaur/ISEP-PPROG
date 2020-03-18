@@ -10,8 +10,7 @@ public class CreditoHabitacao extends CreditoBancario {
     private static float taxaEuribor = 0.1f;
 
     private final float SPREAD_POR_OMISSAO = 0f;
-    
-    private final int MESES_POR_ANO = 12;
+ 
 
     /**
      * @return the spread
@@ -96,6 +95,6 @@ public class CreditoHabitacao extends CreditoBancario {
      */
     @Override
     public String toString() {
-        return String.format("Crédito Habitação contratado à taxa de %.2f%%n." + this.spread + this.taxaEuribor);
+        return String.format(super.toString() + "Crédito Habitação contratado à taxa de %.2f%%n." + this.spread + CreditoHabitacao.taxaEuribor);
     }
 }

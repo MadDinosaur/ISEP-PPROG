@@ -108,9 +108,9 @@ public class CreditoAutomovel extends CreditoBancario {
 
         for (int i = 0; i < super.getMesesFinanciamento(); i++) {
             if (aplicarDesconto) {
-                juros += (taxaJuro * capital) * (1 - desconto);
+                juros += (taxaJuro/MESES_POR_ANO * capital) * (1 - desconto);
             } else {
-                juros += taxaJuro * capital;
+                juros += taxaJuro/MESES_POR_ANO * capital;
             }
             capital -= amortizacao;
         }
