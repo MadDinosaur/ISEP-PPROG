@@ -10,17 +10,18 @@ package isep.dm_tp1_1181626_1191507;
  * @author Francisco
  */
 public class CreditoEducacao extends CreditoBancario {
-    
-    private static float taxaJuro = (float) 0.02;
-    
+
+    private static float taxaJuro = 2f;
+
     private int periodoCarencia;
-    
+
     private final int PERIODOCARENCIA_POR_OMISSAO = 0;
-    
+
     /**
-     * Constrói uma instância de CreditoEducacao recebendo o nome, a profissão 
-     * , o montante, os meses de financiamento, a taxa de juro e o periodo de carencia. 
-     * 
+     * Constrói uma instância de CreditoEducacao recebendo o nome, a profissão ,
+     * o montante, os meses de financiamento, a taxa de juro e o periodo de
+     * carencia.
+     *
      *
      * @param nome o nome do cliente
      * @param profissao a profissao do cliente
@@ -28,35 +29,36 @@ public class CreditoEducacao extends CreditoBancario {
      * @param mesesFinanciamento os meses de financiamento do cliente
      * @param taxaJuro a taxa de juro do cliente
      * @param periodoCarencia o periodo de carencia do cliente
-     * 
+     *
      */
-    public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, float taxaJuro, int periodoCarencia){
+    public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, float taxaJuro, int periodoCarencia) {
         super(nome, profissao, montante, mesesFinanciamento);
         CreditoEducacao.taxaJuro = taxaJuro;
         this.periodoCarencia = periodoCarencia;
     }
-    
+
     /**
-     * Constrói uma instância de CreditoEducacao recebendo o nome, a profissão 
-     * , o montante, os meses de financiamento, o periodo de carencia. 
-     * 
+     * Constrói uma instância de CreditoEducacao recebendo o nome, a profissão ,
+     * o montante, os meses de financiamento, o periodo de carencia.
+     *
      *
      * @param nome o nome do cliente
      * @param profissao a profissao do cliente
      * @param montante o montante do cliente
      * @param mesesFinanciamento os meses de financiamento do cliente
      * @param periodoCarencia o periodo de carencia do cliente
-     * 
+     *
      */
-    public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, int periodoCarencia){
+    public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, int periodoCarencia) {
         super(nome, profissao, montante, mesesFinanciamento);
         this.periodoCarencia = periodoCarencia;
     }
-    
+
     /**
-     * Constrói uma instância de CreditoEducacao recebendo por omissão o periodo de carência. 
+     * Constrói uma instância de CreditoEducacao recebendo por omissão o periodo
+     * de carência.
      */
-    public CreditoEducacao(){
+    public CreditoEducacao() {
         super();
         this.periodoCarencia = PERIODOCARENCIA_POR_OMISSAO;
     }
@@ -88,12 +90,11 @@ public class CreditoEducacao extends CreditoBancario {
      * Modifica o período de carência.
      *
      * @param periodoCarencia o nº de meses do período de carência
-     * 
+     *
      */
     public void setPeriodoCarencia(int periodoCarencia) {
         this.periodoCarencia = periodoCarencia;
     }
-
 
     /**
      * Devolve o montante total de juros.
@@ -105,18 +106,17 @@ public class CreditoEducacao extends CreditoBancario {
         float juros = 0;
         float capital = super.getMontante();
         float amortizacao = capital / (super.getMesesFinanciamento() - periodoCarencia);
-        juros += taxaJuro/MESES_POR_ANO * capital * periodoCarencia;
+        juros += taxaJuro/100 / MESES_POR_ANO * capital * periodoCarencia;
         for (int i = 0; i < super.getMesesFinanciamento() - periodoCarencia; i++) {
-            juros += taxaJuro/MESES_POR_ANO * capital;
+            juros += taxaJuro/100 / MESES_POR_ANO * capital;
             capital -= amortizacao;
         }
         return juros;
     }
-    
+
     @Override
-    public String toString(){
-        return String.format(super.toString() + "Crédito Educação com taxa de Juro %f, com um período de Carência de %s", taxaJuro, periodoCarencia);
+    public String toString() {
+        return String.format(super.toString() + " de tipo Educação com taxa de juro %.2f%% e período de carência de %d meses.", taxaJuro, periodoCarencia);
     }
-    
-    
+
 }

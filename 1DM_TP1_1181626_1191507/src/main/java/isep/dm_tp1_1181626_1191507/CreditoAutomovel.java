@@ -10,6 +10,7 @@ public class CreditoAutomovel extends CreditoBancario {
     private static float taxaJuro = 6f;
     private float desconto = 1f;
     private static int periodoDesconto = 24;
+    private boolean aplicarDesconto = getMesesFinanciamento() <= periodoDesconto;
 
     /**
      * @return the taxaJuro
@@ -69,8 +70,8 @@ public class CreditoAutomovel extends CreditoBancario {
      * @param profissao a profissao do cliente
      * @param montante o montante do cliente
      * @param mesesFinanciamento os meses de financiamento do cliente
-     * @param desconto desconto mensal para créditos com prazo inferior ou
-     * igual a 24 meses
+     * @param desconto desconto mensal para créditos com prazo inferior ou igual
+     * a 24 meses
      */
     public CreditoAutomovel(String nome, String profissao, float montante, int mesesFinanciamento, float desconto) {
         super(nome, profissao, montante, mesesFinanciamento);
@@ -90,7 +91,6 @@ public class CreditoAutomovel extends CreditoBancario {
         this.desconto = desconto;
     }
 
-
     /**
      * Calcula o montante total de juros a ser pagos à instituição bancária ao
      * longo do prazo do crédito
@@ -101,20 +101,24 @@ public class CreditoAutomovel extends CreditoBancario {
     @Override
     public float calcularMontanteTotalJuros() {
         float juros = 0;
-        boolean aplicarDesconto = super.getMesesFinanciamento() <= periodoDesconto;
-
         float capital = super.getMontante();
         float amortizacao = getCapitalAmortizadoMensal();
 
         for (int i = 0; i < super.getMesesFinanciamento(); i++) {
-            if (aplicarDesconto) {
-                juros += (taxaJuro/MESES_POR_ANO * capital) * (1 - desconto);
-            } else {
-                juros += taxaJuro/MESES_POR_ANO * capital;
-            }
+            juros += taxaJuro / 100 / MESES_POR_ANO * capital;
             capital -= amortizacao;
         }
         return juros;
+    }
+
+    @Override
+    public float calcularMontanteAReceberPorCadaCredito() {
+
+        if (aplicarDesconto) {
+            return (getMontante() + calcularMontanteTotalJuros()) * (1 - desconto / 100);
+        } else {
+            return getMontante() + calcularMontanteTotalJuros();
+        }
     }
 
     /**
@@ -124,6 +128,10 @@ public class CreditoAutomovel extends CreditoBancario {
      */
     @Override
     public String toString() {
-        return String.format("Crédito Automóvel contratado à taxa de %.2f%%n." + taxaJuro);
+        if (aplicarDesconto) {
+            return String.format(super.toString() + " de tipo Automóvel e com taxa de juro %.2f%% e desconto de %.2f%%.%n", taxaJuro, desconto);
+        } else {
+            return String.format(super.toString() + " de tipo Automóvel e com taxa de juro %.2f%%.", taxaJuro);
+        }
     }
 }

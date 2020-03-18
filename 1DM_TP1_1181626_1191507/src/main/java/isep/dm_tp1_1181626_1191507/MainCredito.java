@@ -14,6 +14,7 @@ public class MainCredito {
     public static void main(String[] args) {
         CreditoHabitacao c1 = new CreditoHabitacao("Chico", "Viciado em Desporto", 120000, 240, 1);
         CreditoEducacao c2 = new CreditoEducacao("Babuska", "Engenheira", 18000, 60, 24);
+        CreditoAutomovel c3 = new CreditoAutomovel ("Pedro", "Fanático do Flamengo", 120000, 240, 1);
         
         System.out.println("Credito Habitacao");
         System.out.println(c1);
@@ -21,9 +22,15 @@ public class MainCredito {
         System.out.println(c1.calcularMontanteTotalJuros());
 
         System.out.println("Credito Educação");
+        
         System.out.println(c2);
         System.out.println(c2.calcularMontanteAReceberPorCadaCredito());
         System.out.println(c2.calcularMontanteTotalJuros());
+        
+        System.out.println("Credito Automovel");
+        System.out.println(c3);
+        System.out.println(c3.calcularMontanteAReceberPorCadaCredito());
+        System.out.println(c3.calcularMontanteTotalJuros());
 
     }
 }

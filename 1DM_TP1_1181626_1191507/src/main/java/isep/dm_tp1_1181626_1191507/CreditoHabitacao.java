@@ -1,4 +1,5 @@
 package isep.dm_tp1_1181626_1191507;
+
 /**
  * Classe que simula um crédito à habitação e calcula os montantes a receber
  * pela instituição bancária (em juros e capital)
@@ -10,7 +11,6 @@ public class CreditoHabitacao extends CreditoBancario {
     private static float taxaEuribor = 0.1f;
 
     private final float SPREAD_POR_OMISSAO = 0f;
- 
 
     /**
      * @return the spread
@@ -47,9 +47,11 @@ public class CreditoHabitacao extends CreditoBancario {
         super();
         this.spread = SPREAD_POR_OMISSAO;
     }
+
     /**
-     * Inicializa um objeto de CreditoHabitacao com o spread indicado como parâmetro
-     * 
+     * Inicializa um objeto de CreditoHabitacao com o spread indicado como
+     * parâmetro
+     *
      * @param nome o nome do cliente
      * @param profissao a profissao do cliente
      * @param montante o montante do cliente
@@ -62,7 +64,9 @@ public class CreditoHabitacao extends CreditoBancario {
     }
 
     /**
-     * Obtém o montante de capital a amortizar a cada mês tendo em conta o prazo e o montante do crédito
+     * Obtém o montante de capital a amortizar a cada mês tendo em conta o prazo
+     * e o montante do crédito
+     *
      * @return capital amortizado mensal
      */
     @Override
@@ -70,17 +74,19 @@ public class CreditoHabitacao extends CreditoBancario {
         return super.getMontante() / super.getMesesFinanciamento();
     }
 
-
     /**
-     * Calcula o montante total de juros a ser pagos à instituição bancária ao longo do prazo do crédito
-     * @return montante acumulado de juros recebidos no final do prazo do crédito
+     * Calcula o montante total de juros a ser pagos à instituição bancária ao
+     * longo do prazo do crédito
+     *
+     * @return montante acumulado de juros recebidos no final do prazo do
+     * crédito
      */
     @Override
     public float calcularMontanteTotalJuros() {
         float juros = 0;
         float capital = super.getMontante();
         float amortizacao = getCapitalAmortizadoMensal();
-        float taxaJuro = (this.spread/MESES_POR_ANO + CreditoHabitacao.taxaEuribor/MESES_POR_ANO) / 100;
+        float taxaJuro = (this.spread / MESES_POR_ANO + CreditoHabitacao.taxaEuribor / MESES_POR_ANO) / 100;
 
         for (int i = 0; i < super.getMesesFinanciamento(); i++) {
             juros += taxaJuro * capital;
@@ -88,13 +94,14 @@ public class CreditoHabitacao extends CreditoBancario {
         }
         return juros;
     }
-    
+
     /**
      * Devolve a descrição textual de um crédito à habitação
+     *
      * @return as características do crédito à habitação
      */
     @Override
-    public String toString(){
-        return String.format(super.toString() + "Crédito Habitação com taxa de Euribor %f + spread de %f.", taxaEuribor, spread);
+    public String toString() {
+        return String.format(super.toString() + " do tipo Habitação, com taxa Euribor %.2f%% + spread de %.2f%%.", taxaEuribor, spread);
     }
 }

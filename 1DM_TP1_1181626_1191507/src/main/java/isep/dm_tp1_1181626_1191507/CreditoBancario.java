@@ -140,7 +140,7 @@ public abstract class CreditoBancario {
      */
     @Override
     public String toString() {
-        return String.format("Cliente %s, com a profissão %s, tem um montante %f $ com %d meses de financiamento%n", nome, profissao, montante, mesesFinanciamento);
+        return String.format("O cliente %s, com a profissão %s, tem um crédito de %.2fEUR a %d meses", nome, profissao, montante, mesesFinanciamento);
     }
 
     /**
@@ -160,7 +160,8 @@ public abstract class CreditoBancario {
      */
     public float calcularMontanteAReceberPorCadaCredito(){
         return getMontante() + calcularMontanteTotalJuros();
-    }
+    } 
+    
 
     /**
      * Devolve o montante total de juros.
