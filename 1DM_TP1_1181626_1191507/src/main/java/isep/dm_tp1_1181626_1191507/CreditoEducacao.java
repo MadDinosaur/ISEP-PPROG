@@ -94,15 +94,6 @@ public class CreditoEducacao extends CreditoBancario {
         this.periodoCarencia = periodoCarencia;
     }
 
-    /**
-     * Devolve o montante a receber por cada credito.
-     *
-     * @return montantePorCredito do crédito educação
-     */
-    @Override
-    public float calcularMontanteAReceberPorCadaCredito() {
-        return super.getMontante() + calcularMontanteTotalJuros();
-    }
 
     /**
      * Devolve o montante total de juros.

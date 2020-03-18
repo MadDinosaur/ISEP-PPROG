@@ -155,7 +155,9 @@ public abstract class CreditoBancario {
      *
      * @return montantePorCredito do crédito bancário
      */
-    public abstract float calcularMontanteAReceberPorCadaCredito();
+    public float calcularMontanteAReceberPorCadaCredito(){
+        return getMontante() + calcularMontanteTotalJuros();
+    }
 
     /**
      * Devolve o montante total de juros.

@@ -61,14 +61,6 @@ public class CreditoHabitacao extends CreditoBancario {
         return super.getMontante() / super.getMesesFinanciamento();
     }
 
-    /**
-     * Calcula o montante total que a instituição bancária irá receber pelo crédito concedido, tendo em conta os juros mensais
-     * @return montante recebido acumulado no final do prazo do crédito
-     */
-    @Override
-    public float calcularMontanteAReceberPorCadaCredito() {
-        return super.getMontante() + calcularMontanteTotalJuros();
-    }
 
     /**
      * Calcula o montante total de juros a ser pagos à instituição bancária ao longo do prazo do crédito
