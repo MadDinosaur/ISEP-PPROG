@@ -94,7 +94,7 @@ public class CreditoHabitacao extends CreditoBancario {
      * @return as características do crédito à habitação
      */
     @Override
-    public String toString() {
-        return String.format(super.toString() + "Crédito Habitação contratado à taxa de %.2f%%n." + this.spread + CreditoHabitacao.taxaEuribor);
+    public String toString(){
+        return String.format(super.toString() + "Crédito Habitação com taxa de Euribor %f + spread de %f.", taxaEuribor, spread);
     }
 }

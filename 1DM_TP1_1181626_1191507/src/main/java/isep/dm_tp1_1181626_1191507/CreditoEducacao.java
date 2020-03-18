@@ -113,8 +113,9 @@ public class CreditoEducacao extends CreditoBancario {
         return juros;
     }
     
+    @Override
     public String toString(){
-        return String.format("Crédito Educação com taxa de Juro %f, com um período de Carência de %s", taxaJuro, periodoCarencia);
+        return String.format(super.toString() + "Crédito Educação com taxa de Juro %f, com um período de Carência de %s", taxaJuro, periodoCarencia);
     }
     
     
