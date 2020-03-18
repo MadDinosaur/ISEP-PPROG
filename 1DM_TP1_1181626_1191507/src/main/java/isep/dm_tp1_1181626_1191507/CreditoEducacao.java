@@ -32,7 +32,7 @@ public class CreditoEducacao extends CreditoBancario {
      */
     public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, float taxaJuro, int periodoCarencia){
         super(nome, profissao, montante, mesesFinanciamento);
-        this.taxaJuro = taxaJuro;
+        CreditoEducacao.taxaJuro = taxaJuro;
         this.periodoCarencia = periodoCarencia;
     }
     
@@ -87,7 +87,7 @@ public class CreditoEducacao extends CreditoBancario {
     /**
      * Modifica o período de carência.
      *
-     * @param profissao a nova profissão do cliente
+     * @param periodoCarencia o nº de meses do período de carência
      * 
      */
     public void setPeriodoCarencia(int periodoCarencia) {

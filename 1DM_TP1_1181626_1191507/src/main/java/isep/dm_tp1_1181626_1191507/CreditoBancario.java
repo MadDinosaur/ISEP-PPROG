@@ -87,7 +87,7 @@ public abstract class CreditoBancario {
     /**
      * Modifica os meses de financiamento de um dado cliente.
      *
-     * @param financiamento o novo período de financiamento em meses do cliente
+     * @param mesesFinanciamento o novo período de financiamento em meses do cliente
      *
      */
     public void setMesesFinanciamento(int mesesFinanciamento) {

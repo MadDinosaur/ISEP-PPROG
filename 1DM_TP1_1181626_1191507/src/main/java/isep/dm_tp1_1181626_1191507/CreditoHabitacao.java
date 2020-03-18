@@ -43,13 +43,20 @@ public class CreditoHabitacao extends CreditoBancario {
      * Inicializa um objeto de CreditoHabitacao com spread = 0
      */
     public CreditoHabitacao() {
+        super();
         this.spread = SPREAD_POR_OMISSAO;
     }
     /**
      * Inicializa um objeto de CreditoHabitacao com o spread indicado como parâmetro
+     * 
+     * @param nome o nome do cliente
+     * @param profissao a profissao do cliente
+     * @param montante o montante do cliente
+     * @param mesesFinanciamento os meses de financiamento do cliente
      * @param spread: taxa de spread, em percentagem
      */
-    public CreditoHabitacao(float spread) {
+    public CreditoHabitacao(String nome, String profissao, float montante, int mesesFinanciamento, float spread) {
+        super(nome, profissao, montante, mesesFinanciamento);
         this.spread = spread;
     }
 
@@ -57,6 +64,7 @@ public class CreditoHabitacao extends CreditoBancario {
      * Obtém o montante de capital a amortizar a cada mês tendo em conta o prazo e o montante do crédito
      * @return capital amortizado mensal
      */
+    @Override
     public float getCapitalAmortizadoMensal() {
         return super.getMontante() / super.getMesesFinanciamento();
     }

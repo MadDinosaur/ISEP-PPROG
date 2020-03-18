@@ -58,17 +58,22 @@ public class CreditoAutomovel extends CreditoBancario {
      * taxa de juro e desconto
      */
     public CreditoAutomovel() {
-
+        super();
     }
 
     /**
      * Inicializa um objeto de CreditoAutomovel com os valores pretendidos de
      * desconto
      *
-     * @param desconto: desconto mensal para créditos com prazo inferior ou
+     * @param nome o nome do cliente
+     * @param profissao a profissao do cliente
+     * @param montante o montante do cliente
+     * @param mesesFinanciamento os meses de financiamento do cliente
+     * @param desconto desconto mensal para créditos com prazo inferior ou
      * igual a 24 meses
      */
-    public CreditoAutomovel(float desconto) {
+    public CreditoAutomovel(String nome, String profissao, float montante, int mesesFinanciamento, float desconto) {
+        super(nome, profissao, montante, mesesFinanciamento);
         this.desconto = desconto;
     }
 
