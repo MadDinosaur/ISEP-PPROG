@@ -10,6 +10,8 @@ public class CreditoHabitacao extends CreditoBancario {
     private static float taxaEuribor = 0.1f;
 
     private final float SPREAD_POR_OMISSAO = 0f;
+    
+    private final int MESES_POR_ANO = 12;
 
     /**
      * @return the spread
@@ -79,7 +81,7 @@ public class CreditoHabitacao extends CreditoBancario {
         float juros = 0;
         float capital = super.getMontante();
         float amortizacao = getCapitalAmortizadoMensal();
-        float taxaJuro = (this.spread/12 + CreditoHabitacao.taxaEuribor) / 100;
+        float taxaJuro = (this.spread/MESES_POR_ANO + CreditoHabitacao.taxaEuribor/MESES_POR_ANO) / 100;
 
         for (int i = 0; i < super.getMesesFinanciamento(); i++) {
             juros += taxaJuro * capital;
