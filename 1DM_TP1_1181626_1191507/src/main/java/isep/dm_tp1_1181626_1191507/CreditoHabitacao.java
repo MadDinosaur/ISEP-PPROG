@@ -4,13 +4,35 @@ package isep.dm_tp1_1181626_1191507;
  * Classe que simula um crédito à habitação e calcula os montantes a receber
  * pela instituição bancária (em juros e capital)
  */
-
 public class CreditoHabitacao extends CreditoBancario {
 
     private float spread;
     private static float taxaEuribor = 0.1f;
 
     private final float SPREAD_POR_OMISSAO = 0f;
+
+    /**
+     * Inicializa um objeto de CreditoHabitacao com spread = 0
+     */
+    public CreditoHabitacao() {
+        super();
+        this.spread = SPREAD_POR_OMISSAO;
+    }
+
+    /**
+     * Inicializa um objeto de CreditoHabitacao com o spread indicado como
+     * parâmetro
+     *
+     * @param nome o nome do cliente
+     * @param profissao a profissao do cliente
+     * @param montante o montante do cliente
+     * @param mesesFinanciamento os meses de financiamento do cliente
+     * @param spread: taxa de spread, em percentagem
+     */
+    public CreditoHabitacao(String nome, String profissao, float montante, int mesesFinanciamento, float spread) {
+        super(nome, profissao, montante, mesesFinanciamento);
+        this.spread = spread;
+    }
 
     /**
      * @return the spread
@@ -38,29 +60,6 @@ public class CreditoHabitacao extends CreditoBancario {
      */
     public static void setTaxaEuribor(float aTaxaEuribor) {
         taxaEuribor = aTaxaEuribor;
-    }
-
-    /**
-     * Inicializa um objeto de CreditoHabitacao com spread = 0
-     */
-    public CreditoHabitacao() {
-        super();
-        this.spread = SPREAD_POR_OMISSAO;
-    }
-
-    /**
-     * Inicializa um objeto de CreditoHabitacao com o spread indicado como
-     * parâmetro
-     *
-     * @param nome o nome do cliente
-     * @param profissao a profissao do cliente
-     * @param montante o montante do cliente
-     * @param mesesFinanciamento os meses de financiamento do cliente
-     * @param spread: taxa de spread, em percentagem
-     */
-    public CreditoHabitacao(String nome, String profissao, float montante, int mesesFinanciamento, float spread) {
-        super(nome, profissao, montante, mesesFinanciamento);
-        this.spread = spread;
     }
 
     /**

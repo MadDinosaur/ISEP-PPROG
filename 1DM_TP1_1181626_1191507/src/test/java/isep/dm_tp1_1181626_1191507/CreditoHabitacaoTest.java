@@ -25,7 +25,7 @@ public class CreditoHabitacaoTest {
         System.out.println("getSpread");
         float expResult = SPREAD;
         float result = completeInstance.getSpread();
-        assert(expResult == result);
+        assert (expResult == result);
     }
 
     /**
@@ -37,7 +37,7 @@ public class CreditoHabitacaoTest {
         System.out.println("getSpreadEmpty");
         float expResult = SPREAD_POR_OMISSAO;
         float result = emptyInstance.getSpread();
-        assert(expResult == result);
+        assert (expResult == result);
     }
 
     /**
@@ -50,7 +50,7 @@ public class CreditoHabitacaoTest {
         completeInstance.setSpread(spread);
         float expResult = spread;
         float result = completeInstance.getSpread();
-        assert(expResult ==  result);
+        assert (expResult == result);
     }
 
     /**
@@ -61,7 +61,7 @@ public class CreditoHabitacaoTest {
         System.out.println("getTaxaEuribor");
         float expResult = 0.1f;
         float result = CreditoHabitacao.getTaxaEuribor();
-        assert(expResult == result);
+        assert (expResult == result);
     }
 
     /**
@@ -74,7 +74,7 @@ public class CreditoHabitacaoTest {
         CreditoHabitacao.setTaxaEuribor(aTaxaEuribor);
         float expResult = aTaxaEuribor;
         float result = CreditoHabitacao.getTaxaEuribor();
-        assert(expResult == result);
+        assert (expResult == result);
     }
 
     /**
@@ -83,20 +83,21 @@ public class CreditoHabitacaoTest {
     @org.junit.Test
     public void testGetCapitalAmortizadoMensal() {
         System.out.println("getCapitalAmortizadoMensal");
-        float expResult = CAPITAL/PRAZO;
+        float expResult = CAPITAL / PRAZO;
         float result = completeInstance.getCapitalAmortizadoMensal();
-        assert(expResult == result);
+        assert (expResult == result);
     }
-    
-     /**
-     * Test of getCapitalAmortizadoMensal method, of class CreditoHabitacao, with empty constructor.
+
+    /**
+     * Test of getCapitalAmortizadoMensal method, of class CreditoHabitacao,
+     * with empty constructor.
      */
     @org.junit.Test
     public void testGetCapitalAmortizadoMensalEmpty() {
         System.out.println("getCapitalAmortizadoMensalEmpty");
         float expResult = 0;
         float result = emptyInstance.getCapitalAmortizadoMensal();
-        assert(expResult == result);
+        assert (expResult == result);
     }
 
     /**
@@ -109,9 +110,9 @@ public class CreditoHabitacaoTest {
         float result = completeInstance.calcularMontanteTotalJuros();
         System.out.println(expResult);
         System.out.println(result);
-        assert(Math.round(expResult) == Math.round(result));
+        assert (Math.round(expResult) == Math.round(result));
     }
-    
+
     /**
      * Test of calcularMontanteTotalJuros method, of class CreditoHabitacao.
      */
@@ -120,28 +121,30 @@ public class CreditoHabitacaoTest {
         System.out.println("calcularMontanteTotalJurosEmpty");
         float expResult = 0;
         float result = emptyInstance.calcularMontanteTotalJuros();
-        assert(expResult == result);
+        assert (expResult == result);
     }
-    
+
     /**
-     * Test of calcularMontanteAReceberPorCadaCredito method, of class CreditoHabitacao.
+     * Test of calcularMontanteAReceberPorCadaCredito method, of class
+     * CreditoHabitacao.
      */
     @org.junit.Test
     public void testCalcularMontanteAReceberPorCadaCredito() {
         System.out.println("calcularMontanteAReceberPorCadaCredito");
         float expResult = TOTAL_A_RECEBER;
         float result = completeInstance.calcularMontanteAReceberPorCadaCredito();
-        assert(expResult == result);
+        assert (expResult == result);
     }
-    
+
     /**
-     * Test of calcularMontanteAReceberPorCadaCredito method, of class CreditoHabitacao, with empty constructor.
+     * Test of calcularMontanteAReceberPorCadaCredito method, of class
+     * CreditoHabitacao, with empty constructor.
      */
     @org.junit.Test
     public void testCalcularMontanteAReceberPorCadaCreditoEmpty() {
         System.out.println("calcularMontanteAReceberPorCadaCreditoEmpty");
         float expResult = 0;
         float result = emptyInstance.calcularMontanteAReceberPorCadaCredito();
-        assert(expResult == result);
+        assert (expResult == result);
     }
 }

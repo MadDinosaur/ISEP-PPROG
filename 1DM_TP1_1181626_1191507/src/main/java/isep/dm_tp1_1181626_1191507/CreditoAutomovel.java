@@ -13,6 +13,43 @@ public class CreditoAutomovel extends CreditoBancario {
     private boolean aplicarDesconto = getMesesFinanciamento() <= periodoDesconto;
 
     /**
+     * Inicializa um objeto de CreditoAutomovel com os valores predefinidos de
+     * taxa de juro e desconto
+     */
+    public CreditoAutomovel() {
+        super();
+    }
+
+    /**
+     * Inicializa um objeto de CreditoAutomovel com os valores pretendidos de
+     * desconto
+     *
+     * @param nome o nome do cliente
+     * @param profissao a profissao do cliente
+     * @param montante o montante do cliente
+     * @param mesesFinanciamento os meses de financiamento do cliente
+     * @param desconto desconto mensal para créditos com prazo inferior ou igual
+     * a 24 meses
+     */
+    public CreditoAutomovel(String nome, String profissao, float montante, int mesesFinanciamento, float desconto) {
+        super(nome, profissao, montante, mesesFinanciamento);
+        this.desconto = desconto;
+    }
+
+    /**
+     * Inicializa um objeto de CreditoAutomovel com os valores pretendidos de
+     * taxa de juro e desconto
+     *
+     * @param taxaJuro: taxa de juro dos créditos automóveis
+     * @param desconto: desconto mensal para créditos com prazo inferior ou
+     * igual a 24 meses
+     */
+    public CreditoAutomovel(float taxaJuro, float desconto) {
+        CreditoAutomovel.taxaJuro = taxaJuro;
+        this.desconto = desconto;
+    }
+    
+    /**
      * @return the taxaJuro
      */
     public static float getTaxaJuro() {
@@ -55,43 +92,6 @@ public class CreditoAutomovel extends CreditoBancario {
     }
 
     /**
-     * Inicializa um objeto de CreditoAutomovel com os valores predefinidos de
-     * taxa de juro e desconto
-     */
-    public CreditoAutomovel() {
-        super();
-    }
-
-    /**
-     * Inicializa um objeto de CreditoAutomovel com os valores pretendidos de
-     * desconto
-     *
-     * @param nome o nome do cliente
-     * @param profissao a profissao do cliente
-     * @param montante o montante do cliente
-     * @param mesesFinanciamento os meses de financiamento do cliente
-     * @param desconto desconto mensal para créditos com prazo inferior ou igual
-     * a 24 meses
-     */
-    public CreditoAutomovel(String nome, String profissao, float montante, int mesesFinanciamento, float desconto) {
-        super(nome, profissao, montante, mesesFinanciamento);
-        this.desconto = desconto;
-    }
-
-    /**
-     * Inicializa um objeto de CreditoAutomovel com os valores pretendidos de
-     * taxa de juro e desconto
-     *
-     * @param taxaJuro: taxa de juro dos créditos automóveis
-     * @param desconto: desconto mensal para créditos com prazo inferior ou
-     * igual a 24 meses
-     */
-    public CreditoAutomovel(float taxaJuro, float desconto) {
-        CreditoAutomovel.taxaJuro = taxaJuro;
-        this.desconto = desconto;
-    }
-
-    /**
      * Calcula o montante total de juros a ser pagos à instituição bancária ao
      * longo do prazo do crédito
      *
@@ -101,10 +101,10 @@ public class CreditoAutomovel extends CreditoBancario {
     @Override
     public float calcularMontanteTotalJuros() {
         float juros = 0;
-        float capital = super.getMontante();
+        float capital = getMontante();
         float amortizacao = getCapitalAmortizadoMensal();
 
-        for (int i = 0; i < super.getMesesFinanciamento(); i++) {
+        for (int i = 0; i < getMesesFinanciamento(); i++) {
             juros += taxaJuro / 100 / MESES_POR_ANO * capital;
             capital -= amortizacao;
         }
