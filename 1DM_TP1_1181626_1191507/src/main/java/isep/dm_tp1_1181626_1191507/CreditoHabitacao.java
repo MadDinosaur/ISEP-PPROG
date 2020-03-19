@@ -73,11 +73,11 @@ public class CreditoHabitacao extends CreditoBancario {
     @Override
     public float calcularMontanteTotalJuros() {
         float juros = 0;
-        float capital = super.getMontante();
+        float capital = getMontante();
         float amortizacao = getCapitalAmortizadoMensal();
         float taxaJuro = (this.spread / MESES_POR_ANO + CreditoHabitacao.taxaEuribor / MESES_POR_ANO) / 100;
 
-        for (int i = 0; i < super.getMesesFinanciamento(); i++) {
+        for (int i = 0; i < getMesesFinanciamento(); i++) {
             juros += taxaJuro * capital;
             capital -= amortizacao;
         }

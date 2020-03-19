@@ -5,10 +5,6 @@
  */
 package isep.dm_tp1_1181626_1191507;
 
-/**
- *
- * @author Francisco
- */
 public class CreditoEducacao extends CreditoBancario {
 
     private static float taxaJuro = 2f;
@@ -104,10 +100,16 @@ public class CreditoEducacao extends CreditoBancario {
     @Override
     public float calcularMontanteTotalJuros() {
         float juros = 0;
-        float capital = super.getMontante();
-        float amortizacao = capital / (super.getMesesFinanciamento() - periodoCarencia);
+        float capital = getMontante();
+       
+        float amortizacao;
+        if (getMesesFinanciamento() - periodoCarencia <= 0)
+            amortizacao = 0;
+        else
+            amortizacao = capital / (getMesesFinanciamento() - periodoCarencia);
+        
         juros += taxaJuro/100 / MESES_POR_ANO * capital * periodoCarencia;
-        for (int i = 0; i < super.getMesesFinanciamento() - periodoCarencia; i++) {
+        for (int i = 0; i < getMesesFinanciamento() - periodoCarencia; i++) {
             juros += taxaJuro/100 / MESES_POR_ANO * capital;
             capital -= amortizacao;
         }

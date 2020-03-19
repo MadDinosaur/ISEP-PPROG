@@ -133,26 +133,17 @@ public abstract class CreditoBancario {
     }
 
     /**
-     * Devolve a descrição textual de um crédito bancário.
-     *
-     * @return caraterísticas de um crédito bancário
-     */
-    @Override
-    public String toString() {
-        return String.format("O cliente %s, com a profissão %s, tem um crédito de %.2fEUR a %d meses", nome, profissao, montante, mesesFinanciamento);
-    }
-
-    /**
      * Obtém o montante de capital a amortizar a cada mês tendo em conta o prazo
      * e o montante do crédito
      *
      * @return capital amortizado mensal
      */
     public float getCapitalAmortizadoMensal() {
-        if (mesesFinanciamento == 0)
+        if (mesesFinanciamento == 0) {
             return 0;
-         else
+        } else {
             return montante / mesesFinanciamento;
+        }
     }
 
     /**
@@ -171,4 +162,13 @@ public abstract class CreditoBancario {
      */
     public abstract float calcularMontanteTotalJuros();
 
+    /**
+     * Devolve a descrição textual de um crédito bancário.
+     *
+     * @return caraterísticas de um crédito bancário
+     */
+    @Override
+    public String toString() {
+        return String.format("O cliente %s, com a profissão %s, tem um crédito de %.2fEUR a %d meses", nome, profissao, montante, mesesFinanciamento);
+    }
 }
