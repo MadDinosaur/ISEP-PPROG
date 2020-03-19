@@ -64,17 +64,6 @@ public class CreditoHabitacao extends CreditoBancario {
     }
 
     /**
-     * Obtém o montante de capital a amortizar a cada mês tendo em conta o prazo
-     * e o montante do crédito
-     *
-     * @return capital amortizado mensal
-     */
-    @Override
-    public float getCapitalAmortizadoMensal() {
-        return super.getMontante() / super.getMesesFinanciamento();
-    }
-
-    /**
      * Calcula o montante total de juros a ser pagos à instituição bancária ao
      * longo do prazo do crédito
      *

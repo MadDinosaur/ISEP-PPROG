@@ -5,7 +5,6 @@ package isep.dm_tp1_1181626_1191507;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 public abstract class CreditoBancario {
 
     private String nome;
@@ -23,9 +22,8 @@ public abstract class CreditoBancario {
     private final float MONTANTE_POR_OMISSAO = 0;
 
     private final int MESESFINANCIAMENTO_POR_OMISSAO = 0;
-    
+
     public final int MESES_POR_ANO = 12;
-   
 
     /**
      * Constrói uma instância de CreditoBancario recebendo o nome, a profissão ,
@@ -90,7 +88,8 @@ public abstract class CreditoBancario {
     /**
      * Modifica os meses de financiamento de um dado cliente.
      *
-     * @param mesesFinanciamento o novo período de financiamento em meses do cliente
+     * @param mesesFinanciamento o novo período de financiamento em meses do
+     * cliente
      *
      */
     public void setMesesFinanciamento(int mesesFinanciamento) {
@@ -150,7 +149,10 @@ public abstract class CreditoBancario {
      * @return capital amortizado mensal
      */
     public float getCapitalAmortizadoMensal() {
-        return montante / mesesFinanciamento;
+        if (mesesFinanciamento == 0)
+            return 0;
+         else
+            return montante / mesesFinanciamento;
     }
 
     /**
@@ -158,10 +160,9 @@ public abstract class CreditoBancario {
      *
      * @return montantePorCredito do crédito bancário
      */
-    public float calcularMontanteAReceberPorCadaCredito(){
+    public float calcularMontanteAReceberPorCadaCredito() {
         return getMontante() + calcularMontanteTotalJuros();
-    } 
-    
+    }
 
     /**
      * Devolve o montante total de juros.
