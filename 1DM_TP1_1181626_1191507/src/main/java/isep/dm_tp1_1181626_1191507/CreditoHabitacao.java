@@ -10,6 +10,8 @@ public class CreditoHabitacao extends CreditoBancario {
     private static float taxaEuribor = 0.1f;
 
     private final float SPREAD_POR_OMISSAO = 0f;
+    
+    private static int contadorInstancias = 0;
 
     /**
      * Inicializa um objeto de CreditoHabitacao com spread = 0
@@ -17,6 +19,7 @@ public class CreditoHabitacao extends CreditoBancario {
     public CreditoHabitacao() {
         super();
         this.spread = SPREAD_POR_OMISSAO;
+        contadorInstancias++;
     }
 
     /**
@@ -32,6 +35,11 @@ public class CreditoHabitacao extends CreditoBancario {
     public CreditoHabitacao(String nome, String profissao, float montante, int mesesFinanciamento, float spread) {
         super(nome, profissao, montante, mesesFinanciamento);
         this.spread = spread;
+        contadorInstancias++;
+    }
+    
+    public int getInstancias(){
+        return contadorInstancias;
     }
 
     /**

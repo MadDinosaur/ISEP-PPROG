@@ -12,6 +12,8 @@ public class CreditoEducacao extends CreditoBancario {
     private int periodoCarencia;
 
     private final int PERIODOCARENCIA_POR_OMISSAO = 0;
+    
+    private static int contadorInstancias = 0;
 
     /**
      * Constrói uma instância de CreditoEducacao recebendo o nome, a profissão ,
@@ -31,6 +33,7 @@ public class CreditoEducacao extends CreditoBancario {
         super(nome, profissao, montante, mesesFinanciamento);
         CreditoEducacao.taxaJuro = taxaJuro;
         this.periodoCarencia = periodoCarencia;
+        contadorInstancias++;
     }
 
     /**
@@ -48,6 +51,7 @@ public class CreditoEducacao extends CreditoBancario {
     public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, int periodoCarencia) {
         super(nome, profissao, montante, mesesFinanciamento);
         this.periodoCarencia = periodoCarencia;
+        contadorInstancias++;
     }
 
     /**
@@ -57,6 +61,11 @@ public class CreditoEducacao extends CreditoBancario {
     public CreditoEducacao() {
         super();
         this.periodoCarencia = PERIODOCARENCIA_POR_OMISSAO;
+        contadorInstancias++;
+    }
+    
+    public int getInstancias(){
+        return contadorInstancias;
     }
 
     /**

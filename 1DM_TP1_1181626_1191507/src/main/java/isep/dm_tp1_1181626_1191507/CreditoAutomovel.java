@@ -11,6 +11,7 @@ public class CreditoAutomovel extends CreditoBancario {
     private float desconto = 1f;
     private static int periodoDesconto = 24;
     private boolean aplicarDesconto = getMesesFinanciamento() <= periodoDesconto;
+    private static int contadorInstancias = 0;
 
     /**
      * Inicializa um objeto de CreditoAutomovel com os valores predefinidos de
@@ -18,6 +19,7 @@ public class CreditoAutomovel extends CreditoBancario {
      */
     public CreditoAutomovel() {
         super();
+        contadorInstancias++;
     }
 
     /**
@@ -34,6 +36,7 @@ public class CreditoAutomovel extends CreditoBancario {
     public CreditoAutomovel(String nome, String profissao, float montante, int mesesFinanciamento, float desconto) {
         super(nome, profissao, montante, mesesFinanciamento);
         this.desconto = desconto;
+        contadorInstancias++;
     }
 
     /**
@@ -47,6 +50,11 @@ public class CreditoAutomovel extends CreditoBancario {
     public CreditoAutomovel(float taxaJuro, float desconto) {
         CreditoAutomovel.taxaJuro = taxaJuro;
         this.desconto = desconto;
+        contadorInstancias++;
+    }
+    
+    public int getInstancias(){
+        return contadorInstancias;
     }
     
     /**
