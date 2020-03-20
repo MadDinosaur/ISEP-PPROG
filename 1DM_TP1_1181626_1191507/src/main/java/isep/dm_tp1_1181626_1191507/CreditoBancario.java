@@ -1,9 +1,8 @@
 package isep.dm_tp1_1181626_1191507;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Classe que simula um crédito bancário e passa 
+ * a informação para as subclasses.
  */
 public abstract class CreditoBancario {
 
@@ -32,8 +31,8 @@ public abstract class CreditoBancario {
      *
      * @param nome o nome do cliente
      * @param profissao a profissao do cliente
-     * @param montante o montante do cliente
-     * @param mesesFinanciamento os meses de financiamento do cliente
+     * @param montante o montante do crédito
+     * @param mesesFinanciamento os meses de financiamento do crédito
      *
      */
     public CreditoBancario(String nome, String profissao, float montante, int mesesFinanciamento) {
@@ -76,9 +75,9 @@ public abstract class CreditoBancario {
     }
 
     /**
-     * Modifica o montante de um dado cliente.
+     * Modifica o montante do crédito um dado cliente.
      *
-     * @param montante o novo montante do cliente
+     * @param montante o novo montante do crédito
      *
      */
     public void setMontante(float montante) {
@@ -86,10 +85,10 @@ public abstract class CreditoBancario {
     }
 
     /**
-     * Modifica os meses de financiamento de um dado cliente.
+     * Modifica os meses de financiamento do crédito um dado cliente.
      *
      * @param mesesFinanciamento o novo período de financiamento em meses do
-     * cliente
+     * crédito
      *
      */
     public void setMesesFinanciamento(int mesesFinanciamento) {
@@ -115,18 +114,18 @@ public abstract class CreditoBancario {
     }
 
     /**
-     * Devolve o montante de um cliente.
+     * Devolve o montante do crédito de um cliente.
      *
-     * @return montante de um cliente
+     * @return montante do crédito
      */
     public float getMontante() {
         return montante;
     }
 
     /**
-     * Devolve os meses de financiamento de um cliente.
+     * Devolve os meses de financiamento do crédito de um cliente.
      *
-     * @return mesesFinanciamento de um cliente
+     * @return mesesFinanciamento do crédito
      */
     public int getMesesFinanciamento() {
         return mesesFinanciamento;
@@ -147,7 +146,7 @@ public abstract class CreditoBancario {
     }
 
     /**
-     * Devolve o montante a receber por cada credito.
+     * Devolve o montante a receber pela instituição bancária por um dado crédito.
      *
      * @return montantePorCredito do crédito bancário
      */
@@ -156,7 +155,7 @@ public abstract class CreditoBancario {
     }
 
     /**
-     * Devolve o montante total de juros.
+     * Devolve o montante total de juros a receber por um dado crédito.
      *
      * @return montanteJuros do crédito bancário
      */

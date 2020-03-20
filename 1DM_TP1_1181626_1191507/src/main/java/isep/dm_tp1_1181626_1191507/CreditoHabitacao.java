@@ -14,7 +14,8 @@ public class CreditoHabitacao extends CreditoBancario {
     private static int contadorInstancias = 0;
 
     /**
-     * Inicializa um objeto de CreditoHabitacao com spread = 0
+     * Constrói uma instância de CreditoHabitacao recebendo o spread
+     * por omissão
      */
     public CreditoHabitacao() {
         super();
@@ -23,13 +24,13 @@ public class CreditoHabitacao extends CreditoBancario {
     }
 
     /**
-     * Inicializa um objeto de CreditoHabitacao com o spread indicado como
-     * parâmetro
+     * Constrói uma instância de CreditoHabitacao recebendo o nome, a profissão ,
+     * o montante, os meses de financiamento e o spread.
      *
      * @param nome o nome do cliente
      * @param profissao a profissao do cliente
-     * @param montante o montante do cliente
-     * @param mesesFinanciamento os meses de financiamento do cliente
+     * @param montante o montante do crédito
+     * @param mesesFinanciamento os meses de financiamento do crédito
      * @param spread: taxa de spread, em percentagem
      */
     public CreditoHabitacao(String nome, String profissao, float montante, int mesesFinanciamento, float spread) {
@@ -38,33 +39,42 @@ public class CreditoHabitacao extends CreditoBancario {
         contadorInstancias++;
     }
     
+    /**
+     * Devolve o número de instâncias CreditoHabitacao criadas.
+     *
+     * @return número de instâncias
+     */
     public int getInstancias(){
         return contadorInstancias;
     }
 
     /**
-     * @return the spread
+     * Devolve a taxa de spread.
+     * @return o spread
      */
     public float getSpread() {
         return spread;
     }
 
     /**
-     * @param spread the spread to set
+     * Modifica a taxa de spread.
+     * @param spread a taxa de spread, em percentagem.
      */
     public void setSpread(float spread) {
         this.spread = spread;
     }
 
     /**
-     * @return the taxaEuribor
+     * Devolve a taxa Euribor.
+     * @return a taxaEuribor
      */
     public static float getTaxaEuribor() {
         return taxaEuribor;
     }
 
     /**
-     * @param aTaxaEuribor the taxaEuribor to set
+     * Modifica a taxa Euribor.
+     * @param aTaxaEuribor a taxa Euribor, em percentagem.
      */
     public static void setTaxaEuribor(float aTaxaEuribor) {
         taxaEuribor = aTaxaEuribor;

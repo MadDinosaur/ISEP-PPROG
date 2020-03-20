@@ -31,18 +31,18 @@ public class MainCredito {
         
         
         for(int i = 0; i < list.size(); i++){
-            System.out.printf("Cliente %s irá pagar à instituição bancária %f", list.get(i).getNome(), list.get(i).calcularMontanteAReceberPorCadaCredito());
+            System.out.printf("Cliente %s irá pagar à instituição bancária %.2f%%.%n", list.get(i).getNome(), list.get(i).calcularMontanteAReceberPorCadaCredito());
         }
         
-        System.out.printf("Instâncias crédito de habitação = %d",habitacao1.getInstancias());
-        System.out.printf("Instâncias crédito automóvel = %d", automovel1.getInstancias());
-        System.out.printf("Instâncias crédito educação = %d", educacao1.getInstancias());
+        System.out.printf("Instâncias crédito de habitação = %d%n",habitacao1.getInstancias());
+        System.out.printf("Instâncias crédito automóvel = %d%n", automovel1.getInstancias());
+        System.out.printf("Instâncias crédito educação = %d%n", educacao1.getInstancias());
         
         float totalValorReceber = 0;
         for(int i = 0; i < list.size(); i++){
            totalValorReceber = totalValorReceber + list.get(i).calcularMontanteAReceberPorCadaCredito();
         }
-        System.out.printf("Juros a receber pela instituíção bancária = %f", totalValorReceber);
+        System.out.printf("Juros a receber pela instituíção bancária = %.2fEUR%n", totalValorReceber);
         
 
     }

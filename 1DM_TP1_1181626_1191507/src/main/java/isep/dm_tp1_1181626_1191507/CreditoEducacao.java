@@ -1,10 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package isep.dm_tp1_1181626_1191507;
 
+/**
+ * Classe que simula um crédito à educação e calcula os montantes a receber
+ * pela instituição bancária (em juros e capital)
+ */
 public class CreditoEducacao extends CreditoBancario {
 
     private static float taxaJuro = 2f;
@@ -23,10 +23,10 @@ public class CreditoEducacao extends CreditoBancario {
      *
      * @param nome o nome do cliente
      * @param profissao a profissao do cliente
-     * @param montante o montante do cliente
-     * @param mesesFinanciamento os meses de financiamento do cliente
-     * @param taxaJuro a taxa de juro do cliente
-     * @param periodoCarencia o periodo de carencia do cliente
+     * @param montante o montante do crédito
+     * @param mesesFinanciamento os meses de financiamento do crédito
+     * @param taxaJuro a taxa de juro do crédito
+     * @param periodoCarencia o periodo de carencia do crédito
      *
      */
     public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, float taxaJuro, int periodoCarencia) {
@@ -43,9 +43,9 @@ public class CreditoEducacao extends CreditoBancario {
      *
      * @param nome o nome do cliente
      * @param profissao a profissao do cliente
-     * @param montante o montante do cliente
-     * @param mesesFinanciamento os meses de financiamento do cliente
-     * @param periodoCarencia o periodo de carencia do cliente
+     * @param montante o montante do crédito
+     * @param mesesFinanciamento os meses de financiamento do crédito
+     * @param periodoCarencia o periodo de carencia do crédito
      *
      */
     public CreditoEducacao(String nome, String profissao, float montante, int mesesFinanciamento, int periodoCarencia) {
@@ -55,8 +55,8 @@ public class CreditoEducacao extends CreditoBancario {
     }
 
     /**
-     * Constrói uma instância de CreditoEducacao recebendo por omissão o periodo
-     * de carência.
+     * Constrói uma instância de CreditoEducacao recebendo o periodo
+     * de carência por omissão.
      */
     public CreditoEducacao() {
         super();
@@ -64,12 +64,18 @@ public class CreditoEducacao extends CreditoBancario {
         contadorInstancias++;
     }
     
+    /**
+     * Devolve o número de instâncias CreditoEducacao criadas.
+     *
+     * @return número de instâncias
+     */
     public int getInstancias(){
         return contadorInstancias;
     }
 
     /**
-     * @return the taxaJuro
+     * Devolve a taxa de juro.
+     * @return a taxaJuro
      */
     public static float getTaxaJuro() {
         return taxaJuro;
@@ -85,7 +91,8 @@ public class CreditoEducacao extends CreditoBancario {
     }
 
     /**
-     * @param aTaxaJuro the taxaJuro to set
+     * Modifica a taxa de juro.
+     * @param aTaxaJuro a taxa de juro em percentagem
      */
     public static void setTaxaJuro(float aTaxaJuro) {
         taxaJuro = aTaxaJuro;
@@ -102,9 +109,11 @@ public class CreditoEducacao extends CreditoBancario {
     }
 
     /**
-     * Devolve o montante total de juros.
+     * Calcula o montante total de juros a ser pagos à instituição bancária ao
+     * longo do prazo do crédito
      *
-     * @return montanteTotalJuros do crédito educação
+     * @return montante acumulado de juros recebidos no final do prazo do
+     * crédito
      */
     @Override
     public float calcularMontanteTotalJuros() {
@@ -124,7 +133,12 @@ public class CreditoEducacao extends CreditoBancario {
         }
         return juros;
     }
-
+    
+    /**
+     * Devolve a descrição textual de um crédito à educação
+     *
+     * @return as características do crédito à educação
+     */
     @Override
     public String toString() {
         return String.format(super.toString() + " de tipo Educação com taxa de juro %.2f%% e período de carência de %d meses.", taxaJuro, periodoCarencia);
