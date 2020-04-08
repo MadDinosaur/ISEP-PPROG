@@ -1,29 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.dm_tp2_1181626_1191507;
 
 /**
-    * Classe que representa um telemóvel disponível para
-    * comprar no site de vendas olxyz
-    */
+ * Classe que representa um telemóvel disponível para comprar na plataforma
+ * online Olxyz
+ */
 public class Telemovel {
-    
+
     private String designacao;
-    
+
     private float valorVenda;
-    
+
     /**
-     * Constrói uma instância de Telemovel recebendo a designacao
-     * e o valor de venda.
-     *
+     * Constrói uma instância de Telemovel recebendo a designacao e o valor de
+     * venda.
      *
      * @param designacao a designacao do telemóvel
      * @param valorVenda o valor de venda do telemóvel
      */
-    public Telemovel(String designacao, float valorVenda){
+    public Telemovel(String designacao, float valorVenda) {
         this.designacao = designacao;
         this.valorVenda = valorVenda;
     }
@@ -63,5 +57,5 @@ public class Telemovel {
     public void setValorVenda(float valorVenda) {
         this.valorVenda = valorVenda;
     }
-    
+
 }

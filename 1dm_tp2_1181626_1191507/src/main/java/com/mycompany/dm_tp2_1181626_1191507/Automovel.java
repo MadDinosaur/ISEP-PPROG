@@ -1,28 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.dm_tp2_1181626_1191507;
 
-    /**
-    * Classe que representa um automóvel disponível para
-    * comprar ou alugar, no site de vendas olxyz
-    */
+/**
+ * Classe que representa um automóvel disponível para comprar ou alugar, nna plataforma
+ * online Olxyz
+ */
 public class Automovel {
-    
+
     private String marca;
-    
+
     private String modelo;
-    
+
     private float valorVenda;
-    
+
     private float valorAluguer;
-    
-    
+
     /**
-     * Constrói uma instância de Automovel recebendo a marca, o modelo
-     * , o valor de venda e o valor de aluguer.
+     * Constrói uma instância de Automovel recebendo a marca, o modelo , o valor
+     * de venda e o valor de aluguer.
      *
      *
      * @param marca a marca do automóvel
@@ -30,15 +25,15 @@ public class Automovel {
      * @param valorVenda o valor de venda do automóvel
      * @param valorAluguer o valor de aluguer do automóvel
      */
-    public Automovel(String marca, String modelo, float valorVenda, float valorAluguer){
+    public Automovel(String marca, String modelo, float valorVenda, float valorAluguer) {
         this.marca = marca;
         this.modelo = modelo;
         this.valorVenda = valorVenda;
         this.valorAluguer = valorAluguer;
-        
+
     }
 
-   /**
+    /**
      * Devolve a marca do automóvel.
      *
      * @return marca do automóvel
@@ -47,7 +42,7 @@ public class Automovel {
         return marca;
     }
 
-     /**
+    /**
      * Devolve o modelo do automóvel.
      *
      * @return modelo do automóvel
@@ -56,7 +51,7 @@ public class Automovel {
         return modelo;
     }
 
-     /**
+    /**
      * Devolve o valor de venda do automóvel.
      *
      * @return valor de venda do automóvel
@@ -65,7 +60,7 @@ public class Automovel {
         return valorVenda;
     }
 
-     /**
+    /**
      * Devolve o valor de aluguer do automóvel.
      *
      * @return valor do aluguer do automóvel
@@ -95,7 +90,7 @@ public class Automovel {
     /**
      * Modifica o valor de venda.
      *
-     * @param valorVenda  valor de venda do automóvel
+     * @param valorVenda valor de venda do automóvel
      */
     public void setValorVenda(float valorVenda) {
         this.valorVenda = valorVenda;
@@ -109,5 +104,5 @@ public class Automovel {
     public void setValorAluguer(float valorAluguer) {
         this.valorAluguer = valorAluguer;
     }
-    
+
 }
