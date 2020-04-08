@@ -42,42 +42,54 @@ public class Apartamento {
     }
 
     /**
-     * @return the endereco
+     * Devolve o endereço do apartamento.
+     *
+     * @return o endereço
      */
     public Endereco getEndereco() {
         return endereco;
     }
 
     /**
-     * @param endereco the endereco to set
+     * Modifica o endereço do apartamento
+     *
+     * @param endereco o novo endereço
      */
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
     /**
-     * @return the area
+     * Devolve a área do apartamento, em m2
+     *
+     * @return a área
      */
     public float getArea() {
         return area;
     }
 
     /**
-     * @param area the area to set
+     * Modifica a área do apartamento, em m2
+     *
+     * @param area a nova área
      */
     public void setArea(float area) {
         this.area = area;
     }
 
     /**
-     * @return the valorAluguer
+     * Devolve o valor de aluguer do apartamento.
+     *
+     * @return o valor de aluguer
      */
     public float getValorAluguer() {
         return valorAluguer;
     }
 
     /**
-     * @param valorAluguer the valorAluguer to set
+     * Modifica o valor de aluguer do apartamento.
+     *
+     * @param valorAluguer valor de aluguer
      */
     public void setValorAluguer(float valorAluguer) {
         this.valorAluguer = valorAluguer;
