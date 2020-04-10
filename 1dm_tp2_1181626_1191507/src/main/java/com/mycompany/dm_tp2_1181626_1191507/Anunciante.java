@@ -7,10 +7,8 @@ package com.mycompany.dm_tp2_1181626_1191507;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Francisco
- */
+//TODO: Perguntar sobre método remove para os Arrays
+
 public class Anunciante {
 
     private String nome;
@@ -22,7 +20,7 @@ public class Anunciante {
     private ArrayList<Object> listVendavel = new ArrayList();
 
     private final int MAX_ALUGAVEIS = 3;
-    
+
     private final int MAX_VENDAVEIS = 2;
 
     public Anunciante(String nome, Endereco endereco, ArrayList<Object> listAlugavel, ArrayList<Object> listVendavel) {
@@ -74,37 +72,35 @@ public class Anunciante {
         this.endereco = endereco;
     }
 
-    public boolean adicionarAlugavel(Apartamento apartamento) {
+    public boolean adicionarAlugavel(Apartamento apart) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
-            return listAlugavel.add(apartamento);
+            return listAlugavel.add(apart);
         } else {
             return false;
         }
     }
 
-    public boolean adicionarAlugavel(Automovel automovel) {
+    public boolean adicionarAlugavel(Automovel aut) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
-            return listAlugavel.add(automovel);
+            return listAlugavel.add(aut);
         } else {
             return false;
         }
     }
-    
-    public boolean addListVendavel(Automovel aut){
-        if(listVendavel.size() == MAX_VENDAVEIS){
+
+    public boolean addListVendavel(Automovel aut) {
+        if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
-        }else{
-            listVendavel.add(aut);
-            return true;
-        }  
+        } else {
+            return listVendavel.add(aut);
+        }
     }
-    
-    public boolean addListVendavel(Telemovel tel){
-        if(listVendavel.size() == MAX_VENDAVEIS){
+
+    public boolean addListVendavel(Telemovel tel) {
+        if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
-        }else{
-            listVendavel.add(tel);
-            return true;
-        }  
+        } else {
+            return listVendavel.add(tel);
+        }
     }
 }
