@@ -20,7 +20,7 @@ public class Apartamento {
      * @param valorAluguer o valor de aluguer do apartamento
      */
     public Apartamento(Endereco endereco, float area, float valorAluguer) {
-        this.endereco = endereco;
+        this.endereco = new Endereco(endereco);
         this.area = area;
         this.valorAluguer = valorAluguer;
     }
@@ -47,7 +47,7 @@ public class Apartamento {
      * @return o endereço
      */
     public Endereco getEndereco() {
-        return endereco;
+        return new Endereco(endereco);
     }
 
     /**
@@ -56,7 +56,9 @@ public class Apartamento {
      * @param endereco o novo endereço
      */
     public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+        this.endereco.setRua(endereco.getRua());
+        this.endereco.setCodigoPostal(endereco.getCodigoPostal());
+        this.endereco.setLocalidade(endereco.getLocalidade());
     }
 
     /**

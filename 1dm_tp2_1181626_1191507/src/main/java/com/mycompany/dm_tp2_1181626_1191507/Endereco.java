@@ -38,6 +38,18 @@ public class Endereco {
         this.codigoPostal = codigoPostal;
         this.localidade = localidade;
     }
+    
+    /**
+     * Construtor da classe Endereço, que constrói uma instância recebendo os
+     * seguintes parâmetros:
+     * 
+     * @param endereco uma instância da classe Endereço 
+     */
+    public Endereco(Endereco endereco) {
+        this.rua = endereco.rua;
+        this.codigoPostal = endereco.codigoPostal;
+        this.localidade = endereco.localidade;
+    }
 
     /**
      * Devolve a rua do endereço.
