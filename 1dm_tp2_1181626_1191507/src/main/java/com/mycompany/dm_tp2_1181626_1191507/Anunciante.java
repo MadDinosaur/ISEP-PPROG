@@ -22,6 +22,8 @@ public class Anunciante {
     private ArrayList<Object> listVendavel = new ArrayList();
 
     private final int MAX_ALUGAVEIS = 3;
+    
+    private final int MAX_VENDAVEIS = 2;
 
     public Anunciante(String nome, Endereco endereco, ArrayList<Object> listAlugavel, ArrayList<Object> listVendavel) {
         this.nome = nome;
@@ -86,5 +88,23 @@ public class Anunciante {
         } else {
             return false;
         }
+    }
+    
+    public boolean addListVendavel(Automovel aut){
+        if(listVendavel.size() == MAX_VENDAVEIS){
+            return false;
+        }else{
+            listVendavel.add(aut);
+            return true;
+        }  
+    }
+    
+    public boolean addListVendavel(Telemovel tel){
+        if(listVendavel.size() == MAX_VENDAVEIS){
+            return false;
+        }else{
+            listVendavel.add(tel);
+            return true;
+        }  
     }
 }
