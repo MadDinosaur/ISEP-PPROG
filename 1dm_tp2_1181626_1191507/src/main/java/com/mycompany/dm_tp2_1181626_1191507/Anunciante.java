@@ -32,7 +32,7 @@ public class Anunciante {
     
     static public final float TAXA_VENDAVEL = (float) 0.03;
     
-    private final String NOME_POR_OMISSAO = "";
+    private final String NOME_POR_OMISSAO = "Sem nome";
     
     private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
     

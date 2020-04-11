@@ -50,7 +50,7 @@ public class Olxyz {
         //---------------Visualização dos alugáveis que podem gerar mais lucro----------
         for (Anunciante a: anunciantes) {
             if (a!= null && a.getNObjetosAlugaveis()!= 0) {
-                System.out.printf("Anunciante: %s, Alugável: %s, Lucro: %.2f€%n.",a.getNome(),a.getAlugavelMaisCaro(),a.calcularValorAluguer(a.getAlugavelMaisCaro())/(1+Anunciante.TAXA_ALUGAVEL));
+                System.out.printf("Anunciante: %s. Alugável: %s Lucro: %.2f€.%n",a.getNome(),a.getAlugavelMaisCaro(),a.calcularValorAluguer(a.getAlugavelMaisCaro())/(1+Anunciante.TAXA_ALUGAVEL));
             }
         }
     }
