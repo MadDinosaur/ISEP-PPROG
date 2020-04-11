@@ -22,12 +22,14 @@ public class Anunciante {
     private final int MAX_ALUGAVEIS = 3;
 
     private final int MAX_VENDAVEIS = 2;
+    
+    private final float TAXA_ALUGAVEL = (float) 0.05;
+    
+    private final float TAXA_VENDAVEL = (float) 0.03;
 
-    public Anunciante(String nome, Endereco endereco, ArrayList<Object> listAlugavel, ArrayList<Object> listVendavel) {
+    public Anunciante(String nome, Endereco endereco) {
         this.nome = nome;
         this.endereco = new Endereco(endereco);
-        this.listAlugavel = listAlugavel;
-        this.listVendavel = listVendavel;
     }
 
     /**
@@ -72,7 +74,7 @@ public class Anunciante {
         this.endereco = endereco;
     }
 
-    public boolean adicionarAlugavel(Apartamento apart) {
+    public boolean addListAlugavel(Apartamento apart) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
             return listAlugavel.add(apart);
         } else {
@@ -80,7 +82,7 @@ public class Anunciante {
         }
     }
 
-    public boolean adicionarAlugavel(Automovel aut) {
+    public boolean addListAlugavel(Automovel aut) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
             return listAlugavel.add(aut);
         } else {
@@ -103,4 +105,10 @@ public class Anunciante {
             return listVendavel.add(tel);
         }
     }
+    
+    /**public float calcularValorVenda(Object o){
+        if (listAlugavel.contains(o)){
+            
+        }
+    }*/
 }
