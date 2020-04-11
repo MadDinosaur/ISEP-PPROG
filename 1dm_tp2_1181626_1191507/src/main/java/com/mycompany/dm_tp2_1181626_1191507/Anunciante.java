@@ -28,9 +28,9 @@ public class Anunciante {
 
     private final int MAX_VENDAVEIS = 2;
     
-    private final float TAXA_ALUGAVEL = (float) 0.05;
+    public final float TAXA_ALUGAVEL = (float) 0.05;
     
-    private final float TAXA_VENDAVEL = (float) 0.03;
+    public final float TAXA_VENDAVEL = (float) 0.03;
     
     private final String NOME_POR_OMISSAO = "";
     
@@ -243,14 +243,14 @@ public class Anunciante {
      *
      * @return produto a alugar mais caro
      */
-    public void getAlugavelMaisCaro(){
+    public Object getAlugavelMaisCaro(){
         int indexMaisCaro = 0;
         for(int i = 0; i < listAlugavel.size(); i++){
             if(calcularValorAluguer(listAlugavel.get(i)) > calcularValorAluguer(listAlugavel.get(indexMaisCaro))){
                 indexMaisCaro = i;
             }
         }
-        System.out.println(listAlugavel.get(indexMaisCaro).toString());
+        return listAlugavel.get(indexMaisCaro);
     }
     
     /**
