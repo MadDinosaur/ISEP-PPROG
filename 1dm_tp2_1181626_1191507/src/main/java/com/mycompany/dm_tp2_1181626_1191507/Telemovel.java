@@ -57,5 +57,14 @@ public class Telemovel {
     public void setValorVenda(float valorVenda) {
         this.valorVenda = valorVenda;
     }
+    
+    /**
+     * Descrição textual de um telemóvel.
+     * @return uma String com a designação do telemóvel
+     */    
+    @Override
+    public String toString() {
+        return String.format("Telemóvel com a designação %s.", designacao);
+    }
 
 }

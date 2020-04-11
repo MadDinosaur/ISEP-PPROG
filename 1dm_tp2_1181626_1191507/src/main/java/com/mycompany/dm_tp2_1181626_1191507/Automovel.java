@@ -104,5 +104,14 @@ public class Automovel {
     public void setValorAluguer(float valorAluguer) {
         this.valorAluguer = valorAluguer;
     }
+    
+    /**
+     * Descrição textual de um automóvel.
+     * @return uma String com a marca e modelo do automóvel
+     */
+    @Override
+    public String toString(){
+        return String.format("Automóvel de marca %s e modelo %s.", marca, modelo);
+    }
 
 }

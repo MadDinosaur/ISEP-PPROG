@@ -96,5 +96,13 @@ public class Apartamento {
     public void setValorAluguer(float valorAluguer) {
         this.valorAluguer = valorAluguer;
     }
-
+    
+    /**
+     * Descrição textual de um apartamento.
+     * @return uma String com o endereço e a área de um apartamento
+     */
+    @Override
+    public String toString(){
+        return String.format("Apartamento em %s com área %.2fm2.", endereco, area);
+    }
 }

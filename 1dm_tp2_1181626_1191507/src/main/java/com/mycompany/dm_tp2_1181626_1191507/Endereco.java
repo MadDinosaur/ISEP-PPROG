@@ -4,7 +4,6 @@ package com.mycompany.dm_tp2_1181626_1191507;
  * Classe Endereço que representa um endereço físico, contendo uma dada rua,
  * código postal e localidade.
  */
-
 public class Endereco {
 
     private String rua;
@@ -38,12 +37,12 @@ public class Endereco {
         this.codigoPostal = codigoPostal;
         this.localidade = localidade;
     }
-    
+
     /**
      * Construtor da classe Endereço, que constrói uma instância recebendo os
      * seguintes parâmetros:
-     * 
-     * @param endereco uma instância da classe Endereço 
+     *
+     * @param endereco uma instância da classe Endereço
      */
     public Endereco(Endereco endereco) {
         this.rua = endereco.rua;
@@ -105,4 +104,12 @@ public class Endereco {
         this.localidade = localidade;
     }
 
+    /**
+     * Descrição textual de um endereço.
+     * @return uma String com a rua, código postal e localidade
+     */
+    @Override
+    public String toString() {
+        return rua + ", " + codigoPostal + ", " + localidade;
+    }
 }
