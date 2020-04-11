@@ -31,10 +31,6 @@ public class Anunciante {
     
     private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
     
-    private int nObjetosAlugaveis = 0;
-    
-    private int nObjetosVendaveis = 0;
-    
 
     public Anunciante(String nome, Endereco endereco) {
         this.nome = nome;
@@ -90,7 +86,6 @@ public class Anunciante {
 
     public boolean addListAlugavel(Apartamento apart) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
-            nObjetosAlugaveis++;
             return listAlugavel.add(apart);
         } else {
             return false;
@@ -99,7 +94,6 @@ public class Anunciante {
 
     public boolean addListAlugavel(Automovel aut) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
-            nObjetosAlugaveis++;
             return listAlugavel.add(aut);
         } else {
             return false;
@@ -110,7 +104,6 @@ public class Anunciante {
         if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
         } else {
-            nObjetosVendaveis++;
             return listVendavel.add(aut);
         }
     }
@@ -119,17 +112,16 @@ public class Anunciante {
         if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
         } else {
-            nObjetosVendaveis++;
             return listVendavel.add(tel);
         }
     }
     
     public int getNObjetosAlugaveis(){
-        return nObjetosAlugaveis;
+        return listAlugavel.size();
     }
     
     public int getNObjetosVendaveis(){
-        return nObjetosVendaveis;
+        return listVendavel.size();
     }
     
    public float calcularValorAluguer(Object o) {
@@ -159,5 +151,23 @@ public class Anunciante {
             return valor * (1 + TAXA_VENDAVEL);
         }
         return 0;
+    }
+    
+    public void getAlugavelMaisCaro(){
+        int indexMaisCaro = 0;
+        for(int i = 0; i < listAlugavel.size(); i++){
+            if(calcularValorAluguer(listAlugavel.get(i)) > calcularValorAluguer(listAlugavel.get(indexMaisCaro))){
+                indexMaisCaro = i;
+            }
+        }
+        System.out.println(listAlugavel.get(indexMaisCaro).toString());
+    }
+    
+    public float getTotalValorVendas(){
+        float totalVendas = 0;
+        for(int i = 0; i < listVendavel.size(); i++){
+            totalVendas = totalVendas + calcularValorVenda(listVendavel.get(i));
+        }
+        return totalVendas;
     }
 }
