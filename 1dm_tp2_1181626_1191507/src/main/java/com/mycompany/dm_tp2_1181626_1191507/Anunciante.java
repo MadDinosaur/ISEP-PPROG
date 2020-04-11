@@ -26,10 +26,24 @@ public class Anunciante {
     private final float TAXA_ALUGAVEL = (float) 0.05;
     
     private final float TAXA_VENDAVEL = (float) 0.03;
+    
+    private final String NOME_POR_OMISSAO = "";
+    
+    private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
+    
+    private int nObjetosAlugaveis = 0;
+    
+    private int nObjetosVendaveis = 0;
+    
 
     public Anunciante(String nome, Endereco endereco) {
         this.nome = nome;
         this.endereco = new Endereco(endereco);
+    }
+    
+    public Anunciante() {
+        this.nome = NOME_POR_OMISSAO;
+        this.endereco = ENDERECO_POR_OMISSAO;
     }
 
     /**
@@ -76,6 +90,7 @@ public class Anunciante {
 
     public boolean addListAlugavel(Apartamento apart) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
+            nObjetosAlugaveis++;
             return listAlugavel.add(apart);
         } else {
             return false;
@@ -84,6 +99,7 @@ public class Anunciante {
 
     public boolean addListAlugavel(Automovel aut) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
+            nObjetosAlugaveis++;
             return listAlugavel.add(aut);
         } else {
             return false;
@@ -94,6 +110,7 @@ public class Anunciante {
         if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
         } else {
+            nObjetosVendaveis++;
             return listVendavel.add(aut);
         }
     }
@@ -102,8 +119,17 @@ public class Anunciante {
         if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
         } else {
+            nObjetosVendaveis++;
             return listVendavel.add(tel);
         }
+    }
+    
+    public int getNObjetosAlugaveis(){
+        return nObjetosAlugaveis;
+    }
+    
+    public int getNObjetosVendaveis(){
+        return nObjetosVendaveis;
     }
     
     /**public float calcularValorVenda(Object o){
