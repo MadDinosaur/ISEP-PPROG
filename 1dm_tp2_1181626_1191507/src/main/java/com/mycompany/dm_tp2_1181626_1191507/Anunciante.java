@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 //TODO: Perguntar sobre método remove para os Arrays
 
+/**
+ * Classe que representa um anunciante que poderá uitilizar 
+ * a plataforma online Olxyz para anunciar produtos vendáveis
+ * ou alugáveis
+ */
 public class Anunciante {
 
     private String nome;
@@ -32,58 +37,92 @@ public class Anunciante {
     private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
     
 
+    /**
+     * Constrói uma instância de Anunciante recebendo o nome e o endereco
+     *
+     *
+     * @param nome o nome do anunciante
+     * @param endereco o endereco do anunciante
+     */
     public Anunciante(String nome, Endereco endereco) {
         this.nome = nome;
         this.endereco = new Endereco(endereco);
     }
     
+    public Anunciante(String nome, String rua, String codigoPostal, String localidade) {
+        this.nome = nome;
+        this.endereco = new Endereco(rua, codigoPostal, localidade);
+    }
+    
+    /**
+     * Constrói uma instância de Anunciante não recebendo parâmetros
+     *
+     */
     public Anunciante() {
         this.nome = NOME_POR_OMISSAO;
         this.endereco = ENDERECO_POR_OMISSAO;
     }
 
     /**
-     * @return the nome
+     * Devolve o nome do anunciante.
+     *
+     * @return nome do anunciante
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * @return the endereco
+     * Devolve a endereco do anunciante.
+     *
+     * @return endereco do anunciante
      */
     public Endereco getEndereco() {
         return endereco;
     }
 
     /**
-     * @return the listAluger
+     * Devolve a lista de aluguer do anunciante.
+     *
+     * @return lista de aluguer do anunciante
      */
     public ArrayList<Object> getListAluger() {
         return listAlugavel;
     }
 
     /**
-     * @return the listVendavel
+     * Devolve a lista de vendáveis do anunciante.
+     *
+     * @return lista de aluger do anunciante
      */
     public ArrayList<Object> getListVendavel() {
         return listVendavel;
     }
 
     /**
-     * @param nome the nome to set
+     * Modifica o nome.
+     *
+     * @param nome nome do anunciante
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * @param endereco the endereco to set
+     * Modifica o endereco.
+     *
+     * @param endereco endereco do anunciante
      */
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
+    /**
+     * Adiciona um apartamento á lista dos produtos alugáveis
+     * 
+     * 
+     * @return 
+     */
     public boolean addListAlugavel(Apartamento apart) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
             return listAlugavel.add(apart);
@@ -92,6 +131,13 @@ public class Anunciante {
         }
     }
 
+    /**
+     * Adiciona um automóvel á lista dos produtos alugáveis
+     * 
+     * 
+     * @param aut
+     * @return 
+     */
     public boolean addListAlugavel(Automovel aut) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
             return listAlugavel.add(aut);
@@ -100,6 +146,13 @@ public class Anunciante {
         }
     }
 
+    /**
+     * Adiciona um automóvel á lista dos produtos alugáveis
+     * 
+     * 
+     * @param aut
+     * @return 
+     */
     public boolean addListVendavel(Automovel aut) {
         if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
@@ -108,6 +161,13 @@ public class Anunciante {
         }
     }
 
+    /**
+     * Adiciona um telemóvel á lista dos produtos alugáveis
+     * 
+     * 
+     * @param aut
+     * @return 
+     */
     public boolean addListVendavel(Telemovel tel) {
         if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
@@ -116,14 +176,31 @@ public class Anunciante {
         }
     }
     
+    /**
+     * Devolve o número de produtos alugáveis.
+     *
+     * @return número de produtos alugáveis
+     */
     public int getNObjetosAlugaveis(){
         return listAlugavel.size();
     }
     
+    /**
+     * Devolve o número de produtos vendáveis.
+     *
+     * @return número de produtos vendáveis
+     */
     public int getNObjetosVendaveis(){
         return listVendavel.size();
     }
     
+    /**
+     * Calcula o valor de aluguer de um dado produto
+     * 
+     * 
+     * @param o
+     * @return 
+     */
    public float calcularValorAluguer(Object o) {
         float valor = 0;
         if (listAlugavel.contains(o)) {
@@ -138,6 +215,14 @@ public class Anunciante {
         }
         return 0;
     }
+   
+   /**
+     * Calcula o valor de venda de um dado produto
+     * 
+     * 
+     * @param o
+     * @return 
+     */
     public float calcularValorVenda(Object o) {
        float valor = 0;
         if (listVendavel.contains(o)) {
@@ -153,6 +238,11 @@ public class Anunciante {
         return 0;
     }
     
+    /**
+     * Devolve o produto a alugar mais caro.
+     *
+     * @return produto a alugar mais caro
+     */
     public void getAlugavelMaisCaro(){
         int indexMaisCaro = 0;
         for(int i = 0; i < listAlugavel.size(); i++){
@@ -163,6 +253,11 @@ public class Anunciante {
         System.out.println(listAlugavel.get(indexMaisCaro).toString());
     }
     
+    /**
+     * Devolve o valor total de vendas.
+     *
+     * @return valor total de vendas
+     */
     public float getTotalValorVendas(){
         float totalVendas = 0;
         for(int i = 0; i < listVendavel.size(); i++){
