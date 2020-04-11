@@ -132,9 +132,32 @@ public class Anunciante {
         return nObjetosVendaveis;
     }
     
-    /**public float calcularValorVenda(Object o){
-        if (listAlugavel.contains(o)){
-            
+   public float calcularValorAluguer(Object o) {
+        float valor = 0;
+        if (listAlugavel.contains(o)) {
+            if (o instanceof Apartamento) {
+                Apartamento a = (Apartamento) o;
+                valor = a.getValorAluguer();
+            } else {
+                Automovel a = (Automovel) o;
+                valor = a.getValorAluguer();
+            }
+            return valor *(1+TAXA_ALUGAVEL);
         }
-    }*/
+        return 0;
+    }
+    public float calcularValorVenda(Object o) {
+       float valor = 0;
+        if (listVendavel.contains(o)) {
+            if (o instanceof Telemovel) {
+                Telemovel t = (Telemovel) o;
+                valor = t.getValorVenda();
+            } else {
+                Automovel a = (Automovel) o;
+                valor = a.getValorVenda();
+            }
+            return valor * (1 + TAXA_VENDAVEL);
+        }
+        return 0;
+    }
 }
