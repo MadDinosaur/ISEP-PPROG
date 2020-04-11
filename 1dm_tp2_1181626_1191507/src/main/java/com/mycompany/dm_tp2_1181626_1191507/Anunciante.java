@@ -265,4 +265,12 @@ public class Anunciante {
         }
         return totalVendas;
     }
+    
+    /**
+     * Descrição textual de um anunciante.
+     * @return uma String com o nome e o endereço do anunciante
+     */
+    public String toString(){
+        return String.format("O anunciante, com o nome %s tem o endereço %s", nome, endereco.toString());
+    }
 }
