@@ -28,9 +28,9 @@ public class Anunciante {
 
     private final int MAX_VENDAVEIS = 2;
     
-    public final float TAXA_ALUGAVEL = (float) 0.05;
+    static public final float TAXA_ALUGAVEL = (float) 0.05;
     
-    public final float TAXA_VENDAVEL = (float) 0.03;
+    static public final float TAXA_VENDAVEL = (float) 0.03;
     
     private final String NOME_POR_OMISSAO = "";
     

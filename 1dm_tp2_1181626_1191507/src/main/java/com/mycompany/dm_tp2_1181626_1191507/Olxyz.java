@@ -37,18 +37,19 @@ public class Olxyz {
         //---------------Visualização da quantidade de artigos para aluguer------------
         int totalAlugaveis = 0;
         for (Anunciante a: anunciantes){
+            if(a!=null)
             totalAlugaveis += a.getNObjetosAlugaveis();
         }
         System.out.printf("Quantidade de artigos disponíveis para aluguer na plataforma Olxyz: %d%n", totalAlugaveis);
         //---------------Visualização dos Anunciantes que publicitam vendas-------------
         for (Anunciante a: anunciantes){
-            if(a.getNObjetosVendaveis()!=0){
+            if(a!=null && a.getNObjetosVendaveis()!=0){
                 System.out.printf("%s. Somatório de possíveis vendas: %.2f€.%n", a, a.getTotalValorVendas());
             }
         }
         //---------------Visualização dos alugáveis que podem gerar mais lucro----------
         for (Anunciante a: anunciantes) {
-            if (a.getNObjetosAlugaveis()!= 0) {
+            if (a!= null && a.getNObjetosAlugaveis()!= 0) {
                 System.out.printf("Anunciante: %s, Alugável: %s, Lucro: %.2f€%n.",a.getNome(),a.getAlugavelMaisCaro(),a.calcularValorAluguer(a.getAlugavelMaisCaro())/(1+Anunciante.TAXA_ALUGAVEL));
             }
         }
