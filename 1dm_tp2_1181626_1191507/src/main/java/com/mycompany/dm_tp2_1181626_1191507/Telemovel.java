@@ -4,7 +4,7 @@ package com.mycompany.dm_tp2_1181626_1191507;
  * Classe que representa um telemóvel disponível para comprar na plataforma
  * online Olxyz
  */
-public class Telemovel {
+public class Telemovel implements Vendavel{
 
     private String designacao;
 
@@ -65,6 +65,15 @@ public class Telemovel {
     @Override
     public String toString() {
         return String.format("Telemóvel com a designação %s.", designacao);
+    }
+
+    /**
+     * Devolve o valor final de venda do telemóvel, com a taxa fixa da plataforma incluída.
+     * @return o valor de venda do telemóvel
+     */
+    @Override
+    public float calcularValorVenda() {
+        return this.valorVenda*(1+TAXA_VENDA);
     }
 
 }

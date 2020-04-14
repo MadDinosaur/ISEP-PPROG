@@ -4,7 +4,7 @@ package com.mycompany.dm_tp2_1181626_1191507;
  * Classe que representa um apartamento disponível para alugar, na plataforma
  * online Olxyz
  */
-public class Apartamento {
+public class Apartamento implements Alugavel {
 
     private Endereco endereco;
     private float area;
@@ -80,29 +80,43 @@ public class Apartamento {
     }
 
     /**
-     * Devolve o valor de aluguer do apartamento.
+     * Devolve o valor de aluguer pretendido do apartamento.
      *
-     * @return o valor de aluguer
+     * @return o valor de aluguer pretendido
      */
+    @Override
     public float getValorAluguer() {
         return valorAluguer;
     }
 
     /**
-     * Modifica o valor de aluguer do apartamento.
+     * Modifica o valor de aluguer pretendido do apartamento.
      *
-     * @param valorAluguer valor de aluguer
+     * @param valorAluguer valor de aluguer pretendido
      */
+    @Override
     public void setValorAluguer(float valorAluguer) {
         this.valorAluguer = valorAluguer;
     }
-    
+
     /**
      * Descrição textual de um apartamento.
+     *
      * @return uma String com o endereço e a área de um apartamento
      */
     @Override
-    public String toString(){
+    public String toString() {
         return String.format("Apartamento em %s com área %.2fm2.", endereco, area);
+    }
+
+    /**
+     * Devolve o valor final de aluguer do apartamento, com a taxa fixa da
+     * plataforma incluída.
+     *
+     * @return o valor de aluguer do apartamento
+     */
+    @Override
+    public float calcularValorAluguer() {
+        return this.valorAluguer * (1 + TAXA_ALUGUER);
     }
 }

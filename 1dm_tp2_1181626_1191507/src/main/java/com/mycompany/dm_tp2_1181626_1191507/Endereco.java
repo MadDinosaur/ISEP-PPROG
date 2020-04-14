@@ -106,6 +106,7 @@ public class Endereco {
 
     /**
      * Descrição textual de um endereço.
+     *
      * @return uma String com a rua, código postal e localidade
      */
     @Override

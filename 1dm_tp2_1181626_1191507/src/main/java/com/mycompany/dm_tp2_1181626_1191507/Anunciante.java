@@ -6,19 +6,21 @@
 package com.mycompany.dm_tp2_1181626_1191507;
 
 import java.util.ArrayList;
-
-//TODO: Perguntar sobre método remove para os Arrays
+import java.util.Arrays;
 
 /**
- * Classe que representa um anunciante que poderá uitilizar 
- * a plataforma online Olxyz para anunciar produtos vendáveis
- * ou alugáveis
+ * Classe que representa um anunciante que poderá uitilizar a plataforma online
+ * Olxyz para anunciar produtos vendáveis ou alugáveis
  */
 public class Anunciante {
 
     private String nome;
 
     private Endereco endereco;
+
+    private final String NOME_POR_OMISSAO = "Sem nome";
+
+    private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
 
     private ArrayList<Object> listAlugavel = new ArrayList();
 
@@ -27,19 +29,9 @@ public class Anunciante {
     private final int MAX_ALUGAVEIS = 3;
 
     private final int MAX_VENDAVEIS = 2;
-    
-    static public final float TAXA_ALUGAVEL = (float) 0.05;
-    
-    static public final float TAXA_VENDAVEL = (float) 0.03;
-    
-    private final String NOME_POR_OMISSAO = "Sem nome";
-    
-    private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
-    
 
     /**
      * Constrói uma instância de Anunciante recebendo o nome e o endereco
-     *
      *
      * @param nome o nome do anunciante
      * @param endereco o endereco do anunciante
@@ -48,15 +40,24 @@ public class Anunciante {
         this.nome = nome;
         this.endereco = new Endereco(endereco);
     }
-    
+
+    /**
+     * Constrói uma instância de Anunciante recebendo o nome, a rua, o código
+     * postal e a localidade do mesmo.
+     *
+     * @param nome o nome do anunciante
+     * @param rua a rua do endereço do anunciante
+     * @param codigoPostal o codigo postal do endereço do anunciante
+     * @param localidade a localidade do endereço do anunciante
+     */
     public Anunciante(String nome, String rua, String codigoPostal, String localidade) {
         this.nome = nome;
         this.endereco = new Endereco(rua, codigoPostal, localidade);
     }
-    
+
     /**
-     * Constrói uma instância de Anunciante não recebendo parâmetros
-     *
+     * Constrói uma instância de Anunciante por omissão, não recebendo
+     * parâmetros
      */
     public Anunciante() {
         this.nome = NOME_POR_OMISSAO;
@@ -73,55 +74,58 @@ public class Anunciante {
     }
 
     /**
-     * Devolve a endereco do anunciante.
+     * Devolve o endereco do anunciante.
      *
      * @return endereco do anunciante
      */
     public Endereco getEndereco() {
-        return endereco;
+        return new Endereco(endereco);
     }
 
     /**
-     * Devolve a lista de aluguer do anunciante.
+     * Devolve a lista de produtos disponíveis para aluguer do anunciante.
      *
-     * @return lista de aluguer do anunciante
+     * @return lista de produtos alugáveis
      */
-    public ArrayList<Object> getListAluger() {
-        return listAlugavel;
+    public ArrayList<Object> getListAlugavel() {
+        return new ArrayList(listAlugavel);
     }
 
     /**
-     * Devolve a lista de vendáveis do anunciante.
+     * Devolve a lista de produtos dispooníveis para venda do anunciante.
      *
-     * @return lista de aluger do anunciante
+     * @return lista de produtos vendáveis
      */
     public ArrayList<Object> getListVendavel() {
-        return listVendavel;
+        return new ArrayList(listVendavel);
     }
 
     /**
-     * Modifica o nome.
+     * Modifica o nome do anunciante.
      *
-     * @param nome nome do anunciante
+     * @param nome o nome do anunciante
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * Modifica o endereco.
+     * Modifica o endereço do anunciante.
      *
-     * @param endereco endereco do anunciante
+     * @param endereco o novo endereço
      */
     public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+        this.endereco.setRua(endereco.getRua());
+        this.endereco.setCodigoPostal(endereco.getCodigoPostal());
+        this.endereco.setLocalidade(endereco.getLocalidade());
     }
 
     /**
-     * Adiciona um apartamento á lista dos produtos alugáveis
-     * 
-     * 
-     * @return 
+     * Adiciona um apartamento á lista dos produtos alugáveis.
+     *
+     * @param apart o apartamento a adicionar à lista
+     * @return true se a adição do produto for bem sucedida, false caso
+     * contrário
      */
     public boolean addListAlugavel(Apartamento apart) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
@@ -133,10 +137,10 @@ public class Anunciante {
 
     /**
      * Adiciona um automóvel á lista dos produtos alugáveis
-     * 
-     * 
-     * @param aut
-     * @return 
+     *
+     * @param aut o automóvel a adicionar à lista
+     * @return true se a adição do produto for bem sucedida, false caso
+     * contrário
      */
     public boolean addListAlugavel(Automovel aut) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
@@ -147,11 +151,11 @@ public class Anunciante {
     }
 
     /**
-     * Adiciona um automóvel á lista dos produtos alugáveis
-     * 
-     * 
-     * @param aut
-     * @return 
+     * Adiciona um automóvel á lista dos produtos vendáveis.
+     *
+     * @param aut o automóvel a adicionar à lista
+     * @return true se a adição do produto for bem sucedida, false caso
+     * contrário
      */
     public boolean addListVendavel(Automovel aut) {
         if (listVendavel.size() == MAX_VENDAVEIS) {
@@ -162,11 +166,11 @@ public class Anunciante {
     }
 
     /**
-     * Adiciona um telemóvel á lista dos produtos alugáveis
-     * 
-     * 
-     * @param aut
-     * @return 
+     * Adiciona um telemóvel á lista dos produtos vendáveis.
+     *
+     * @param tel
+     * @return true se a adição do produto for bem sucedida, false caso
+     * contrário
      */
     public boolean addListVendavel(Telemovel tel) {
         if (listVendavel.size() == MAX_VENDAVEIS) {
@@ -175,102 +179,63 @@ public class Anunciante {
             return listVendavel.add(tel);
         }
     }
-    
+
     /**
-     * Devolve o número de produtos alugáveis.
+     * Devolve o número de produtos na lista de alugáveis.
      *
      * @return número de produtos alugáveis
      */
-    public int getNObjetosAlugaveis(){
+    public int getNObjetosAlugaveis() {
         return listAlugavel.size();
     }
-    
+
     /**
-     * Devolve o número de produtos vendáveis.
+     * Devolve o número de produtos na lista de vendáveis.
      *
      * @return número de produtos vendáveis
      */
-    public int getNObjetosVendaveis(){
+    public int getNObjetosVendaveis() {
         return listVendavel.size();
     }
-    
+
     /**
-     * Calcula o valor de aluguer de um dado produto
-     * 
-     * 
-     * @param o
-     * @return 
-     */
-   public float calcularValorAluguer(Object o) {
-        float valor = 0;
-        if (listAlugavel.contains(o)) {
-            if (o instanceof Apartamento) {
-                Apartamento a = (Apartamento) o;
-                valor = a.getValorAluguer();
-            } else {
-                Automovel a = (Automovel) o;
-                valor = a.getValorAluguer();
-            }
-            return valor *(1+TAXA_ALUGAVEL);
-        }
-        return 0;
-    }
-   
-   /**
-     * Calcula o valor de venda de um dado produto
-     * 
-     * 
-     * @param o
-     * @return 
-     */
-    public float calcularValorVenda(Object o) {
-       float valor = 0;
-        if (listVendavel.contains(o)) {
-            if (o instanceof Telemovel) {
-                Telemovel t = (Telemovel) o;
-                valor = t.getValorVenda();
-            } else {
-                Automovel a = (Automovel) o;
-                valor = a.getValorVenda();
-            }
-            return valor * (1 + TAXA_VENDAVEL);
-        }
-        return 0;
-    }
-    
-    /**
-     * Devolve o produto a alugar mais caro.
+     * Devolve o produto mais caro na lista de produtos alugáveisS.
      *
-     * @return produto a alugar mais caro
+     * @return produto alugável mais caro
      */
-    public Object getAlugavelMaisCaro(){
-        int indexMaisCaro = 0;
-        for(int i = 0; i < listAlugavel.size(); i++){
-            if(calcularValorAluguer(listAlugavel.get(i)) > calcularValorAluguer(listAlugavel.get(indexMaisCaro))){
-                indexMaisCaro = i;
+    public Object getAlugavelMaisCaro() {
+        float maisCaro = 0;
+        Object produtoMaisCaro = listAlugavel.get(0);
+        for (Object produto : listAlugavel) {
+            if (((Alugavel) produto).calcularValorAluguer() > maisCaro) {
+                maisCaro = ((Alugavel) produto).calcularValorAluguer();
+                produtoMaisCaro = produto;
             }
         }
-        return listAlugavel.get(indexMaisCaro);
+        return produtoMaisCaro;
     }
-    
+
     /**
-     * Devolve o valor total de vendas.
+     * Devolve a soma do valor de venda de todos os produtos vendáveis do
+     * anunciante, com as taxas fixas da plataforma incluídas.
      *
-     * @return valor total de vendas
+     * @return o valor total de venda
      */
-    public float getTotalValorVendas(){
+    public float getTotalValorVendas() {
         float totalVendas = 0;
-        for(int i = 0; i < listVendavel.size(); i++){
-            totalVendas = totalVendas + calcularValorVenda(listVendavel.get(i));
+        for (Object produto : listVendavel) {
+            totalVendas = totalVendas + ((Vendavel) produto).calcularValorVenda();
         }
         return totalVendas;
     }
-    
+
     /**
      * Descrição textual de um anunciante.
+     *
      * @return uma String com o nome e o endereço do anunciante
      */
-    public String toString(){
+    @Override
+    public String toString() {
         return String.format("O anunciante, com o nome %s tem o endereço %s", nome, endereco.toString());
     }
 }

@@ -1,11 +1,10 @@
-
 package com.mycompany.dm_tp2_1181626_1191507;
 
 /**
- * Classe que representa um automóvel disponível para comprar ou alugar, nna plataforma
- * online Olxyz
+ * Classe que representa um automóvel disponível para comprar ou alugar, nna
+ * plataforma online Olxyz
  */
-public class Automovel {
+public class Automovel implements Vendavel, Alugavel {
 
     private String marca;
 
@@ -52,25 +51,25 @@ public class Automovel {
     }
 
     /**
-     * Devolve o valor de venda do automóvel.
+     * Devolve o valor de venda pretendido do automóvel.
      *
-     * @return valor de venda do automóvel
+     * @return valor de venda pretendido do automóvel
      */
     public float getValorVenda() {
         return valorVenda;
     }
 
     /**
-     * Devolve o valor de aluguer do automóvel.
+     * Devolve o valor de aluguer pretendido do automóvel.
      *
-     * @return valor do aluguer do automóvel
+     * @return valor do aluguer pretendido do automóvel
      */
     public float getValorAluguer() {
         return valorAluguer;
     }
 
     /**
-     * Modifica a marca.
+     * Modifica a marca do automóvel.
      *
      * @param marca marca do automóvel
      */
@@ -79,7 +78,7 @@ public class Automovel {
     }
 
     /**
-     * Modifica o modelo.
+     * Modifica o modelo do automóvel.
      *
      * @param modelo modelo do automóvel
      */
@@ -88,30 +87,53 @@ public class Automovel {
     }
 
     /**
-     * Modifica o valor de venda.
+     * Modifica o valor de venda pretendido do automóvel.
      *
-     * @param valorVenda valor de venda do automóvel
+     * @param valorVenda valor de venda pretendido do automóvel
      */
     public void setValorVenda(float valorVenda) {
         this.valorVenda = valorVenda;
     }
 
     /**
-     * Modifica o valor de aluguer.
+     * Modifica o valor de aluguer pretendido do automóvel.
      *
-     * @param valorAluguer valor de aluguer do automóvel
+     * @param valorAluguer valor de aluguer pretendido do automóvel
      */
     public void setValorAluguer(float valorAluguer) {
         this.valorAluguer = valorAluguer;
     }
-    
+
     /**
      * Descrição textual de um automóvel.
+     *
      * @return uma String com a marca e modelo do automóvel
      */
     @Override
-    public String toString(){
+    public String toString() {
         return String.format("Automóvel de marca %s e modelo %s.", marca, modelo);
+    }
+
+    /**
+     * Devolve o valor final de venda do automóvel, com a taxa fixa da
+     * plataforma incluída.
+     *
+     * @return o valor de venda do automóvel
+     */
+    @Override
+    public float calcularValorVenda() {
+        return this.valorVenda * (1 + TAXA_VENDA);
+    }
+
+    /**
+     * Devolve o valor final de aluguer do automóvel, com a taxa fixa da
+     * plataforma incluída.
+     *
+     * @return o valor de aluguer do automóvel
+     */
+    @Override
+    public float calcularValorAluguer() {
+        return this.valorAluguer * (1 + TAXA_ALUGUER);
     }
 
 }
