@@ -6,7 +6,6 @@
 package com.mycompany.dm_tp2_1181626_1191507;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Classe que representa um anunciante que poderá uitilizar a plataforma online
@@ -22,9 +21,9 @@ public class Anunciante {
 
     private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
 
-    private ArrayList<Object> listAlugavel = new ArrayList();
+    private ArrayList<Alugavel> listAlugavel = new ArrayList();
 
-    private ArrayList<Object> listVendavel = new ArrayList();
+    private ArrayList<Vendavel> listVendavel = new ArrayList();
 
     private final int MAX_ALUGAVEIS = 3;
 
@@ -87,16 +86,16 @@ public class Anunciante {
      *
      * @return lista de produtos alugáveis
      */
-    public ArrayList<Object> getListAlugavel() {
+    public ArrayList<Alugavel> getListAlugavel() {
         return new ArrayList(listAlugavel);
     }
 
     /**
-     * Devolve a lista de produtos dispooníveis para venda do anunciante.
+     * Devolve a lista de produtos disponíveis para venda do anunciante.
      *
      * @return lista de produtos vendáveis
      */
-    public ArrayList<Object> getListVendavel() {
+    public ArrayList<Vendavel> getListVendavel() {
         return new ArrayList(listVendavel);
     }
 
@@ -121,62 +120,32 @@ public class Anunciante {
     }
 
     /**
-     * Adiciona um apartamento á lista dos produtos alugáveis.
+     * Adiciona um produto à lista dos produtos alugáveis.
      *
-     * @param apart o apartamento a adicionar à lista
+     * @param alugavel o produto alugável a adicionar à lista
      * @return true se a adição do produto for bem sucedida, false caso
      * contrário
      */
-    public boolean addListAlugavel(Apartamento apart) {
+    public boolean addListAlugavel(Alugavel alugavel) {
         if (listAlugavel.size() < MAX_ALUGAVEIS) {
-            return listAlugavel.add(apart);
+            return listAlugavel.add(alugavel);
         } else {
             return false;
         }
     }
 
     /**
-     * Adiciona um automóvel á lista dos produtos alugáveis
+     * Adiciona um produto à lista dos produtos vendáveis.
      *
-     * @param aut o automóvel a adicionar à lista
+     * @param vendavel o produto vendável a adicionar à lista
      * @return true se a adição do produto for bem sucedida, false caso
      * contrário
      */
-    public boolean addListAlugavel(Automovel aut) {
-        if (listAlugavel.size() < MAX_ALUGAVEIS) {
-            return listAlugavel.add(aut);
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Adiciona um automóvel á lista dos produtos vendáveis.
-     *
-     * @param aut o automóvel a adicionar à lista
-     * @return true se a adição do produto for bem sucedida, false caso
-     * contrário
-     */
-    public boolean addListVendavel(Automovel aut) {
+    public boolean addListVendavel(Vendavel vendavel) {
         if (listVendavel.size() == MAX_VENDAVEIS) {
             return false;
         } else {
-            return listVendavel.add(aut);
-        }
-    }
-
-    /**
-     * Adiciona um telemóvel á lista dos produtos vendáveis.
-     *
-     * @param tel
-     * @return true se a adição do produto for bem sucedida, false caso
-     * contrário
-     */
-    public boolean addListVendavel(Telemovel tel) {
-        if (listVendavel.size() == MAX_VENDAVEIS) {
-            return false;
-        } else {
-            return listVendavel.add(tel);
+            return listVendavel.add(vendavel);
         }
     }
 
@@ -199,16 +168,16 @@ public class Anunciante {
     }
 
     /**
-     * Devolve o produto mais caro na lista de produtos alugáveisS.
+     * Devolve o produto mais caro na lista de produtos alugáveis.
      *
      * @return produto alugável mais caro
      */
     public Object getAlugavelMaisCaro() {
         float maisCaro = 0;
-        Object produtoMaisCaro = listAlugavel.get(0);
-        for (Object produto : listAlugavel) {
-            if (((Alugavel) produto).calcularValorAluguer() > maisCaro) {
-                maisCaro = ((Alugavel) produto).calcularValorAluguer();
+        Alugavel produtoMaisCaro = listAlugavel.get(0); 
+        for (Alugavel produto : listAlugavel) {
+            if (produto.calcularValorAluguer() > maisCaro) {
+                maisCaro = produto.calcularValorAluguer();
                 produtoMaisCaro = produto;
             }
         }
@@ -223,8 +192,8 @@ public class Anunciante {
      */
     public float getTotalValorVendas() {
         float totalVendas = 0;
-        for (Object produto : listVendavel) {
-            totalVendas = totalVendas + ((Vendavel) produto).calcularValorVenda();
+        for (Vendavel produto : listVendavel) {
+            totalVendas = totalVendas + produto.calcularValorVenda();
         }
         return totalVendas;
     }
