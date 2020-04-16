@@ -5,7 +5,9 @@
  */
 package com.mycompany.dm_tp2_1181626_1191507;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Classe que representa um anunciante que poderá uitilizar a plataforma online
@@ -20,14 +22,18 @@ public class Anunciante {
     private final String NOME_POR_OMISSAO = "Sem nome";
 
     private final Endereco ENDERECO_POR_OMISSAO = new Endereco();
-
-    private ArrayList<Alugavel> listAlugavel = new ArrayList();
-
-    private ArrayList<Vendavel> listVendavel = new ArrayList();
-
+    
     private final int MAX_ALUGAVEIS = 3;
 
     private final int MAX_VENDAVEIS = 2;
+    
+    private Alugavel[] listAlugavel = new Alugavel[MAX_ALUGAVEIS];
+    
+    private Vendavel[] listVendavel = new Vendavel[MAX_VENDAVEIS];
+    
+    private int contAlugaveis = 0;
+    
+    private int contVendaveis = 0;
 
     /**
      * Constrói uma instância de Anunciante recebendo o nome e o endereco
@@ -86,8 +92,9 @@ public class Anunciante {
      *
      * @return lista de produtos alugáveis
      */
-    public ArrayList<Alugavel> getListAlugavel() {
-        return new ArrayList(listAlugavel);
+    public Alugavel[] getListAlugavel() {
+        Alugavel[] o = listAlugavel;
+        return o;
     }
 
     /**
@@ -95,8 +102,8 @@ public class Anunciante {
      *
      * @return lista de produtos vendáveis
      */
-    public ArrayList<Vendavel> getListVendavel() {
-        return new ArrayList(listVendavel);
+    public Vendavel[] getListVendavel() {
+        return Arrays.copyOf(listVendavel, contVendaveis);
     }
 
     /**
@@ -127,8 +134,10 @@ public class Anunciante {
      * contrário
      */
     public boolean addListAlugavel(Alugavel alugavel) {
-        if (listAlugavel.size() < MAX_ALUGAVEIS) {
-            return listAlugavel.add(alugavel);
+        if (contAlugaveis < MAX_ALUGAVEIS) {
+             listAlugavel[contAlugaveis] = alugavel;
+             contAlugaveis++;
+            return true;
         } else {
             return false;
         }
@@ -142,10 +151,12 @@ public class Anunciante {
      * contrário
      */
     public boolean addListVendavel(Vendavel vendavel) {
-        if (listVendavel.size() == MAX_VENDAVEIS) {
+        if (contVendaveis == MAX_VENDAVEIS) {
             return false;
         } else {
-            return listVendavel.add(vendavel);
+            listVendavel[contVendaveis] = vendavel;
+            contVendaveis++;
+            return true;
         }
     }
 
@@ -155,7 +166,7 @@ public class Anunciante {
      * @return número de produtos alugáveis
      */
     public int getNObjetosAlugaveis() {
-        return listAlugavel.size();
+        return contAlugaveis;
     }
 
     /**
@@ -164,7 +175,7 @@ public class Anunciante {
      * @return número de produtos vendáveis
      */
     public int getNObjetosVendaveis() {
-        return listVendavel.size();
+        return contVendaveis;
     }
 
     /**
@@ -174,7 +185,7 @@ public class Anunciante {
      */
     public Alugavel getAlugavelMaisCaro() {
         float maisCaro = 0;
-        Alugavel produtoMaisCaro = listAlugavel.get(0); 
+        Alugavel produtoMaisCaro = listAlugavel[0]; 
         for (Alugavel produto : listAlugavel) {
             if (produto.calcularValorAluguer() > maisCaro) {
                 maisCaro = produto.calcularValorAluguer();
