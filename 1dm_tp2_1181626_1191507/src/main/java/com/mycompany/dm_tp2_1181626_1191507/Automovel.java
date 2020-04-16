@@ -55,6 +55,7 @@ public class Automovel implements Vendavel, Alugavel {
      *
      * @return valor de venda pretendido do automóvel
      */
+    @Override
     public float getValorVenda() {
         return valorVenda;
     }
@@ -64,6 +65,7 @@ public class Automovel implements Vendavel, Alugavel {
      *
      * @return valor do aluguer pretendido do automóvel
      */
+    @Override
     public float getValorAluguer() {
         return valorAluguer;
     }
@@ -91,6 +93,7 @@ public class Automovel implements Vendavel, Alugavel {
      *
      * @param valorVenda valor de venda pretendido do automóvel
      */
+    @Override
     public void setValorVenda(float valorVenda) {
         this.valorVenda = valorVenda;
     }
@@ -100,6 +103,7 @@ public class Automovel implements Vendavel, Alugavel {
      *
      * @param valorAluguer valor de aluguer pretendido do automóvel
      */
+    @Override
     public void setValorAluguer(float valorAluguer) {
         this.valorAluguer = valorAluguer;
     }

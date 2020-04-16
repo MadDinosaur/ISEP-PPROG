@@ -36,6 +36,7 @@ public class Telemovel implements Vendavel{
      *
      * @return valor de venda do telemõvel
      */
+    @Override
     public float getValorVenda() {
         return valorVenda;
     }
@@ -54,6 +55,7 @@ public class Telemovel implements Vendavel{
      *
      * @param valorVenda valor de venda do telemóvel
      */
+    @Override
     public void setValorVenda(float valorVenda) {
         this.valorVenda = valorVenda;
     }

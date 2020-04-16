@@ -172,7 +172,7 @@ public class Anunciante {
      *
      * @return produto alugável mais caro
      */
-    public Object getAlugavelMaisCaro() {
+    public Alugavel getAlugavelMaisCaro() {
         float maisCaro = 0;
         Alugavel produtoMaisCaro = listAlugavel.get(0); 
         for (Alugavel produto : listAlugavel) {
