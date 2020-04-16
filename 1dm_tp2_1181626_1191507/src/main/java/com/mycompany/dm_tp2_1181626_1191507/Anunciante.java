@@ -93,8 +93,7 @@ public class Anunciante {
      * @return lista de produtos alugáveis
      */
     public Alugavel[] getListAlugavel() {
-        Alugavel[] o = listAlugavel;
-        return o;
+        return Arrays.copyOf(listAlugavel, contAlugaveis);
     }
 
     /**
@@ -187,7 +186,7 @@ public class Anunciante {
         float maisCaro = 0;
         Alugavel produtoMaisCaro = listAlugavel[0]; 
         for (Alugavel produto : listAlugavel) {
-            if (produto.calcularValorAluguer() > maisCaro) {
+            if (produto != null && produto.calcularValorAluguer() > maisCaro) {
                 maisCaro = produto.calcularValorAluguer();
                 produtoMaisCaro = produto;
             }
@@ -204,6 +203,7 @@ public class Anunciante {
     public float getTotalValorVendas() {
         float totalVendas = 0;
         for (Vendavel produto : listVendavel) {
+            if(produto != null)
             totalVendas = totalVendas + produto.calcularValorVenda();
         }
         return totalVendas;
