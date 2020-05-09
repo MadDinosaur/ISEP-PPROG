@@ -9,7 +9,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  *
@@ -60,16 +62,24 @@ public class Inicializador {
     /**
      * Cria um objeto da classe Plataforma a partir da informação em ficheiro
      */
-    private void iniciarPlataforma() {
+    private Plataforma iniciarPlataforma() {
+        Plataforma novaPlataforma = new Plataforma();
         ArrayList<String> info = lerFicheiro(plataforma);
 
-        String designacao;
-        RegistoOrganizacoes registoOrganizacoes;
-        RegistoAnuncios registoAnuncios;
+        String[] params = info.get(0).split(";");
+        for (String s : params) {
+                s = s.trim();
+            }
+        try {
+            novaPlataforma = new Plataforma(params[0], iniciarOrganizacoes(), iniciarAnuncios());
+        } catch (IndexOutOfBoundsException e) {
+                System.out.println("Ficheiro " + e + "mal formulado!");
+            }
+        return novaPlataforma;
     }
 
-    private ArrayList<Organizacao> iniciarOrganizacoes() {
-        ArrayList<Organizacao> listOrganizacoes = new ArrayList<>();
+    private Set<Organizacao> iniciarOrganizacoes() {
+        Set<Organizacao> listOrganizacoes = new HashSet<>();
         ArrayList<String> info = lerFicheiro(organizacoes);
         for (String linha : info) {
             String[] params = linha.split(";");
@@ -88,8 +98,8 @@ public class Inicializador {
         return listOrganizacoes;
     }
 
-    private ArrayList<Anuncio> iniciarAnuncios() {
-        ArrayList<Anuncio> listAnuncios = new ArrayList<>();
+    private Set<Anuncio> iniciarAnuncios() {
+        Set<Anuncio> listAnuncios = new HashSet<>();
         ArrayList<String> info = lerFicheiro(anuncios);
         for (String linha : info) {
             String[] params = linha.split(";");
