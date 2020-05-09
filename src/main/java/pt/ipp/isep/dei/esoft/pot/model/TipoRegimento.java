@@ -1,30 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.ipp.isep.dei.esoft.pot.model;
 
-/**
- *
- * @author Francisco
- */
 public class TipoRegimento {
-    
+
+    /**
+     * O nome do tipo de regimento
+     */
     private String designacao;
-    
+    /**
+     * A descrição textual das regras associadas ao tipo de regimento
+     */
     private String descricaoRegras;
-    
-    public TipoRegimento(String designacao, String descricaoRegras){
-        
-        
+
+    /**
+     * Cria um objeto da classe TipoRegimento
+     *
+     * @param designacao o nome do tipo de regimento
+     * @param descricaoRegras a descrição textual das regras associadas
+     */
+    public TipoRegimento(String designacao, String descricaoRegras) {
     }
-    
-    public TipoRegimento(){
-        
-        
+
+    public TipoRegimento() {
     }
-    
-    
-    
+
 }

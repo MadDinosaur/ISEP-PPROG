@@ -1,37 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.ipp.isep.dei.esoft.pot.model;
-
-
 
 import java.util.Date;
 
-
-
-/**
- *
- * @author Francisco
- */
 public class Candidatura {
-    
+
+    /**
+     * A data em que foi efetuada a candidatura
+     */
     private Date dataCandidatura;
-    
+    /**
+     * Valor pretendido para executar a tarefa anunciada
+     */
     private double valorPretendido;
-    
+    /**
+     * Nº de dias para executar a tarefa anunciada
+     */
     private int nrDias;
-    
+    /**
+     * Texto de apresentação do candidato
+     */
     private String txtApresentacao;
-    
+    /**
+     * Texto de motivação do candidato
+     */
     private String txtMotivacao;
-    
+    /**
+     * O Freelancer que efetuou a Candidatura
+     */
     private Freelancer freelancer;
-    
+    /**
+     * A Tarefa para a qual a Candidatura se destina
+     */
     private Tarefa tarefa;
-    
-    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias, String txtApresentacao, String txtMotivacao, Freelancer freelancer, Tarefa tarefa){
+
+    /**
+     * Cria um objeto da classe Candidatura.
+     *
+     * @param dataCandidatura a data de criação da candidatura
+     * @param valorPretendido o valor pretendido para executar a tarefa na
+     * candidatura
+     * @param nrDias o nº de dias para executar a tarefa na candidatura
+     * @param txtApresentacao o texto de apresentação do candidato
+     * @param txtMotivacao o texto de motivação do candidato
+     * @param freelancer o Freelancer que efetua a candidatura
+     * @param tarefa a Tarefa para a qual se candidata
+     */
+    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias, String txtApresentacao, String txtMotivacao, Freelancer freelancer, Tarefa tarefa) {
+        if (dataCandidatura == null || txtApresentacao == null || txtMotivacao == null || freelancer == null || tarefa == null)
+            throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
+        
         this.dataCandidatura = dataCandidatura;
         this.valorPretendido = valorPretendido;
         this.nrDias = nrDias;
@@ -40,82 +57,113 @@ public class Candidatura {
         this.freelancer = new Freelancer(freelancer);
         this.tarefa = new Tarefa(tarefa);
     }
-    
-    
-    public Tarefa getTarefa(){
-        return tarefa;
+
+    /**
+     * Retorna a Tarefa para a qual se destina a candidatura
+     *
+     * @return a Tarefa
+     */
+    public Tarefa getTarefa() {
+        return new Tarefa(tarefa);
     }
-    
-    public Freelancer getFreelancer(){
-        return freelancer;
+
+    /**
+     * Retorna o Freelancer que efetua a candidatura
+     *
+     * @return o Freelancer
+     */
+    public Freelancer getFreelancer() {
+        return new Freelancer(freelancer);
     }
-    
-    public Date getDataCandidatura(){
+
+    /**
+     * Retorna a data de criação da candidatura
+     *
+     * @return a data de candidatura
+     */
+    public Date getDataCandidatura() {
         return dataCandidatura;
     }
 
     /**
-     * @return the valorPretendido
+     * Retorna o valor pretendido para executar a tarefa alvo da candidatura
+     *
+     * @return o valor pretendido
      */
     public double getValorPretendido() {
         return valorPretendido;
     }
 
     /**
-     * @return the nrDias
+     * Retorna o nº de dias para executar a tarefa alvo da candidatura
+     *
+     * @return o número de dias
      */
     public int getNrDias() {
         return nrDias;
     }
 
     /**
-     * @return the txtApresentacao
+     * Retorna o texto de apresentação do candidato
+     *
+     * @return o texto de apresentação
      */
     public String getTxtApresentacao() {
         return txtApresentacao;
     }
 
     /**
-     * @return the txtMotivacao
+     * Retorna o texto de motivação do candidato
+     *
+     * @return o texto de motivação
      */
     public String getTxtMotivacao() {
         return txtMotivacao;
     }
-    
-    
-    
-    public void setDataCandidatura(Date dataCandidatura){
+
+    /**
+     * Modifica a data de candidatura
+     *
+     * @param dataCandidatura
+     */
+    public void setDataCandidatura(Date dataCandidatura) {
         this.dataCandidatura = dataCandidatura;
     }
 
     /**
-     * @param valorPretendido the valorPretendido to set
+     * Modifica o valor pretendido constante na candidatura
+     *
+     * @param valorPretendido
      */
     public void setValorPretendido(double valorPretendido) {
         this.valorPretendido = valorPretendido;
     }
 
     /**
-     * @param nrDias the nrDias to set
+     * Modifica o número de dias constante na candidatura
+     *
+     * @param nrDias
      */
     public void setNrDias(int nrDias) {
         this.nrDias = nrDias;
     }
 
     /**
-     * @param txtApresentacao the txtApresentacao to set
+     * Modifica o texto de apresentação constante na candidatura
+     *
+     * @param txtApresentacao
      */
     public void setTxtApresentacao(String txtApresentacao) {
         this.txtApresentacao = txtApresentacao;
     }
 
     /**
-     * @param txtMotivacao the txtMotivacao to set
+     * Modifica o texto de motivação constante na candidatura
+     *
+     * @param txtMotivacao
      */
     public void setTxtMotivacao(String txtMotivacao) {
         this.txtMotivacao = txtMotivacao;
     }
-    
-    
-    
+
 }

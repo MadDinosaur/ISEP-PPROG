@@ -19,13 +19,13 @@ import java.util.Set;
  */
 public class Inicializador {
 
-    String plataforma = "plataforma.txt";
-    String organizacoes = "organizacoes.txt";
-    String anuncios = "anuncios.txt";
-    String tarefas = "tarefas.txt";
-    String colaboradores = "colaboradores.txt";
-    String candidaturas = "candidaturas.txt";
-    String freelancers = "freelancers.txt";
+    private String plataforma = "plataforma.txt";
+    private String organizacoes = "organizacoes.txt";
+    private String anuncios = "anuncios.txt";
+    private String tarefas = "tarefas.txt";
+    private String colaboradores = "colaboradores.txt";
+    private String candidaturas = "candidaturas.txt";
+    private String freelancers = "freelancers.txt";
 
     public Inicializador(String plataforma, String organizacoes, String anuncios,
             String tarefas, String colaboradores, String candidaturas, String freelancers) {
