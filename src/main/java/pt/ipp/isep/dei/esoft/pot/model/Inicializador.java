@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -58,6 +59,13 @@ public class Inicializador {
 
         return conteudo;
     }
+//MÉTODOS TEMPORÁRIOS
+
+    public static Plataforma iniciarPlataforma(String designacao) {
+        Plataforma novaPlataforma = new Plataforma();
+        return novaPlataforma;
+    }
+////////////////////
 
     /**
      * Cria um objeto da classe Plataforma a partir da informação em ficheiro
@@ -68,18 +76,18 @@ public class Inicializador {
 
         String[] params = info.get(0).split(";");
         for (String s : params) {
-                s = s.trim();
-            }
+            s = s.trim();
+        }
         try {
-            novaPlataforma = new Plataforma(params[0], iniciarOrganizacoes(), iniciarAnuncios());
+            novaPlataforma = new Plataforma(params[0], new RegistoOrganizacoes(iniciarOrganizacoes()), new RegistoAnuncios(iniciarAnuncios()));
         } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + e + "mal formulado!");
-            }
+            System.out.println("Ficheiro " + e + "mal formulado!");
+        }
         return novaPlataforma;
     }
 
-    private Set<Organizacao> iniciarOrganizacoes() {
-        Set<Organizacao> listOrganizacoes = new HashSet<>();
+    private List<Organizacao> iniciarOrganizacoes() {
+        List<Organizacao> listOrganizacoes = new ArrayList<>();
         ArrayList<String> info = lerFicheiro(organizacoes);
         for (String linha : info) {
             String[] params = linha.split(";");
@@ -98,8 +106,8 @@ public class Inicializador {
         return listOrganizacoes;
     }
 
-    private Set<Anuncio> iniciarAnuncios() {
-        Set<Anuncio> listAnuncios = new HashSet<>();
+    private List<Anuncio> iniciarAnuncios() {
+        List<Anuncio> listAnuncios = new ArrayList<>();
         ArrayList<String> info = lerFicheiro(anuncios);
         for (String linha : info) {
             String[] params = linha.split(";");
@@ -172,7 +180,7 @@ public class Inicializador {
         }
         return listCandidaturas;
     }
-    
+
     private ArrayList<Freelancer> iniciarFreelancers() {
         ArrayList<Freelancer> listFreelancers = new ArrayList<>();
         ArrayList<String> info = lerFicheiro(freelancers);

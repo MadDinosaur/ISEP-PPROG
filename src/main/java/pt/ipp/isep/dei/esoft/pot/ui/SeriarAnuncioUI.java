@@ -1,7 +1,10 @@
 package pt.ipp.isep.dei.esoft.pot.ui;
 
 import java.io.IOException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +13,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
+import pt.ipp.isep.dei.esoft.pot.model.Anuncio;
 
 public class SeriarAnuncioUI {
 
@@ -53,5 +58,10 @@ public class SeriarAnuncioUI {
         alerta.showAndWait();
 
         return alerta;
+    }
+
+    @FXML
+    private void preencherAnuncios(Event event) {
+        //TODO
     }
 }

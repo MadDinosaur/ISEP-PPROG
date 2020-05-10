@@ -24,7 +24,8 @@ public class Plataforma {
     private final Set<CompetenciaTecnica> m_lstCompetencias;
 
     //VERIFICAR SE PODEMOS ADICIONAR ESTE ATRIBUTO
-    private final Set<Anuncio> m_lstAnuncios;
+    private final RegistoAnuncios listaAnuncios;
+    private final RegistoOrganizacoes listaOrganizacoes;
 
     public Plataforma() {
         this.m_strDesignacao = "";
@@ -32,7 +33,8 @@ public class Plataforma {
         this.m_lstOrganizacoes = new HashSet<>();
         this.m_lstAreasAtividade = new HashSet<>();
         this.m_lstCompetencias = new HashSet<>();
-        this.m_lstAnuncios = new HashSet<>();
+        this.listaAnuncios = new RegistoAnuncios();
+        this.listaOrganizacoes = new RegistoOrganizacoes();
     }
 
     public Plataforma(String strDesignacao) {
@@ -48,17 +50,19 @@ public class Plataforma {
         this.m_lstOrganizacoes = new HashSet<>();
         this.m_lstAreasAtividade = new HashSet<>();
         this.m_lstCompetencias = new HashSet<>();
-        this.m_lstAnuncios = new HashSet<>();
+        this.listaAnuncios = new RegistoAnuncios();
+        this.listaOrganizacoes = new RegistoOrganizacoes();
     }
 
-    public Plataforma(String strDesignacao, Set<Organizacao> m_lstOrganizacoes, Set<Anuncio> m_lstAnuncios) {
+    public Plataforma(String strDesignacao, RegistoOrganizacoes listaOrganizacoes, RegistoAnuncios listaAnuncios) {
         this.m_strDesignacao = strDesignacao;
-        this.m_lstOrganizacoes = m_lstOrganizacoes;
-        this.m_lstAnuncios = m_lstAnuncios;
+        this.listaAnuncios = listaAnuncios;
+        this.listaOrganizacoes = listaOrganizacoes;
 
         this.m_oAutorizacao = new AutorizacaoFacade();
         this.m_lstAreasAtividade = new HashSet<>();
         this.m_lstCompetencias = new HashSet<>();
+        this.m_lstOrganizacoes = new HashSet<>();
     }
 
     public AutorizacaoFacade getAutorizacaoFacade() {
@@ -106,6 +110,10 @@ public class Plataforma {
         return bRet;
     }
 
+    public RegistoOrganizacoes getRegistoOrganizacoes() {
+        return listaOrganizacoes;
+    }
+
     // </editor-fold>
     // Competências Tecnicas
     // <editor-fold defaultstate="collapsed">
@@ -141,8 +149,8 @@ public class Plataforma {
         //
         return bRet;
     }
-    // </editor-fold>
 
+    // </editor-fold>
     // Areas de Atividade 
     // <editor-fold defaultstate="collapsed">
     public AreaAtividade getAreaAtividadeById(String strId) {
@@ -184,5 +192,11 @@ public class Plataforma {
         return lc;
     }
 
+    // </editor-fold>
+    // Anúncios
+    // <editor-fold defaultstate="collapsed">
+    public RegistoAnuncios getRegistoAnuncios() {
+        return this.listaAnuncios;
+    }
     // </editor-fold>
 }

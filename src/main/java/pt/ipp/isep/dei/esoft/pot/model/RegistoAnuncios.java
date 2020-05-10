@@ -1,6 +1,7 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RegistoAnuncios {
@@ -29,6 +30,8 @@ public class RegistoAnuncios {
     public void getAnunciosPorSeriarNaoAutomaticos(Colaborador colab) {
     }
 
-    public void getAnuncioPublicadoPor(Colaborador colab, String anuncioId) {
+    public Anuncio getAnuncioPublicadoPor(Colaborador colab, int anuncioId) {
+        //TEMPORARIO   
+        return new Anuncio(new Date(), new Date(), new Date(), new Date(), new Date(), new Date());
     }
 }
