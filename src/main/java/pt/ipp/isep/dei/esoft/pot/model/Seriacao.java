@@ -17,7 +17,7 @@ import java.util.Date;
 public class Seriacao {
     
     int seriacao;
-    
+   /* 
     //SERIACAO 1
     
     Comparator<Candidatura> maiorMediaProficiencia = new Comparator<Candidatura>() {  //falta criar classe Freelancer
@@ -108,5 +108,5 @@ public class Seriacao {
                 
         }
     }
-    
+ */   
 }
