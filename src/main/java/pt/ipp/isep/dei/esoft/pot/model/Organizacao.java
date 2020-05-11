@@ -5,9 +5,7 @@
  */
 package pt.ipp.isep.dei.esoft.pot.model;
 
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  *
@@ -15,14 +13,38 @@ import java.util.Set;
  */
 public class Organizacao
 {
+    /**
+     * O nome da organização
+     */
     private String m_strNome;
+    /**
+     * O NIPC da organização
+     */
     private String m_strNIF;
+    /**
+     * A morada da organização
+     */
     private EnderecoPostal m_oEnderecoPostal;
+    /**
+     * O endereço web da organização
+     */
     private String m_strWebsite;
+    /**
+     * O nº de telefone da organização
+     */
     private String m_strTelefone;
+    /**
+     * O endereço de e-mail da organização
+     */
     private String m_strEmail;
+    /**
+     * O Colaborador principal (gestor)
+     */
     private Colaborador m_oGestor;
-    private Set<Colaborador> m_lstColaboradores = new HashSet<Colaborador>();
+    /**
+     * A lista de todos os Colaboradores
+     */
+    private ListaColaboradores listaColaboradores = new ListaColaboradores();
             
     
     public Organizacao(String strNome, String strNIF, String strWebsite, String strTelefone, 
@@ -41,7 +63,7 @@ public class Organizacao
         this.m_strTelefone = strTelefone;
         this.m_strEmail = strEmail;
         this.m_oGestor = oColaborador;
-        this.m_lstColaboradores.add(oColaborador);
+        this.listaColaboradores.add(oColaborador);
        
     }
     
@@ -84,9 +106,11 @@ public class Organizacao
         return str;
     }
     
-    public static Colaborador novoColaborador(String strNome, String strFuncao, String strTelefone, String strEmail)
+    public Colaborador novoColaborador(String strNome, String strFuncao, String strTelefone, String strEmail)
     {
-        return new Colaborador(strNome,strFuncao,strTelefone,strEmail);
+        Colaborador novoColab = new Colaborador(strNome, strFuncao, strTelefone, strEmail);
+        this.listaColaboradores.add(novoColab);
+        return novoColab;
     }
     
     public static EnderecoPostal novoEnderecoPostal(String strLocal, String strCodPostal, String strLocalidade)

@@ -1,0 +1,2 @@
+org 1; 111111111; 1111-111; 111111111; www.org1.pt; email@org1.pt; nome gestor 1; funcao gestor 1; 100100100; gestor@org1.pt
+org 2; 222222222; 2222-222; 222222222; www.org2.pt; email@org2.pt; nome gestor 2; funcao gestor 2; 200200200; gestor@org2.pt

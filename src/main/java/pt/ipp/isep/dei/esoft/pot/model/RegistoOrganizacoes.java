@@ -25,7 +25,14 @@ public class RegistoOrganizacoes {
     public RegistoOrganizacoes(List<Organizacao> listaOrganizacoes) {
         this.listaOrganizacoes = listaOrganizacoes;
     }
-
+    /**
+     * Adiciona uma Organizacao ao RegistoOrganizacoes
+     * @param org a Organizacao a adicionar
+     * @return true se bem sucedido, false caso contrário
+     */
+    public boolean add(Organizacao org){
+        return listaOrganizacoes.add(org);
+    }
     public void getOrganizacaoByEmailUtilizador(String email) {
     }
 }

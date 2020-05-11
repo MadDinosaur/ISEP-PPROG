@@ -16,21 +16,21 @@ import pt.ipp.isep.dei.esoft.autorizacao.AutorizacaoFacade;
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
 public class Plataforma {
-
-    private String m_strDesignacao;
+    /**
+     * O nome da plataforma
+     */
+    private String designacao;
     private final AutorizacaoFacade m_oAutorizacao;
-    private final Set<Organizacao> m_lstOrganizacoes;
     private final Set<AreaAtividade> m_lstAreasAtividade;
     private final Set<CompetenciaTecnica> m_lstCompetencias;
 
     //VERIFICAR SE PODEMOS ADICIONAR ESTE ATRIBUTO
     private final RegistoAnuncios listaAnuncios;
     private final RegistoOrganizacoes listaOrganizacoes;
-
+   
     public Plataforma() {
-        this.m_strDesignacao = "";
+        this.designacao = "";
         this.m_oAutorizacao = new AutorizacaoFacade();
-        this.m_lstOrganizacoes = new HashSet<>();
         this.m_lstAreasAtividade = new HashSet<>();
         this.m_lstCompetencias = new HashSet<>();
         this.listaAnuncios = new RegistoAnuncios();
@@ -43,11 +43,10 @@ public class Plataforma {
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
         }
 
-        this.m_strDesignacao = strDesignacao;
+        this.designacao = strDesignacao;
 
         this.m_oAutorizacao = new AutorizacaoFacade();
-
-        this.m_lstOrganizacoes = new HashSet<>();
+        
         this.m_lstAreasAtividade = new HashSet<>();
         this.m_lstCompetencias = new HashSet<>();
         this.listaAnuncios = new RegistoAnuncios();
@@ -55,14 +54,13 @@ public class Plataforma {
     }
 
     public Plataforma(String strDesignacao, RegistoOrganizacoes listaOrganizacoes, RegistoAnuncios listaAnuncios) {
-        this.m_strDesignacao = strDesignacao;
+        this.designacao = strDesignacao;
         this.listaAnuncios = listaAnuncios;
         this.listaOrganizacoes = listaOrganizacoes;
 
         this.m_oAutorizacao = new AutorizacaoFacade();
         this.m_lstAreasAtividade = new HashSet<>();
         this.m_lstCompetencias = new HashSet<>();
-        this.m_lstOrganizacoes = new HashSet<>();
     }
 
     public AutorizacaoFacade getAutorizacaoFacade() {
@@ -89,7 +87,7 @@ public class Plataforma {
     }
 
     private boolean addOrganizacao(Organizacao oOrganizacao) {
-        return m_lstOrganizacoes.add(oOrganizacao);
+        return listaOrganizacoes.add(oOrganizacao);
     }
 
     public boolean validaOrganizacao(Organizacao oOrganizacao, String strPwd) {
