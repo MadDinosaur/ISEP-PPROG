@@ -20,6 +20,16 @@ public class TipoRegimento {
     public TipoRegimento(String designacao, String descricaoRegras) {
     }
 
+    /**
+     * Cria uma cópia de um objeto da classe TipoRegimento
+     *
+     * @param reg o TipoRegimento a copiar
+     */
+    public TipoRegimento(TipoRegimento reg) {
+        this.designacao = reg.designacao;
+        this.descricaoRegras = reg.descricaoRegras;
+    }
+
     public TipoRegimento() {
     }
 

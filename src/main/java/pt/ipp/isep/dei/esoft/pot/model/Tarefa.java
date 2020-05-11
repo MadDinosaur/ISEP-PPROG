@@ -1,8 +1,7 @@
-
 package pt.ipp.isep.dei.esoft.pot.model;
 
-
 public class Tarefa {
+
     /**
      * A referência da tarefa
      */
@@ -27,8 +26,10 @@ public class Tarefa {
      * O custo estimado da tarefa
      */
     private Double custoEst;
+
     /**
      * Cria um objeto da classe Tarefa
+     *
      * @param referencia a referência da tarefa
      * @param designacao o nome da tarefa
      * @param descInformal a descrição informal da tarefa
@@ -45,11 +46,13 @@ public class Tarefa {
         this.duracaoEst = duracaoEst;
         this.custoEst = custoEst;
     }
+
     /**
      * Cria uma cópia de um objeto da classe Tarefa
+     *
      * @param tarefa a Tarefa a copiar
      */
-    public Tarefa (Tarefa tarefa) {
+    public Tarefa(Tarefa tarefa) {
         this.referencia = tarefa.getReferencia();
         this.designacao = tarefa.getDesignacao();
         this.descInformal = tarefa.getDescInformal();
@@ -60,6 +63,7 @@ public class Tarefa {
 
     /**
      * Retorna a referência da tarefa
+     *
      * @return a referencia
      */
     public String getReferencia() {
@@ -68,6 +72,7 @@ public class Tarefa {
 
     /**
      * Modifica a referência da tarefa
+     *
      * @param referencia
      */
     public void setReferencia(String referencia) {
@@ -76,6 +81,7 @@ public class Tarefa {
 
     /**
      * Retorna o nome da tarefa
+     *
      * @return a designacao
      */
     public String getDesignacao() {
@@ -84,6 +90,7 @@ public class Tarefa {
 
     /**
      * Modifica a designação da tarefa
+     *
      * @param designacao
      */
     public void setDesignacao(String designacao) {
@@ -92,6 +99,7 @@ public class Tarefa {
 
     /**
      * Retorna a descrição informal da tarefa
+     *
      * @return a descrição informal
      */
     public String getDescInformal() {
@@ -100,6 +108,7 @@ public class Tarefa {
 
     /**
      * Modifica a descrição informal da tarefa
+     *
      * @param descInformal
      */
     public void setDescInformal(String descInformal) {
@@ -108,6 +117,7 @@ public class Tarefa {
 
     /**
      * Retorna a descrição técnica da tarefa
+     *
      * @return a descrição técnica
      */
     public String getDescTecnica() {
@@ -116,6 +126,7 @@ public class Tarefa {
 
     /**
      * Modifica a descrição técnica da tarefa
+     *
      * @param descTecnica
      */
     public void setDescTecnica(String descTecnica) {
@@ -124,6 +135,7 @@ public class Tarefa {
 
     /**
      * Retorna a duração estimada da tarefa
+     *
      * @return a duração estimada
      */
     public Integer getDuracaoEst() {
@@ -132,6 +144,7 @@ public class Tarefa {
 
     /**
      * Modifica a duração estimada da tarefa
+     *
      * @param duracaoEst
      */
     public void setDuracaoEst(Integer duracaoEst) {
@@ -140,6 +153,7 @@ public class Tarefa {
 
     /**
      * Retorna o custo estimado
+     *
      * @return o custo
      */
     public Double getCustoEst() {
@@ -148,6 +162,7 @@ public class Tarefa {
 
     /**
      * Modifica o custo estimado
+     *
      * @param custoEst
      */
     public void setCustoEst(Double custoEst) {
