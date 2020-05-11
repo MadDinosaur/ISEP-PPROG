@@ -1,10 +1,10 @@
 package pt.ipp.isep.dei.esoft.pot.controller;
 
+import java.util.List;
 import pt.ipp.isep.dei.esoft.pot.model.Colaborador;
 import pt.ipp.isep.dei.esoft.pot.model.Inicializador;
 import pt.ipp.isep.dei.esoft.pot.model.ListaCandidaturas;
 import pt.ipp.isep.dei.esoft.pot.model.Plataforma;
-import pt.ipp.isep.dei.esoft.pot.model.RegistoAnuncios;
 
 public class SeriarAnuncioController {
 
@@ -14,8 +14,8 @@ public class SeriarAnuncioController {
         plataforma = Inicializador.iniciarPlataforma("T4J");
     }
 
-    public RegistoAnuncios getAnunciosPorSeriarNaoAutomaticos() {
-        return plataforma.getRegistoAnuncios();
+    public List<String> getAnunciosPorSeriar() {
+        return plataforma.getRegistoAnuncios().toStringArray();
     }
 
     public ListaCandidaturas getCandidaturas(Colaborador colab, int anuncioId) {

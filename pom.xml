@@ -18,4 +18,5 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <name>1DM_TP3_1181626_1191507</name>
 </project>

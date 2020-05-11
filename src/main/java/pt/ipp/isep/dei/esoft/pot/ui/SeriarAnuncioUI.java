@@ -14,12 +14,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
-import pt.ipp.isep.dei.esoft.pot.model.Anuncio;
 
 public class SeriarAnuncioUI {
 
+    private SeriarAnuncioController appController = new SeriarAnuncioController();
     @FXML
-    private ComboBox<?> cmbBoxAnuncios;
+    private ComboBox<String> cmbBoxAnuncios;
     @FXML
     private Button btnClassificar;
     @FXML
@@ -48,6 +48,17 @@ public class SeriarAnuncioUI {
     @FXML
     private void adicionarParticipante(ActionEvent event) {
     }
+    
+    @FXML
+    private void preencherAnuncios(Event event) {
+        ObservableList<String> options = FXCollections.observableArrayList();
+        options.addAll(appController.getAnunciosPorSeriar());
+        cmbBoxAnuncios.setItems(options);
+    }
+    
+    public SeriarAnuncioController getAppController() {
+        return appController;
+    }
 
     private Alert criarAleta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
         Alert alerta = new Alert(tipoAlerta);
@@ -58,10 +69,5 @@ public class SeriarAnuncioUI {
         alerta.showAndWait();
 
         return alerta;
-    }
-
-    @FXML
-    private void preencherAnuncios(Event event) {
-        //TODO
     }
 }
