@@ -1,0 +1,2 @@
+ref1; designacao1; descrição informal 1; descrição técnica 1; 10; 20
+ref2; designacao2; descrição informal 2; descrição técnica 2; 20; 40
