@@ -7,14 +7,13 @@ package pt.ipp.isep.dei.esoft.pot.ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
 
 /**
@@ -22,24 +21,34 @@ import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
  *
  * @author bdian
  */
-public class ClassificarCandidaturasUI implements Initializable {
+public class AdicionarParticipanteUI implements Initializable {
 
     private SeriarAnuncioController appController;
     private SeriarAnuncioUI seriarAnuncioUI;
     @FXML
-    private Button btnVoltar;
+    private TextField txtEmail;
     @FXML
-    private ComboBox<?> cmbBoxSeriacao;
+    private Button btnCancelar;
     @FXML
-    private ListView<String> lstViewCandidaturas;
-    @FXML
-    private Button btnValidar;
+    private Button btnConfirmar;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+
+    @FXML
+    private void cancelar(ActionEvent event) {
+        ((Stage) btnCancelar.getScene().getWindow()).close();
+    }
+
+    @FXML
+    private void confirmar(ActionEvent event) {
+        appController.addParticipante(txtEmail.getText());
+        //FALTA VALIDAÇÃO
     }
 
     public void associarParentUI(SeriarAnuncioUI seriarAnuncioUI) {
@@ -47,13 +56,14 @@ public class ClassificarCandidaturasUI implements Initializable {
         this.appController = seriarAnuncioUI.getAppController();
     }
 
-    @FXML
-    private void preencherCmbBoxSeriacao(Event event) {
-    }
-    
-    public void preencherLista(int anuncioID) {
-        ObservableList<String> items = FXCollections.observableArrayList();
-        items.addAll(appController.getCandidaturas(anuncioID));
-        lstViewCandidaturas.setItems(items);
+    private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
+        Alert alerta = new Alert(tipoAlerta);
+
+        alerta.setTitle("Aplicação");
+        alerta.setHeaderText(cabecalho);
+        alerta.setContentText(mensagem);
+        alerta.showAndWait();
+
+        return alerta;
     }
 }

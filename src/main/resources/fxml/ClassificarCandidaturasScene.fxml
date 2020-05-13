@@ -10,7 +10,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.esoft.pot.ui.ClassificarCandidaturasUI">
    <children>
-      <TextArea fx:id="txtCandidaturas" editable="false" prefHeight="309.0" prefWidth="600.0" />
+      <ListView fx:id="lstViewCandidaturas" prefHeight="299.0" prefWidth="556.0" />
       <FlowPane alignment="CENTER_RIGHT" hgap="20.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Label text="Escolha a o tipo de seriação pretendida:" />
@@ -22,8 +22,8 @@
       </FlowPane>
       <FlowPane alignment="CENTER" hgap="100.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnVoltar" mnemonicParsing="false" text="&lt; Voltar" />
-            <Button fx:id="btnProximo" mnemonicParsing="false" text="Próximo &gt;" />
+            <Button fx:id="btnVoltar" mnemonicParsing="false" text="Voltar" />
+            <Button fx:id="btnValidar" mnemonicParsing="false" text="Validar" />
          </children>
       </FlowPane>
    </children>

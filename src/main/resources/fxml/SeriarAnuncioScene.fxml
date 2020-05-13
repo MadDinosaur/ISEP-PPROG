@@ -12,11 +12,11 @@
       <FlowPane alignment="CENTER" hgap="20.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Label text="Selecione o anúncio:" />
-            <ComboBox fx:id="cmbBoxAnuncios" onShown="#preencherAnuncios" prefHeight="25.0" prefWidth="241.0" />
+            <ComboBox fx:id="cmbBoxAnuncios" onShown="#preencherAnuncios" prefHeight="25.0" prefWidth="290.0" />
          </children></FlowPane>
       <FlowPane alignment="CENTER" hgap="50.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnClassificar" mnemonicParsing="false" onAction="#classificar" text="Classificar Candidaturas" />
+            <Button fx:id="btnClassificar" mnemonicParsing="false" onAction="#classificar" text="Seriar Candidaturas" />
             <Button fx:id="btnAdicionarParticipante" mnemonicParsing="false" onAction="#adicionarParticipante" text="Adicionar Participante" />
          </children></FlowPane>
    </children>

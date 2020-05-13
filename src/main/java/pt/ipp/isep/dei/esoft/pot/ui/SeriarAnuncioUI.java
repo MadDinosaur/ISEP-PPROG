@@ -38,7 +38,8 @@ public class SeriarAnuncioUI {
 
             ClassificarCandidaturasUI classificarUI = loader.getController();
             classificarUI.associarParentUI(this);
-
+            classificarUI.preencherLista(appController.getIdFromString(cmbBoxAnuncios.getValue()));
+            
             classificarStage.show();
         } catch (IOException ex) {
             criarAlerta(Alert.AlertType.ERROR, "Erro", ex.getMessage());
@@ -47,6 +48,22 @@ public class SeriarAnuncioUI {
 
     @FXML
     private void adicionarParticipante(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AdicionarParticipanteScene.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage addParticipanteStage = new Stage();
+            addParticipanteStage.setScene(scene);
+
+            AdicionarParticipanteUI addParticipanteUI = loader.getController();
+            addParticipanteUI.associarParentUI(this);
+            
+            addParticipanteStage.show();
+        } catch (IOException ex) {
+            criarAlerta(Alert.AlertType.ERROR, "Erro", ex.getMessage());
+        }
     }
     
     @FXML

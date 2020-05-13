@@ -244,5 +244,7 @@ public class Anuncio {
 
     private void setProcessoSeriacao(ProcessoSeriacao ps) {
     }
-
+    public String toString() {
+        return String.format("ID: %d, Data de publicação: %s", id, dtInicioPublicitacao);
+    }
 }

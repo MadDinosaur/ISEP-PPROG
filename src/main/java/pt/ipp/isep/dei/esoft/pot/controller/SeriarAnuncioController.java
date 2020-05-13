@@ -3,7 +3,6 @@ package pt.ipp.isep.dei.esoft.pot.controller;
 import java.util.List;
 import pt.ipp.isep.dei.esoft.pot.model.Colaborador;
 import pt.ipp.isep.dei.esoft.pot.model.Inicializador;
-import pt.ipp.isep.dei.esoft.pot.model.ListaCandidaturas;
 import pt.ipp.isep.dei.esoft.pot.model.Plataforma;
 
 public class SeriarAnuncioController {
@@ -19,8 +18,13 @@ public class SeriarAnuncioController {
         return plataforma.getRegistoAnuncios().getAnunciosPublicadosPor(user).toStringArray();
     }
 
-    public ListaCandidaturas getCandidaturas(Colaborador colab, int anuncioId) {
-        return plataforma.getRegistoAnuncios().getAnuncioPublicadoPor(colab, anuncioId).getListaCandidaturas();
+    public List<String> getCandidaturas(int anuncioId) {
+        return plataforma.getRegistoAnuncios().getAnuncioPublicadoPor(user, anuncioId).getListaCandidaturas().toStringArray();
+    }
+    
+    public int getIdFromString(String anuncio) {
+        String finder = "ID: ";
+        return Character.getNumericValue(anuncio.charAt(anuncio.indexOf(finder)+ finder.length()));
     }
 
     public void classifica(int candId, int ordem) {

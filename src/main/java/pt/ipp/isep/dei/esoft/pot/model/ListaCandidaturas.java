@@ -16,6 +16,7 @@ public class ListaCandidaturas {
     public ListaCandidaturas() {
         this.listaCandidaturas = new ArrayList<>();
     }
+
     public ListaCandidaturas(ListaCandidaturas listaCandidaturas) {
         this.listaCandidaturas = listaCandidaturas.getCandidaturas();
     }
@@ -31,5 +32,13 @@ public class ListaCandidaturas {
 
     public void getCandidatura(int candID) {
 
+    }
+
+    public List<String> toStringArray() {
+        ArrayList<String> strCandidaturas = new ArrayList<>();
+        for (Candidatura cand : listaCandidaturas) {
+            strCandidaturas.add(cand.toString());
+        }
+        return strCandidaturas;
     }
 }
