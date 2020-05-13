@@ -25,14 +25,30 @@ public class RegistoOrganizacoes {
     public RegistoOrganizacoes(List<Organizacao> listaOrganizacoes) {
         this.listaOrganizacoes = listaOrganizacoes;
     }
+
     /**
      * Adiciona uma Organizacao ao RegistoOrganizacoes
+     *
      * @param org a Organizacao a adicionar
      * @return true se bem sucedido, false caso contrário
      */
-    public boolean add(Organizacao org){
+    public boolean adicionarOrganizacao(Organizacao org) {
         return listaOrganizacoes.add(org);
     }
-    public void getOrganizacaoByEmailUtilizador(String email) {
+    /**
+     * Retorna a Organizacao do utilizador, procurando a equivalência entre as extensões do endereço (o que sucede o "@")
+     * Ex.: E-mail do utilizador: aaa@isep.pt
+     *      E-mail da Organização: info@isep.pt
+     *      Retorna a Organização ISEP
+     * @param email o endereço de e-mail do utilizador
+     * @return a Organizacao a que pertence o utilizador ou null se não existir correspondência
+     */
+    public Organizacao getOrganizacaoByEmailUtilizador(String email) {
+        for (Organizacao org : listaOrganizacoes) {
+            if (org.getEmailExtensao().equals(email.split("@")[email.split("@").length - 1])) {
+                return org;
+            }
+        }
+        return null;
     }
 }

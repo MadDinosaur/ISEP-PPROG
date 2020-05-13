@@ -70,7 +70,9 @@ public class Plataforma {
     // Organizações
     // <editor-fold defaultstate="collapsed">
     public Organizacao novaOrganizacao(String strNome, String strNIF, String strWebsite, String strTelefone, String strEmail, EnderecoPostal oMorada, Colaborador oGestor) {
-        return new Organizacao(strNome, strNIF, strWebsite, strTelefone, strEmail, oMorada, oGestor);
+        Organizacao novaOrg = new Organizacao(strNome, strNIF, strWebsite, strTelefone, strEmail, oMorada, oGestor);
+        this.listaOrganizacoes.adicionarOrganizacao(novaOrg);
+        return novaOrg;
     }
 
     public boolean registaOrganizacao(Organizacao oOrganizacao, String strPwd) {
@@ -87,7 +89,7 @@ public class Plataforma {
     }
 
     private boolean addOrganizacao(Organizacao oOrganizacao) {
-        return listaOrganizacoes.add(oOrganizacao);
+        return listaOrganizacoes.adicionarOrganizacao(oOrganizacao);
     }
 
     public boolean validaOrganizacao(Organizacao oOrganizacao, String strPwd) {

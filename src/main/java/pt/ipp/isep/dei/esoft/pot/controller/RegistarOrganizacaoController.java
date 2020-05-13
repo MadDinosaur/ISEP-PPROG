@@ -37,9 +37,9 @@ public class RegistarOrganizacaoController
         try
         {
             this.m_strPwd = strPwd;
-            EnderecoPostal oMorada = Organizacao.novoEnderecoPostal(strLocal, strCodPostal, strLocalidade);
-            Colaborador oColab = Organizacao.novoColaborador(strNomeGestor, strFuncaoGestor, strTelefoneGestor, strEmailGestor);      
-            this.m_oOrganizacao = this.m_oPlataforma.novaOrganizacao(strNome, strNIF, strWebsite,strTelefone, strEmail, oMorada, oColab);
+            EnderecoPostal oMorada = Organizacao.novoEnderecoPostal(strLocal, strCodPostal, strLocalidade);      
+            this.m_oOrganizacao = this.m_oPlataforma.novaOrganizacao(strNome, strNIF, strWebsite,strTelefone, strEmail, oMorada, 
+                    new Colaborador(strNomeGestor, strFuncaoGestor, strTelefoneGestor, strEmailGestor));
             return this.m_oPlataforma.validaOrganizacao(this.m_oOrganizacao, this.m_strPwd);
         }
         catch(RuntimeException ex)
