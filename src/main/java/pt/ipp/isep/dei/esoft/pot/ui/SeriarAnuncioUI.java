@@ -41,7 +41,7 @@ public class SeriarAnuncioUI {
 
             classificarStage.show();
         } catch (IOException ex) {
-            criarAleta(Alert.AlertType.ERROR, "Erro", ex.getMessage());
+            criarAlerta(Alert.AlertType.ERROR, "Erro", ex.getMessage());
         }
     }
 
@@ -60,7 +60,7 @@ public class SeriarAnuncioUI {
         return appController;
     }
 
-    private Alert criarAleta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
+    private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
         Alert alerta = new Alert(tipoAlerta);
 
         alerta.setTitle("Aplicação");

@@ -56,32 +56,19 @@ public class Inicializador {
 //MÉTODOS TEMPORÁRIOS
 
     public static Plataforma iniciarPlataforma(String designacao) {
-        Plataforma novaPlataforma = new Plataforma();
+        Plataforma novaPlataforma = new Plataforma(designacao, new RegistoOrganizacoes(iniciarOrganizacoes()), new RegistoAnuncios(iniciarAnuncios()));
         return novaPlataforma;
     }
 ////////////////////
 
-    /**
-     * Cria um objeto da classe Plataforma a partir da informação em ficheiro
-     */
-    public static Plataforma iniciarPlataforma() {
-        Plataforma novaPlataforma = new Plataforma();
-
-        try {
-            novaPlataforma = new Plataforma(plataforma, new RegistoOrganizacoes(iniciarOrganizacoes()), new RegistoAnuncios(iniciarAnuncios()));
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Ficheiro " + e + "mal formulado!");
-        }
-        return novaPlataforma;
-    }
 
     private static List<Organizacao> iniciarOrganizacoes() {
         List<Organizacao> listOrganizacoes = new ArrayList<>();
         ArrayList<String> info = lerFicheiro(organizacoes);
         for (String linha : info) {
             String[] params = linha.split(";");
-            for (String s : params) {
-                s = s.trim();
+            for (int i = 0; i < params.length; i++) {
+                params[i] = params[i].trim();
             }
             try {
                 listOrganizacoes.add(new Organizacao(params[0], params[1], params[2],
@@ -89,7 +76,7 @@ public class Inicializador {
                                 params[6], params[7]), new Colaborador(params[8], params[9],
                                 params[10], params[11])));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + e + "mal formulado!");
+                System.out.println("Ficheiro " + organizacoes + "mal formulado!");
             }
         }
         return listOrganizacoes;
@@ -100,14 +87,14 @@ public class Inicializador {
         ArrayList<String> info = lerFicheiro(anuncios);
         for (String linha : info) {
             String[] params = linha.split(";");
-            for (String s : params) {
-                s = s.trim();
+            for (int i = 0; i < params.length; i++) {
+                params[i] = params[i].trim();
             }
             try {
                 listAnuncios.add(new Anuncio(new Date(params[0]), new Date(params[1]), new Date(params[2]),
-                        new Date(params[3]), new Date(params[4]), new Date(params[5])));
+                        new Date(params[3]), new Date(params[4]), new Date(params[5]), params[6], params[7], params[8], params[9]));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + e + "mal formulado!");
+                System.out.println("Ficheiro " + anuncios + "mal formulado!");
             }
         }
         return listAnuncios;

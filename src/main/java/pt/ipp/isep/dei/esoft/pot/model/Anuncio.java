@@ -47,6 +47,10 @@ public class Anuncio {
      * O ProcessoSeriacao criado pelo anúncio
      */
     private ProcessoSeriacao ps;
+    /**
+     * O nº de idenficação do Anuncio
+     */
+    private int id;
 
     /**
      * Cria um objeto da classe Anuncio
@@ -62,7 +66,7 @@ public class Anuncio {
      */
     //SE ESTE CONSTRUTOR FOR ALTERADO: ALTERAR EM INICIALIZADOR.JAVA
     public Anuncio(Date dtInicioPublicitacao, Date dtFimPublicitacao, Date dtInicioCandidatura,
-            Date dtFimCandidatura, Date dtInicioSeriacao, Date dtFimSeriacao) {
+            Date dtFimCandidatura, Date dtInicioSeriacao, Date dtFimSeriacao, String strNome, String strFuncao, String strTelefone, String strEmail) {
         this.dtInicioPublicitacao = dtInicioPublicitacao;
         this.dtFimPublicitacao = dtFimPublicitacao;
         this.dtInicioCandidatura = dtInicioCandidatura;
@@ -72,6 +76,16 @@ public class Anuncio {
 
         this.listaCandidaturas = new ListaCandidaturas();
         this.tipoRegimento = new TipoRegimento();
+
+        this.colab = new Colaborador(strNome, strFuncao, strTelefone, strEmail);
+    }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    public int getID() {
+        return this.id;
     }
 
     /**

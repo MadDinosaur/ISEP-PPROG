@@ -48,7 +48,7 @@ public class Organizacao {
     /**
      * A lista de todas as Tarefas da organização
      */
-    private ListaTarefas listaTarefas = new ListaTarefas();
+   //private ListaTarefas listaTarefas = new ListaTarefas();
 
     public Organizacao(String strNome, String strNIF, String strWebsite, String strTelefone,
             String strEmail, EnderecoPostal oMorada, Colaborador oColaborador) {
