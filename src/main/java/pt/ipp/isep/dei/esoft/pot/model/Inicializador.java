@@ -12,8 +12,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Inicializador {
+
     private static String plataforma = "T4J";
     private static String organizacoes = "organizacoes.txt";
     private static String anuncios = "anuncios.txt";
@@ -61,7 +61,6 @@ public class Inicializador {
     }
 ////////////////////
 
-
     private static List<Organizacao> iniciarOrganizacoes() {
         List<Organizacao> listOrganizacoes = new ArrayList<>();
         ArrayList<String> info = lerFicheiro(organizacoes);
@@ -76,7 +75,7 @@ public class Inicializador {
                                 params[6], params[7]), new Colaborador(params[8], params[9],
                                 params[10], params[11])));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + organizacoes + "mal formulado!");
+                System.out.println("Ficheiro " + organizacoes + " mal formulado!");
             }
         }
         return listOrganizacoes;
@@ -94,7 +93,7 @@ public class Inicializador {
                 listAnuncios.add(new Anuncio(new Date(params[0]), new Date(params[1]), new Date(params[2]),
                         new Date(params[3]), new Date(params[4]), new Date(params[5]), params[6], params[7], params[8], params[9]));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + anuncios + "mal formulado!");
+                System.out.println("Ficheiro " + anuncios + " mal formulado!");
             }
         }
         return listAnuncios;
@@ -105,14 +104,14 @@ public class Inicializador {
         ArrayList<String> info = lerFicheiro(tarefas);
         for (String linha : info) {
             String[] params = linha.split(";");
-            for (String s : params) {
-                s = s.trim();
+            for (int i = 0; i < params.length; i++) {
+                params[i] = params[i].trim();
             }
             try {
                 listTarefas.add(new Tarefa(params[0], params[1], params[2], params[3],
                         Integer.parseInt(params[4]), Double.parseDouble(params[5])));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + e + "mal formulado!");
+                System.out.println("Ficheiro " + tarefas + " mal formulado!");
             } catch (IllegalArgumentException e) {
                 System.out.println("Valores em ficheiro inválidos!");
             }
@@ -125,13 +124,13 @@ public class Inicializador {
         ArrayList<String> info = lerFicheiro(colaboradores);
         for (String linha : info) {
             String[] params = linha.split(";");
-            for (String s : params) {
-                s = s.trim();
+            for (int i = 0; i < params.length; i++) {
+                params[i] = params[i].trim();
             }
             try {
                 listColaboradores.add(new Colaborador(params[0], params[1], params[2], params[3]));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + e + "mal formulado!");
+                System.out.println("Ficheiro " + colaboradores + " mal formulado!");
             }
         }
         return listColaboradores;
@@ -142,16 +141,15 @@ public class Inicializador {
         ArrayList<String> info = lerFicheiro(candidaturas);
         for (String linha : info) {
             String[] params = linha.split(";");
-            for (String s : params) {
-                s = s.trim();
+            for (int i = 0; i < params.length; i++) {
+                params[i] = params[i].trim();
             }
             try {
                 listCandidaturas.add(new Candidatura(new Date(params[0]), Double.parseDouble(params[1]),
                         Integer.parseInt(params[2]), params[3], params[4], new Freelancer(params[5], params[6], params[7], params[8]),
-                        new Tarefa(params[9], params[10], params[11], params[12],
-                                Integer.parseInt(params[13]), Double.parseDouble(params[14]))));
+                        Integer.parseInt(params[9])));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + e + "mal formulado!");
+                System.out.println("Ficheiro " + candidaturas + " mal formulado!");
             }
         }
         return listCandidaturas;
@@ -162,13 +160,13 @@ public class Inicializador {
         ArrayList<String> info = lerFicheiro(freelancers);
         for (String linha : info) {
             String[] params = linha.split(";");
-            for (String s : params) {
-                s = s.trim();
+            for (int i = 0; i < params.length; i++) {
+                params[i] = params[i].trim();
             }
             try {
                 listFreelancers.add(new Freelancer(params[0], params[1], params[2], params[3]));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Ficheiro " + e + "mal formulado!");
+                System.out.println("Ficheiro " + freelancers + " mal formulado!");
             }
         }
         return listFreelancers;

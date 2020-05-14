@@ -79,6 +79,13 @@ public class Anuncio {
 
         this.colab = new Colaborador(strNome, strFuncao, strTelefone, strEmail);
     }
+    /**
+     * Cria uma cópia de um objeto da classe Anuncio
+     * @param anun o Anuncio a copiar
+     */
+    public Anuncio(Anuncio anun) {
+        //COMPLETAR
+    }
 
     public void setID(int id) {
         this.id = id;

@@ -29,9 +29,9 @@ public class Candidatura {
      */
     private Freelancer freelancer;
     /**
-     * A Tarefa para a qual a Candidatura se destina
+     * O Anuncio para a qual a Candidatura se destina
      */
-    private Tarefa tarefa;
+    private Anuncio anuncio;
 
     /**
      * Cria um objeto da classe Candidatura.
@@ -43,10 +43,10 @@ public class Candidatura {
      * @param txtApresentacao o texto de apresentação do candidato
      * @param txtMotivacao o texto de motivação do candidato
      * @param freelancer o Freelancer que efetua a candidatura
-     * @param tarefa a Tarefa para a qual se candidata
+     * @param anuncio o Anuncio para a qual a Candidatura se destina
      */
-    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias, String txtApresentacao, String txtMotivacao, Freelancer freelancer, Tarefa tarefa) {
-        if (dataCandidatura == null || txtApresentacao == null || txtMotivacao == null || freelancer == null || tarefa == null)
+    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias, String txtApresentacao, String txtMotivacao, Freelancer freelancer, int anuncioID) {
+        if (dataCandidatura == null || txtApresentacao == null || txtMotivacao == null || freelancer == null)
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
         
         this.dataCandidatura = dataCandidatura;
@@ -55,16 +55,16 @@ public class Candidatura {
         this.txtApresentacao = txtApresentacao;
         this.txtMotivacao = txtMotivacao;
         this.freelancer = new Freelancer(freelancer);
-        this.tarefa = new Tarefa(tarefa);
+        this.anuncio = new Anuncio(RegistoAnuncios.getAnuncioPorID(anuncioID));
     }
 
     /**
-     * Retorna a Tarefa para a qual se destina a candidatura
+     * Retorna o Anuncio para a qual se destina a candidatura
      *
-     * @return a Tarefa
+     * @return o Anuncio
      */
-    public Tarefa getTarefa() {
-        return new Tarefa(tarefa);
+    public Anuncio getAnuncio() {
+        return new Anuncio(anuncio);
     }
 
     /**

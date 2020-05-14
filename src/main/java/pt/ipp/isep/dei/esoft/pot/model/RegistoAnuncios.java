@@ -1,7 +1,6 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class RegistoAnuncios {
@@ -9,7 +8,7 @@ public class RegistoAnuncios {
     /**
      * A lista de anúncios registados na plataforma
      */
-    private List<Anuncio> listaAnuncios;
+    private static List<Anuncio> listaAnuncios;
     /**
      * O nº de idenficação do Anuncio, atribuído sequencialmente
      */
@@ -84,5 +83,13 @@ public class RegistoAnuncios {
             stringList.add(a.toString());
         }
         return stringList;
+    }
+    
+    public static Anuncio getAnuncioPorID(int ID) {
+        for(Anuncio a: listaAnuncios) {
+            if (a.getID() == ID)
+                return a;
+        }
+        return null;
     }
 }
