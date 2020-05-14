@@ -5,8 +5,15 @@
  */
 package pt.ipp.isep.dei.esoft.pot.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Scanner;
+
+
 
 
 
@@ -16,8 +23,13 @@ import java.util.Date;
  */
 public class Seriacao {
     
-    int seriacao;
-   /* 
+    private ArrayList<Comparator> lista = new ArrayList<>(); 
+    
+    public Seriacao(ArrayList<Comparator> lista){
+        this.lista = lista;
+    }
+
+    
     //SERIACAO 1
     
     Comparator<Candidatura> maiorMediaProficiencia = new Comparator<Candidatura>() {  //falta criar classe Freelancer
@@ -90,7 +102,7 @@ public class Seriacao {
             }
     };
     
-    public void tipoSeriacao(){
+    /*public void tipoSeriacao(){
         switch(seriacao){
             
             case 1:
@@ -100,13 +112,52 @@ public class Seriacao {
             case 2:
                 //criterio 1 / 4 / 2 / 3
                 ;
+                
+            case 3:
+                System.out.println("Qual o ficheiro da seriação? ");
+                String nomeFicheiro = ler.nextLine();
+    
+                                  //(ver SeriarAnuncioController)
+                //interface -> classe Controller 
             
             default:
-                // criar criterio novo / comparators novos
-
+                System.out.println("Opção indisponível!");
                 ;
                 
         }
+    }*/
+    
+    public ArrayList<Comparator> getSeriacao1(){
+        ArrayList<Comparator> seriacao1 = new ArrayList();
+        seriacao1.add(maiorMediaProficiencia);
+        seriacao1.add(precoMaisBaixo);
+        seriacao1.add(propostaMaisRecente);
+        return seriacao1;
     }
- */   
+    
+    public ArrayList<Comparator> getSeriacao2(){
+        ArrayList<Comparator> seriacao2 = new ArrayList();
+        seriacao2.add(maiorMediaProficiencia);
+        seriacao2.add(menorDesvioProficiencia);
+        seriacao2.add(precoMaisBaixo);
+        seriacao2.add(propostaMaisRecente);
+        return seriacao2;
+    }
+    
+    
+    /*public void lerTipoSeriacao(String nomeFicheiro) throws FileNotFoundException{
+        Scanner fInput = new Scanner(new File(nomeFicheiro));
+        String[] seriacao = new String[100];
+        int i = 0;
+        while (fInput.hasNextLine()) {
+            String linha = fInput.nextLine();
+            // Verifica se linha não está em branco
+            if ((linha.trim()).length() > 0) {
+                seriacao[i] = linha;
+                i++;
+            }
+        }
+        fInput.close();
+    }*/
+ 
 }

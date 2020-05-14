@@ -41,4 +41,9 @@ public class ListaCandidaturas {
         }
         return strCandidaturas;
     }
+    
+    public int getSize(){
+        return listaCandidaturas.size();
+    }
 }
+
