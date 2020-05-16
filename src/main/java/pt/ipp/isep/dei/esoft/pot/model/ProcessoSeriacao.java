@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 public class ProcessoSeriacao {
 
@@ -69,18 +70,9 @@ public class ProcessoSeriacao {
     public void valida() {
     }
     
-    public ArrayList<Candidatura> ordenar(){
-        ListaCandidaturas lista = anuncio.getListaCandidaturas();
-        ArrayList<Comparator> comparador = seriacao.getSeriacao1();
-        /*for(int i = 0; i < lista.getSize(); i++){
-            for(int j = 1; j < lista.getSize(); j++){
-                Comparator<Candidatura> t = comparador.get(i);
-                if(t(lista.getCandidatura(i), lista.getCandidatura(j)) == 0)){
-                    
-                }
-            }
-        }*/
-        Collections.sort(comparador, lista);
-        
+    public void ordenar(Seriacao seriacao){
+        List<Candidatura> lista = anuncio.getListaCandidaturas().getCandidaturas();
+        Comparator comparador = seriacao.getComparador();
+        lista.sort(comparador);
     }
 }

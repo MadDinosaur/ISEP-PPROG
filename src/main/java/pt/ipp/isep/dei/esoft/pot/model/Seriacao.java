@@ -23,11 +23,49 @@ import java.util.Scanner;
  */
 public class Seriacao {
     
-    private ArrayList<Comparator> lista = new ArrayList<>(); 
+    private Comparator comparador; 
     
-    public Seriacao(ArrayList<Comparator> lista){
-        this.lista = lista;
+    public Seriacao(Comparator comparador, int a){
+        this.comparador = comparador;
+        if(a == 1){
+            comparador = seriacao1;
+        }else{
+            if(a == 2){
+                comparador = seriacao2;
+            }
+        }
     }
+    
+    Comparator<Candidatura> seriacao1 = new Comparator<Candidatura>(){
+        public int compare(Candidatura c1, Candidatura c2){
+            if(maiorMediaProficiencia.compare(c1, c2) == 0){
+                if(precoMaisBaixo.compare(c1, c2) == 0){
+                    return propostaMaisRecente.compare(c1, c2);
+                } else {
+                    return precoMaisBaixo.compare(c1, c2);
+                }
+            } else {
+                return maiorMediaProficiencia.compare(c1, c2);
+            }
+        }
+    };
+    
+    //criterio 1 / 4 / 2 / 3
+            
+    Comparator<Candidatura> seriacao2 = new Comparator<Candidatura>(){ // FALTA ACABAR
+        public int compare(Candidatura c1, Candidatura c2){
+            if(maiorMediaProficiencia.compare(c1, c2) == 0){
+                if(menorDesvioProficiencia.compare(c1, c2) == 0){
+                    
+                }
+            }
+        }
+    }
+            
+    public Comparator getComparador(){
+        return comparador;
+    }
+    
 
     
     //SERIACAO 1
@@ -126,23 +164,7 @@ public class Seriacao {
                 
         }
     }*/
-    
-    public ArrayList<Comparator> getSeriacao1(){
-        ArrayList<Comparator> seriacao1 = new ArrayList();
-        seriacao1.add(maiorMediaProficiencia);
-        seriacao1.add(precoMaisBaixo);
-        seriacao1.add(propostaMaisRecente);
-        return seriacao1;
-    }
-    
-    public ArrayList<Comparator> getSeriacao2(){
-        ArrayList<Comparator> seriacao2 = new ArrayList();
-        seriacao2.add(maiorMediaProficiencia);
-        seriacao2.add(menorDesvioProficiencia);
-        seriacao2.add(precoMaisBaixo);
-        seriacao2.add(propostaMaisRecente);
-        return seriacao2;
-    }
+
     
     
     /*public void lerTipoSeriacao(String nomeFicheiro) throws FileNotFoundException{

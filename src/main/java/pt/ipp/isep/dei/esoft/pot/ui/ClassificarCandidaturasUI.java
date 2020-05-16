@@ -64,4 +64,9 @@ public class ClassificarCandidaturasUI implements Initializable {
         ((Stage) btnVoltar.getScene().getWindow()).close();
     }
 
+    @FXML
+    private void validar(ActionEvent event) {
+        //fazer copy paste da coisa
+    }
+
 }

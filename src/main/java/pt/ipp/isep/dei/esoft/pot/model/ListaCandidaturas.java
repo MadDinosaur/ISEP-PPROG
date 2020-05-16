@@ -27,11 +27,15 @@ public class ListaCandidaturas {
      * @return a lista de Candidaturas
      */
     public List<Candidatura> getCandidaturas() {
-        return new ArrayList<>(listaCandidaturas);
+        return listaCandidaturas;
     }
 
     public void getCandidatura(int candID) {
         
+    }
+    
+    public Candidatura get(int i){
+        return listaCandidaturas.get(i);
     }
 
     public List<String> toStringArray() {
