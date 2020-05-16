@@ -1,5 +1,7 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Candidatura {
@@ -45,7 +47,7 @@ public class Candidatura {
      * @param freelancer o Freelancer que efetua a candidatura
      * @param anuncio o Anuncio para a qual a Candidatura se destina
      */
-    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias, String txtApresentacao, String txtMotivacao, Freelancer freelancer, int anuncioID) {
+    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias, String txtApresentacao, String txtMotivacao, Freelancer freelancer, Anuncio anuncio) {
         if (dataCandidatura == null || txtApresentacao == null || txtMotivacao == null || freelancer == null)
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
         
@@ -55,7 +57,7 @@ public class Candidatura {
         this.txtApresentacao = txtApresentacao;
         this.txtMotivacao = txtMotivacao;
         this.freelancer = new Freelancer(freelancer);
-        this.anuncio = new Anuncio(RegistoAnuncios.getAnuncioPorID(anuncioID));
+        this.anuncio = new Anuncio(anuncio);
     }
 
     /**
@@ -165,5 +167,8 @@ public class Candidatura {
     public void setTxtMotivacao(String txtMotivacao) {
         this.txtMotivacao = txtMotivacao;
     }
-
+    @Override
+    public String toString() {
+        return String.format("Data: %s, Valor: %.2f€, Dias: %d, Nome: %s", dataCandidatura, valorPretendido, nrDias, freelancer.getNome());
+    }
 }

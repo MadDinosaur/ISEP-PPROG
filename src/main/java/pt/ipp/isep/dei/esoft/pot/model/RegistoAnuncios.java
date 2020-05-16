@@ -8,7 +8,7 @@ public class RegistoAnuncios {
     /**
      * A lista de anúncios registados na plataforma
      */
-    private static List<Anuncio> listaAnuncios;
+    private List<Anuncio> listaAnuncios;
     /**
      * O nº de idenficação do Anuncio, atribuído sequencialmente
      */
@@ -85,9 +85,17 @@ public class RegistoAnuncios {
         return stringList;
     }
     
-    public static Anuncio getAnuncioPorID(int ID) {
+    public Anuncio getAnuncioPorID(int ID) {
         for(Anuncio a: listaAnuncios) {
             if (a.getID() == ID)
+                return a;
+        }
+        return null;
+    }
+    
+    public Anuncio getAnuncio (Anuncio anuncio) {
+        for (Anuncio a : listaAnuncios) {
+            if (a.equals(anuncio))
                 return a;
         }
         return null;

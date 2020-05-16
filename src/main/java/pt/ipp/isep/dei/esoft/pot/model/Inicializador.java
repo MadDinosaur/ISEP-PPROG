@@ -53,13 +53,22 @@ public class Inicializador {
 
         return conteudo;
     }
-//MÉTODOS TEMPORÁRIOS
 
     public static Plataforma iniciarPlataforma(String designacao) {
-        Plataforma novaPlataforma = new Plataforma(designacao, new RegistoOrganizacoes(iniciarOrganizacoes()), new RegistoAnuncios(iniciarAnuncios()));
+        RegistoOrganizacoes regOrg = new RegistoOrganizacoes(iniciarOrganizacoes());
+        RegistoAnuncios regAnun = new RegistoAnuncios(iniciarAnuncios());
+
+        Plataforma novaPlataforma = new Plataforma(designacao, regOrg, regAnun);
+
+        try {
+            for (Candidatura cand : iniciarCandidaturas()) {
+                regAnun.getAnuncio(cand.getAnuncio()).adicionarCandidatura(cand);
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
         return novaPlataforma;
     }
-////////////////////
 
     private static List<Organizacao> iniciarOrganizacoes() {
         List<Organizacao> listOrganizacoes = new ArrayList<>();
@@ -136,7 +145,7 @@ public class Inicializador {
         return listColaboradores;
     }
 
-    private List<Candidatura> iniciarCandidaturas() {
+    private static List<Candidatura> iniciarCandidaturas() {
         ArrayList<Candidatura> listCandidaturas = new ArrayList<>();
         ArrayList<String> info = lerFicheiro(candidaturas);
         for (String linha : info) {
@@ -147,10 +156,14 @@ public class Inicializador {
             try {
                 listCandidaturas.add(new Candidatura(new Date(params[0]), Double.parseDouble(params[1]),
                         Integer.parseInt(params[2]), params[3], params[4], new Freelancer(params[5], params[6], params[7], params[8]),
-                        Integer.parseInt(params[9])));
+                        new Anuncio(new Date(params[9]), new Date(params[10]), new Date(params[11]),
+                                new Date(params[12]), new Date(params[13]), new Date(params[14]), params[15], params[16], params[17], params[18])));
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Ficheiro " + candidaturas + " mal formulado!");
             }
+        }
+        for (Candidatura cand : listCandidaturas) {
+
         }
         return listCandidaturas;
     }

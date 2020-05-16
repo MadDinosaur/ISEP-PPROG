@@ -9,12 +9,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
 
 /**
@@ -50,10 +52,16 @@ public class ClassificarCandidaturasUI implements Initializable {
     @FXML
     private void preencherCmbBoxSeriacao(Event event) {
     }
-    
+
     public void preencherLista(int anuncioID) {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(appController.getCandidaturas(anuncioID));
         lstViewCandidaturas.setItems(items);
     }
+
+    @FXML
+    private void voltar(ActionEvent event) {
+        ((Stage) btnVoltar.getScene().getWindow()).close();
+    }
+
 }

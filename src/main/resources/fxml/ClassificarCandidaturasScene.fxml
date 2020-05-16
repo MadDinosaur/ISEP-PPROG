@@ -22,7 +22,7 @@
       </FlowPane>
       <FlowPane alignment="CENTER" hgap="100.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnVoltar" mnemonicParsing="false" text="Voltar" />
+            <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
             <Button fx:id="btnValidar" mnemonicParsing="false" text="Validar" />
          </children>
       </FlowPane>

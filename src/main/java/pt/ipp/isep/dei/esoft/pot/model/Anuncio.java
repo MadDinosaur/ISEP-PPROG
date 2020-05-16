@@ -79,12 +79,24 @@ public class Anuncio {
 
         this.colab = new Colaborador(strNome, strFuncao, strTelefone, strEmail);
     }
+
     /**
      * Cria uma cópia de um objeto da classe Anuncio
+     *
      * @param anun o Anuncio a copiar
      */
     public Anuncio(Anuncio anun) {
-        //COMPLETAR
+        this.dtInicioPublicitacao = anun.dtInicioPublicitacao;
+        this.dtFimPublicitacao = anun.dtFimPublicitacao;
+        this.dtInicioCandidatura = anun.dtInicioCandidatura;
+        this.dtFimCandidatura = anun.dtFimCandidatura;
+        this.dtInicioSeriacao = anun.dtInicioSeriacao;
+        this.dtFimSeriacao = anun.dtFimSeriacao;
+        
+        this.listaCandidaturas = anun.listaCandidaturas;
+        this.tipoRegimento = anun.tipoRegimento;
+
+        this.colab = anun.colab;
     }
 
     public void setID(int id) {
@@ -230,6 +242,10 @@ public class Anuncio {
     public ListaCandidaturas getListaCandidaturas() {
         return new ListaCandidaturas(this.listaCandidaturas);
     }
+    
+    public boolean adicionarCandidatura(Candidatura cand) {
+        return listaCandidaturas.adicionarCandidatura(cand);
+    }
 
     /**
      * Retorna uma cópia do processo de seriação criado pelo anúncio
@@ -251,6 +267,23 @@ public class Anuncio {
 
     private void setProcessoSeriacao(ProcessoSeriacao ps) {
     }
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || o.getClass() != this.getClass())
+            return false;
+        Anuncio a = (Anuncio) o;
+        if (this.dtFimCandidatura.equals(a.dtFimCandidatura) &&
+                this.dtFimPublicitacao.equals(a.dtFimPublicitacao) &&
+                this.dtFimSeriacao.equals(a.dtFimSeriacao) &&
+                this.dtInicioCandidatura.equals(a.dtInicioCandidatura) &&
+                this.dtInicioPublicitacao.equals(a.dtInicioPublicitacao) &&
+                this.dtInicioSeriacao.equals(a.dtInicioSeriacao) &&
+                this.colab.equals(a.colab))
+            return true;
+        else
+            return false;
+    }
+    @Override
     public String toString() {
         return String.format("ID: %d, Data de publicação: %s", id, dtInicioPublicitacao);
     }
