@@ -31,7 +31,7 @@ public class ListaCandidaturas {
     }
 
     public void getCandidatura(int candID) {
-
+        
     }
 
     public List<String> toStringArray() {

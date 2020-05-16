@@ -85,7 +85,7 @@ public class Seriacao {
     
     //SERIACAO 2
     
-    Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() { //falta criar classe Freelancer e classe Tarefa
+    Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() { 
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
