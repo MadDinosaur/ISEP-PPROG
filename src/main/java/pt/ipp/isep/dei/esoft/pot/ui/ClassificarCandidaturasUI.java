@@ -5,6 +5,7 @@
  */
 package pt.ipp.isep.dei.esoft.pot.ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -12,7 +13,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -66,7 +71,37 @@ public class ClassificarCandidaturasUI implements Initializable {
 
     @FXML
     private void validar(ActionEvent event) {
-        //fazer copy paste da coisa
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ConfirmarOrdenacaoScene.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage confirmarOrdenacaoStage = new Stage();
+            confirmarOrdenacaoStage.setScene(scene);
+
+            ConfirmarOrdenacaoUI confirmarOrdenacaoUI = loader.getController();
+            confirmarOrdenacaoUI.associarParentUI(this);
+            
+            confirmarOrdenacaoStage.show();
+        } catch (IOException ex) {
+            criarAlerta(Alert.AlertType.ERROR, "Erro", ex.getMessage());
+        }
+    }
+    
+    public SeriarAnuncioController getAppController(){
+        return appController;
+    }
+    
+    private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
+        Alert alerta = new Alert(tipoAlerta);
+
+        alerta.setTitle("Aplicação");
+        alerta.setHeaderText(cabecalho);
+        alerta.setContentText(mensagem);
+        alerta.showAndWait();
+
+        return alerta;
     }
 
 }

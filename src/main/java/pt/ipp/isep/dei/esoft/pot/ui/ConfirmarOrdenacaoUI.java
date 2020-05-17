@@ -7,7 +7,12 @@ package pt.ipp.isep.dei.esoft.pot.ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
 
 /**
  * FXML Controller class
@@ -15,6 +20,15 @@ import javafx.fxml.Initializable;
  * @author Francisco
  */
 public class ConfirmarOrdenacaoUI implements Initializable {
+    
+    private SeriarAnuncioController appController;
+    
+    private ClassificarCandidaturasUI classificarCandidaturaUI;
+
+    @FXML
+    private Button btnCancelar;
+    @FXML
+    private Button btnOK;
 
     /**
      * Initializes the controller class.
@@ -23,5 +37,19 @@ public class ConfirmarOrdenacaoUI implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void cancelar(ActionEvent event) {
+        ((Stage) btnCancelar.getScene().getWindow()).close();
+    }
+
+    @FXML
+    private void OKAction(ActionEvent event) {
+    }
+    
+    public void associarParentUI(ClassificarCandidaturasUI classificarCandidaturaUI) {
+        this.classificarCandidaturaUI = classificarCandidaturaUI;
+        this.appController = classificarCandidaturaUI.getAppController();
+    }
     
 }

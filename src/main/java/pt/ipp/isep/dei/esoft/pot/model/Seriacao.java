@@ -27,14 +27,17 @@ public class Seriacao {
     
     public Seriacao(Comparator comparador, int a){
         this.comparador = comparador;
-        if(a == 1){
-            comparador = seriacao1;
-        }else{
-            if(a == 2){
+        switch(a){
+            case 1:
+                comparador = seriacao1;
+                break;
+            case 2:
                 comparador = seriacao2;
-            }
+                break;
         }
     }
+    
+    //criterio 1 / 2 / 3
     
     Comparator<Candidatura> seriacao1 = new Comparator<Candidatura>(){
         public int compare(Candidatura c1, Candidatura c2){
@@ -56,11 +59,19 @@ public class Seriacao {
         public int compare(Candidatura c1, Candidatura c2){
             if(maiorMediaProficiencia.compare(c1, c2) == 0){
                 if(menorDesvioProficiencia.compare(c1, c2) == 0){
-                    
+                    if(precoMaisBaixo.compare(c1, c2) == 0){
+                        return propostaMaisRecente.compare(c1, c2);
+                    } else {
+                        return precoMaisBaixo.compare(c1, c2);
+                    }
+                } else {
+                    return menorDesvioProficiencia.compare(c1, c2);
                 }
+            } else {
+                return maiorMediaProficiencia.compare(c1, c2);
             }
         }
-    }
+    };
             
     public Comparator getComparador(){
         return comparador;
@@ -139,47 +150,5 @@ public class Seriacao {
                 }
             }
     };
-    
-    /*public void tipoSeriacao(){
-        switch(seriacao){
-            
-            case 1:
-                //criterio 1 / 2 / 3
-                ;
-            
-            case 2:
-                //criterio 1 / 4 / 2 / 3
-                ;
-                
-            case 3:
-                System.out.println("Qual o ficheiro da seriação? ");
-                String nomeFicheiro = ler.nextLine();
-    
-                                  //(ver SeriarAnuncioController)
-                //interface -> classe Controller 
-            
-            default:
-                System.out.println("Opção indisponível!");
-                ;
-                
-        }
-    }*/
 
-    
-    
-    /*public void lerTipoSeriacao(String nomeFicheiro) throws FileNotFoundException{
-        Scanner fInput = new Scanner(new File(nomeFicheiro));
-        String[] seriacao = new String[100];
-        int i = 0;
-        while (fInput.hasNextLine()) {
-            String linha = fInput.nextLine();
-            // Verifica se linha não está em branco
-            if ((linha.trim()).length() > 0) {
-                seriacao[i] = linha;
-                i++;
-            }
-        }
-        fInput.close();
-    }*/
- 
 }
