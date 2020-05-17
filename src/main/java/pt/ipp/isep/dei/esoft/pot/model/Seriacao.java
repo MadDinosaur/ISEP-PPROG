@@ -25,13 +25,12 @@ public class Seriacao {
     
     private Comparator comparador; 
     
-    public Seriacao(Comparator comparador, int a){
-        this.comparador = comparador;
-        switch(a){
-            case 1:
+    public Seriacao(String tipoSeriacao){
+        switch(tipoSeriacao){
+            case "Seriação 1":
                 comparador = seriacao1;
                 break;
-            case 2:
+            case "Seriação 2":
                 comparador = seriacao2;
                 break;
         }
@@ -39,7 +38,7 @@ public class Seriacao {
     
     //criterio 1 / 2 / 3
     
-    Comparator<Candidatura> seriacao1 = new Comparator<Candidatura>(){
+    private static Comparator<Candidatura> seriacao1 = new Comparator<Candidatura>(){
         public int compare(Candidatura c1, Candidatura c2){
             if(maiorMediaProficiencia.compare(c1, c2) == 0){
                 if(precoMaisBaixo.compare(c1, c2) == 0){
@@ -51,11 +50,15 @@ public class Seriacao {
                 return maiorMediaProficiencia.compare(c1, c2);
             }
         }
+        @Override
+        public String toString() {
+            return "Seriação 1";
+        }
     };
     
     //criterio 1 / 4 / 2 / 3
             
-    Comparator<Candidatura> seriacao2 = new Comparator<Candidatura>(){ // FALTA ACABAR
+    private static Comparator<Candidatura> seriacao2 = new Comparator<Candidatura>(){ // FALTA ACABAR
         public int compare(Candidatura c1, Candidatura c2){
             if(maiorMediaProficiencia.compare(c1, c2) == 0){
                 if(menorDesvioProficiencia.compare(c1, c2) == 0){
@@ -71,6 +74,9 @@ public class Seriacao {
                 return maiorMediaProficiencia.compare(c1, c2);
             }
         }
+        public String toString() {
+            return "Seriação 2";
+        }
     };
             
     public Comparator getComparador(){
@@ -81,7 +87,7 @@ public class Seriacao {
     
     //SERIACAO 1
     
-    Comparator<Candidatura> maiorMediaProficiencia = new Comparator<Candidatura>() {  //falta criar classe Freelancer
+    private static Comparator<Candidatura> maiorMediaProficiencia = new Comparator<Candidatura>() {  //falta criar classe Freelancer
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
@@ -98,7 +104,7 @@ public class Seriacao {
             }
     };
     
-    Comparator<Candidatura> precoMaisBaixo = new Comparator<Candidatura>() {
+     private static Comparator<Candidatura> precoMaisBaixo = new Comparator<Candidatura>() {
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
@@ -115,7 +121,7 @@ public class Seriacao {
             }
     };
     
-    Comparator<Candidatura> propostaMaisRecente = new Comparator<Candidatura>() {
+     private static Comparator<Candidatura> propostaMaisRecente = new Comparator<Candidatura>() {
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
@@ -134,7 +140,7 @@ public class Seriacao {
     
     //SERIACAO 2
     
-    Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() { 
+     private static Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() { 
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
@@ -150,5 +156,10 @@ public class Seriacao {
                 }
             }
     };
-
+    public static ArrayList<String> mostrarOpcoes() {
+        ArrayList<String> opcoes = new ArrayList<>();
+        opcoes.add(seriacao1.toString());
+        opcoes.add(seriacao2.toString());
+        return opcoes;
+    }
 }

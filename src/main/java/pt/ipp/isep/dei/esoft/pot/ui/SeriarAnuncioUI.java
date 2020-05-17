@@ -38,7 +38,8 @@ public class SeriarAnuncioUI {
 
             ClassificarCandidaturasUI classificarUI = loader.getController();
             classificarUI.associarParentUI(this);
-            classificarUI.preencherLista(appController.getIdFromString(cmbBoxAnuncios.getValue()));
+            classificarUI.associarAnuncio(appController.getIdFromString(cmbBoxAnuncios.getValue()));
+            classificarUI.preencherLista();
             
             classificarStage.show();
         } catch (IOException ex) {

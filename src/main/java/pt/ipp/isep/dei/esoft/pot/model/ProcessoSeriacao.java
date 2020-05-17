@@ -27,10 +27,10 @@ public class ProcessoSeriacao {
      * @param tipoReg o TipoRegimento do processo
      * @param colab o Colaborador que realiza o processo
      */
-    public ProcessoSeriacao(TipoRegimento tipoReg, Colaborador colab, Seriacao seriacao, Anuncio anuncio, Date dataRealizacao) {
+    public ProcessoSeriacao(TipoRegimento tipoReg, Colaborador colab, String seriacao, Anuncio anuncio, Date dataRealizacao) {
         this.tipoReg = tipoReg;
         this.colab = colab;
-        this.seriacao = seriacao;
+        this.seriacao = new Seriacao(seriacao);
         this.anuncio = anuncio;
         this.dataRealizacao = dataRealizacao;
     }
@@ -70,7 +70,7 @@ public class ProcessoSeriacao {
     public void valida() {
     }
     
-    public void ordenar(Seriacao seriacao){
+    public void ordenar(){
         List<Candidatura> lista = anuncio.getListaCandidaturas().getCandidaturas();
         Comparator comparador = seriacao.getComparador();
         lista.sort(comparador);

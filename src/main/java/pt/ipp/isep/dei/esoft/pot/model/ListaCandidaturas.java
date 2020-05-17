@@ -31,10 +31,24 @@ public class ListaCandidaturas {
     }
 
     public void getCandidatura(int candID) {
-        
+
     }
-    
-    public Candidatura get(int i){
+
+    public ListaCandidaturas getCandidaturas(int anuncioID) {
+        ListaCandidaturas candidaturasDoAnuncio = new ListaCandidaturas();
+        for (Candidatura cand : listaCandidaturas) {
+            if (cand.getAnuncio().getID() == anuncioID) {
+                candidaturasDoAnuncio.adicionarCandidatura(cand);
+            }
+        }
+        return candidaturasDoAnuncio;
+    }
+
+    public boolean adicionarCandidatura(Candidatura cand) {
+        return listaCandidaturas.add(cand);
+    }
+
+    public Candidatura get(int i) {
         return listaCandidaturas.get(i);
     }
 
@@ -45,9 +59,8 @@ public class ListaCandidaturas {
         }
         return strCandidaturas;
     }
-    
-    public int getSize(){
+
+    public int getSize() {
         return listaCandidaturas.size();
     }
 }
-

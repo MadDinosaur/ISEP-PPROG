@@ -7,18 +7,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.esoft.pot.ui.ConfirmarOrdenacaoUI">
    <children>
-      <Label text="Label" />
-      <ListView prefHeight="200.0" prefWidth="200.0" />
+      <Label text="Lista de Candidaturas Seriadas:" />
+      <ListView fx:id="lstViewCandidaturas" prefHeight="200.0" prefWidth="200.0" />
       <Separator prefWidth="200.0" />
-      <Label text="Label" />
-      <ListView prefHeight="200.0" prefWidth="200.0" />
+      <Label text="Lista de Participantes:" />
+      <ListView fx:id="lstViewParticipantes" prefHeight="200.0" prefWidth="200.0" />
+      <Separator layoutX="10.0" layoutY="176.0" prefWidth="200.0" />
+      <Label text="Confirma a seriação?" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" text="Button" />
-            <Button fx:id="btnOK" mnemonicParsing="false" onAction="#OKAction" text="Button" />
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+            <Button fx:id="btnOK" mnemonicParsing="false" onAction="#OKAction" text="OK" />
          </children>
       </HBox>
    </children>

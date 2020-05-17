@@ -33,10 +33,11 @@ public class ClassificarCandidaturasUI implements Initializable {
 
     private SeriarAnuncioController appController;
     private SeriarAnuncioUI seriarAnuncioUI;
+    private int anuncioID;
     @FXML
     private Button btnVoltar;
     @FXML
-    private ComboBox<?> cmbBoxSeriacao;
+    private ComboBox<String> cmbBoxSeriacao;
     @FXML
     private ListView<String> lstViewCandidaturas;
     @FXML
@@ -54,14 +55,21 @@ public class ClassificarCandidaturasUI implements Initializable {
         this.appController = seriarAnuncioUI.getAppController();
     }
 
-    @FXML
-    private void preencherCmbBoxSeriacao(Event event) {
+    public void associarAnuncio(int anuncioID) {
+        this.anuncioID = anuncioID;
     }
 
-    public void preencherLista(int anuncioID) {
+    public void preencherLista() {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(appController.getCandidaturas(anuncioID));
         lstViewCandidaturas.setItems(items);
+    }
+
+    @FXML
+    private void preencherCmbBoxSeriacao(Event event) {
+        ObservableList<String> options = FXCollections.observableArrayList();
+        options.addAll(appController.getSeriacoes());
+        cmbBoxSeriacao.setItems(options);
     }
 
     @FXML
@@ -71,6 +79,9 @@ public class ClassificarCandidaturasUI implements Initializable {
 
     @FXML
     private void validar(ActionEvent event) {
+        appController.registaProcessoSeriacao(anuncioID, cmbBoxSeriacao.getValue());
+
+        //Carrega próxima janela
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ConfirmarOrdenacaoScene.fxml"));
             Parent root = loader.load();
@@ -82,17 +93,18 @@ public class ClassificarCandidaturasUI implements Initializable {
 
             ConfirmarOrdenacaoUI confirmarOrdenacaoUI = loader.getController();
             confirmarOrdenacaoUI.associarParentUI(this);
-            
+            confirmarOrdenacaoUI.associarAnuncio(anuncioID);
+
             confirmarOrdenacaoStage.show();
         } catch (IOException ex) {
             criarAlerta(Alert.AlertType.ERROR, "Erro", ex.getMessage());
         }
     }
-    
-    public SeriarAnuncioController getAppController(){
+
+    public SeriarAnuncioController getAppController() {
         return appController;
     }
-    
+
     private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
         Alert alerta = new Alert(tipoAlerta);
 

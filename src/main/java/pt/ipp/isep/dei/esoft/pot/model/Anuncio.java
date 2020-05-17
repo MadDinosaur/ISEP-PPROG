@@ -256,7 +256,8 @@ public class Anuncio {
         return new ProcessoSeriacao(this.ps);
     }
 
-    public void novoProcessoSeriacao(Colaborador colab) {
+    public void novoProcessoSeriacao(Colaborador colab, String seriacao) {
+        this.ps = new ProcessoSeriacao(tipoRegimento, colab, seriacao, this, new Date());
     }
 
     public void registaProcessoSeracao(ProcessoSeriacao ps) {
