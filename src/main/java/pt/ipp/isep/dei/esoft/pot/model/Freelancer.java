@@ -19,6 +19,10 @@ public class Freelancer {
      * E-mail do freelancer.
      */
     private String email;
+     /**
+     * O nível de porficiencia do freelancer.
+     */
+    private int nivelPorficiencia;
     /**
      * Cria um objeto da classe Freelancer
      * @param nome o nome do freelancer
@@ -47,6 +51,20 @@ public class Freelancer {
         this.NIF = freelancer.getNIF();
         this.telefone = freelancer.getTelefone();
         this.email = freelancer.getEmail();
+    }
+    
+    /**
+     * @return the nivelPorficiencia
+     */
+    public int getNivelPorficiencia() {
+        return nivelPorficiencia;
+    }
+
+    /**
+     * @param nivelPorficiencia the nivelPorficiencia to set
+     */
+    public void setNivelPorficiencia(int nivelPorficiencia) {
+        this.nivelPorficiencia = nivelPorficiencia;
     }
 
     /**

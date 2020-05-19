@@ -26,6 +26,10 @@ public class Tarefa {
      * O custo estimado da tarefa
      */
     private Double custoEst;
+    /**
+     * O nível de porficiencia da tarefa
+     */
+    private int nivelPorficiencia;
 
     /**
      * Cria um objeto da classe Tarefa
@@ -167,6 +171,20 @@ public class Tarefa {
      */
     public void setCustoEst(Double custoEst) {
         this.custoEst = custoEst;
+    }
+    
+       /**
+     * @return the nivelPorficiencia
+     */
+    public int getNivelPorficiencia() {
+        return nivelPorficiencia;
+    }
+
+    /**
+     * @param nivelPorficiencia the nivelPorficiencia to set
+     */
+    public void setNivelPorficiencia(int nivelPorficiencia) {
+        this.nivelPorficiencia = nivelPorficiencia;
     }
 
 }

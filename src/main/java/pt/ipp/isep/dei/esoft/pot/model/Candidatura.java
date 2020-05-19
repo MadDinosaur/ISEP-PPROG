@@ -34,6 +34,10 @@ public class Candidatura {
      * O Anuncio para a qual a Candidatura se destina
      */
     private Anuncio anuncio;
+    /**
+     * O Tarefa para a qual a Candidatura se destina
+     */
+        private Tarefa tarefa;
 
     /**
      * Cria um objeto da classe Candidatura.
@@ -58,6 +62,15 @@ public class Candidatura {
         this.txtMotivacao = txtMotivacao;
         this.freelancer = new Freelancer(freelancer);
         this.anuncio = new Anuncio(anuncio);
+    }
+    
+    /**
+     * Retorna a Tarefa para a qual se destina a candidatura
+     *
+     * @return o Tarefa
+     */
+    public Tarefa getTarefa(){
+        return new Tarefa(tarefa);
     }
 
     /**
