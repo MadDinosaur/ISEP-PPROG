@@ -36,8 +36,8 @@ public class Candidatura {
     private Anuncio anuncio;
     /**
      * O Tarefa para a qual a Candidatura se destina
-     */
-        private Tarefa tarefa;
+    */
+    private Tarefa tarefa;
 
     /**
      * Cria um objeto da classe Candidatura.

@@ -42,13 +42,14 @@ public class Tarefa {
      * @param custoEst o custo estimado da tarefa
      */
     public Tarefa(String referencia, String designacao, String descInformal, String descTecnica,
-            Integer duracaoEst, Double custoEst) {
+            Integer duracaoEst, Double custoEst, int nivelPorficiencia) {
         this.referencia = referencia;
         this.designacao = designacao;
         this.descInformal = descInformal;
         this.descTecnica = descTecnica;
         this.duracaoEst = duracaoEst;
         this.custoEst = custoEst;
+        this.nivelPorficiencia = nivelPorficiencia;
     }
 
     /**
@@ -63,6 +64,7 @@ public class Tarefa {
         this.descTecnica = tarefa.getDescTecnica();
         this.duracaoEst = tarefa.getDuracaoEst();
         this.custoEst = tarefa.getCustoEst();
+        this.nivelPorficiencia = tarefa.getNivelPorficiencia();
     }
 
     /**

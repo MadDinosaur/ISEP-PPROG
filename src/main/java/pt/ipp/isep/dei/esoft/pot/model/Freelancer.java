@@ -22,7 +22,7 @@ public class Freelancer {
      /**
      * O nível de porficiencia do freelancer.
      */
-    private int nivelPorficiencia;
+    private int nivelProficiencia;
     /**
      * Cria um objeto da classe Freelancer
      * @param nome o nome do freelancer
@@ -30,14 +30,15 @@ public class Freelancer {
      * @param telefone o nº de telefone do freelancer
      * @param email o e-mail do freelancer
      */
-    public Freelancer(String nome, String NIF, String telefone, String email){
-        if (nome == null || NIF == null || telefone == null || email == null)
+    public Freelancer(String nome, String NIF, String telefone, String email, int nivelProficiencia){
+        if (nome == null || NIF == null || telefone == null || email == null || nivelProficiencia == 0)
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
         
         this.nome = nome;
         this.NIF = NIF;
         this.telefone = telefone;
         this.email = email;
+        this.nivelProficiencia = nivelProficiencia;
     }
     /**
      * Cria um objeto da classe Freelancer como cópia do objeto recebido por parâmetro.
@@ -51,20 +52,21 @@ public class Freelancer {
         this.NIF = freelancer.getNIF();
         this.telefone = freelancer.getTelefone();
         this.email = freelancer.getEmail();
+        this.nivelProficiencia = freelancer.getNivelProficiencia();
     }
     
     /**
      * @return the nivelPorficiencia
      */
-    public int getNivelPorficiencia() {
-        return nivelPorficiencia;
+    public int getNivelProficiencia() {
+        return nivelProficiencia;
     }
 
     /**
      * @param nivelPorficiencia the nivelPorficiencia to set
      */
-    public void setNivelPorficiencia(int nivelPorficiencia) {
-        this.nivelPorficiencia = nivelPorficiencia;
+    public void setNivelProficiencia(int nivelPorficiencia) {
+        this.nivelProficiencia = nivelPorficiencia;
     }
 
     /**

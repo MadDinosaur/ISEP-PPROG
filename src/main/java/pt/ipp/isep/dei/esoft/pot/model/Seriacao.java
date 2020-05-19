@@ -91,8 +91,8 @@ public class Seriacao {
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
-                double nivelProficiencia1 = f1.getFreelancer().getNivelPorficiencia();
-                double nivelProficiencia2 = f2.getFreelancer().getNivelPorficiencia();
+                double nivelProficiencia1 = f1.getFreelancer().getNivelProficiencia();
+                double nivelProficiencia2 = f2.getFreelancer().getNivelProficiencia();
 
                 if (nivelProficiencia1 < nivelProficiencia2) {
                     return -1;
@@ -140,12 +140,12 @@ public class Seriacao {
     
     //SERIACAO 2
     
-     private static Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() { 
+    private static Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() { 
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
-                double nivelProficiencia1 = f1.getTarefa().getNivelPorficiencia() - f1.getFreelancer().getNivelPorficiencia();
-                double nivelProficiencia2 = f2.getTarefa().getNivelPorficiencia() - f2.getFreelancer().getNivelPorficiencia();
+                double nivelProficiencia1 = f1.getTarefa().getNivelPorficiencia() - f1.getFreelancer().getNivelProficiencia();
+                double nivelProficiencia2 = f2.getTarefa().getNivelPorficiencia() - f2.getFreelancer().getNivelProficiencia();
 
                 if (nivelProficiencia1 > nivelProficiencia2) {
                     return -1;
