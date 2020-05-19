@@ -45,10 +45,11 @@ public class Organizacao {
      * A lista de todos os Colaboradores
      */
     private ListaColaboradores listaColaboradores = new ListaColaboradores();
+
     /**
      * A lista de todas as Tarefas da organização
      */
-   //private ListaTarefas listaTarefas = new ListaTarefas();
+    //private ListaTarefas listaTarefas = new ListaTarefas();
 
     public Organizacao(String strNome, String strNIF, String strWebsite, String strTelefone,
             String strEmail, EnderecoPostal oMorada, Colaborador oColaborador) {
@@ -122,4 +123,7 @@ public class Organizacao {
         return new EnderecoPostal(strLocal, strCodPostal, strLocalidade);
     }
 
+    public ListaColaboradores getListaColaboradores() {
+        return listaColaboradores;
+    }
 }

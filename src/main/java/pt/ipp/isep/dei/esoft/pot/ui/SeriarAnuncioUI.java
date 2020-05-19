@@ -60,6 +60,7 @@ public class SeriarAnuncioUI {
 
             AdicionarParticipanteUI addParticipanteUI = loader.getController();
             addParticipanteUI.associarParentUI(this);
+            addParticipanteUI.associarAnuncio(appController.getIdFromString(cmbBoxAnuncios.getValue()));
             
             addParticipanteStage.show();
         } catch (IOException ex) {

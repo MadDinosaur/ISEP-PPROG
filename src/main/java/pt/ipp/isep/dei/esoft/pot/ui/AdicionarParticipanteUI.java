@@ -25,6 +25,7 @@ public class AdicionarParticipanteUI implements Initializable {
 
     private SeriarAnuncioController appController;
     private SeriarAnuncioUI seriarAnuncioUI;
+    private int anuncioID;
     @FXML
     private TextField txtEmail;
     @FXML
@@ -47,13 +48,17 @@ public class AdicionarParticipanteUI implements Initializable {
 
     @FXML
     private void confirmar(ActionEvent event) {
-        appController.addParticipante(txtEmail.getText());
+        appController.addParticipante(anuncioID, txtEmail.getText());
         //FALTA VALIDAÇÃO
     }
 
     public void associarParentUI(SeriarAnuncioUI seriarAnuncioUI) {
         this.seriarAnuncioUI = seriarAnuncioUI;
         this.appController = seriarAnuncioUI.getAppController();
+    }
+
+    public void associarAnuncio(int anuncioID) {
+        this.anuncioID = anuncioID;
     }
 
     private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
