@@ -1,6 +1,8 @@
 
 package pt.ipp.isep.dei.esoft.pot.model;
 
+import java.util.ArrayList;
+
 
 public class Freelancer {
     /**
@@ -19,10 +21,11 @@ public class Freelancer {
      * E-mail do freelancer.
      */
     private String email;
-     /**
-     * O nível de porficiencia do freelancer.
+    /**
+     * E-mail do freelancer.
      */
-    private int nivelProficiencia;
+    private ArrayList<CompetenciaTecnica> competencias;
+
     /**
      * Cria um objeto da classe Freelancer
      * @param nome o nome do freelancer
@@ -30,7 +33,7 @@ public class Freelancer {
      * @param telefone o nº de telefone do freelancer
      * @param email o e-mail do freelancer
      */
-    public Freelancer(String nome, String NIF, String telefone, String email, int nivelProficiencia){
+    public Freelancer(String nome, String NIF, String telefone, String email, int nivelProficiencia, ArrayList<CompetenciaTecnica> competencias){
         if (nome == null || NIF == null || telefone == null || email == null || nivelProficiencia == 0)
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
         
@@ -38,7 +41,7 @@ public class Freelancer {
         this.NIF = NIF;
         this.telefone = telefone;
         this.email = email;
-        this.nivelProficiencia = nivelProficiencia;
+        this.competencias = competencias;
     }
     /**
      * Cria um objeto da classe Freelancer como cópia do objeto recebido por parâmetro.
@@ -52,22 +55,10 @@ public class Freelancer {
         this.NIF = freelancer.getNIF();
         this.telefone = freelancer.getTelefone();
         this.email = freelancer.getEmail();
-        this.nivelProficiencia = freelancer.getNivelProficiencia();
+        this.competencias = freelancer.getCompetencias();
     }
     
-    /**
-     * @return the nivelPorficiencia
-     */
-    public int getNivelProficiencia() {
-        return nivelProficiencia;
-    }
-
-    /**
-     * @param nivelPorficiencia the nivelPorficiencia to set
-     */
-    public void setNivelProficiencia(int nivelPorficiencia) {
-        this.nivelProficiencia = nivelPorficiencia;
-    }
+    
 
     /**
      * Retorna o nome do freelancer
@@ -131,6 +122,20 @@ public class Freelancer {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the competencias
+     */
+    public ArrayList<CompetenciaTecnica> getCompetencias() {
+        return competencias;
+    }
+
+    /**
+     * @param competencias the competencias to set
+     */
+    public void setCompetencias(ArrayList<CompetenciaTecnica> competencias) {
+        this.competencias = competencias;
     }
     
     

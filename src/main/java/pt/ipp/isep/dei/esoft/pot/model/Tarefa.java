@@ -1,5 +1,7 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
+import java.util.ArrayList;
+
 public class Tarefa {
 
     /**
@@ -29,7 +31,7 @@ public class Tarefa {
     /**
      * O nível de porficiencia da tarefa
      */
-    private int nivelProficiencia;
+    private ArrayList<CompetenciaTecnica> competencias;
 
     /**
      * Cria um objeto da classe Tarefa
@@ -42,14 +44,14 @@ public class Tarefa {
      * @param custoEst o custo estimado da tarefa
      */
     public Tarefa(String referencia, String designacao, String descInformal, String descTecnica,
-            Integer duracaoEst, Double custoEst, int nivelProficiencia) {
+            Integer duracaoEst, Double custoEst, int nivelProficiencia, ArrayList<CompetenciaTecnica> competencias) {
         this.referencia = referencia;
         this.designacao = designacao;
         this.descInformal = descInformal;
         this.descTecnica = descTecnica;
         this.duracaoEst = duracaoEst;
         this.custoEst = custoEst;
-        this.nivelProficiencia = nivelProficiencia;
+        this.competencias = competencias;
     }
 
     /**
@@ -64,7 +66,7 @@ public class Tarefa {
         this.descTecnica = tarefa.getDescTecnica();
         this.duracaoEst = tarefa.getDuracaoEst();
         this.custoEst = tarefa.getCustoEst();
-        this.nivelProficiencia = tarefa.getNivelProficiencia();
+        this.competencias = tarefa.getCompetencias();
     }
 
     /**
@@ -174,19 +176,19 @@ public class Tarefa {
     public void setCustoEst(Double custoEst) {
         this.custoEst = custoEst;
     }
-    
-       /**
-     * @return the nivelPorficiencia
+
+    /**
+     * @return the competencias
      */
-    public int getNivelProficiencia() {
-        return nivelPorficiencia;
+    public ArrayList<CompetenciaTecnica> getCompetencias() {
+        return competencias;
     }
 
     /**
-     * @param nivelPorficiencia the nivelPorficiencia to set
+     * @param competencias the competencias to set
      */
-    public void setNivelProficiencia(int nivelPorficiencia) {
-        this.nivelPorficiencia = nivelPorficiencia;
+    public void setCompetencias(ArrayList<CompetenciaTecnica> competencias) {
+        this.competencias = competencias;
     }
 
 }

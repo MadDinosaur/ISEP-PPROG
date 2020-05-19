@@ -5,6 +5,7 @@
  */
 package pt.ipp.isep.dei.esoft.pot.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,8 +18,12 @@ public class CompetenciaTecnica
     private String m_strDescricaoBreve;
     private String m_strDescricaoDetalhada;
     private AreaAtividade m_oAreaAtividade;
+    /**
+     * O nível de porficiencia do freelancer.
+     */
+    private int nivelProficiencia;
     
-    public CompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoDetalhada, AreaAtividade oArea)
+    public CompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoDetalhada, AreaAtividade oArea, int nivelProficiencia)
     {
         if ( (strId == null) || (strDescricaoBreve == null) || (strDescricaoDetalhada == null) ||
                 (oArea == null) || (strId.isEmpty())|| (strDescricaoBreve.isEmpty()) || (strDescricaoDetalhada.isEmpty()))
@@ -27,7 +32,22 @@ public class CompetenciaTecnica
         this.m_strId = strId;
         this.m_strDescricaoBreve = strDescricaoBreve;
         this.m_strDescricaoDetalhada = strDescricaoDetalhada;
+        this.nivelProficiencia = nivelProficiencia;
         m_oAreaAtividade = oArea;
+    }
+    
+    /**
+     * @return the nivelPorficiencia
+     */
+    public int getNivelProficiencia() {
+        return nivelProficiencia;
+    }
+
+    /**
+     * @param nivelPorficiencia the nivelPorficiencia to set
+     */
+    public void setNivelProficiencia(int nivelPorficiencia) {
+        this.nivelProficiencia = nivelPorficiencia;
     }
     
     
