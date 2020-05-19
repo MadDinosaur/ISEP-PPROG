@@ -27,7 +27,10 @@ public class RegistoAnuncios {
      * @param listaAnuncios a lista dos Anuncios
      */
     public RegistoAnuncios(List<Anuncio> listaAnuncios) {
-        this.listaAnuncios = listaAnuncios;
+        this.listaAnuncios = new ArrayList<>();
+        for (Anuncio anun : listaAnuncios) {
+            adicionarAnuncio(anun);
+        }
     }
 
     private boolean adicionarAnuncio(Anuncio a) {
@@ -37,14 +40,15 @@ public class RegistoAnuncios {
         } else {
             return false;
         }
-
     }
-
+    private boolean add(Anuncio a) {
+        return listaAnuncios.add(a);
+    }
     public RegistoAnuncios getAnunciosPorSeriar(Colaborador colab) {
         RegistoAnuncios anunciosPorSeriar = new RegistoAnuncios();
         for (Anuncio anuncio : listaAnuncios) {
-            if (anuncio.getColaborador().equals(colab) && anuncio.getProcessoSeriacao() != null) {
-                anunciosPorSeriar.adicionarAnuncio(anuncio);
+            if (anuncio.getColaborador().equals(colab) && anuncio.getProcessoSeriacao() == null) {
+                anunciosPorSeriar.add(anuncio);
             }
         }
         return anunciosPorSeriar;
@@ -65,16 +69,6 @@ public class RegistoAnuncios {
             }
         }
         return null;
-    }
-    
-    public RegistoAnuncios getAnunciosPublicadosPor(Colaborador colab) {
-        RegistoAnuncios publicacoes = new RegistoAnuncios();
-        for (Anuncio anuncio : listaAnuncios) {
-            if (anuncio.getColaborador().equals(colab)) {
-                publicacoes.adicionarAnuncio(anuncio);
-            }
-        }
-        return publicacoes;
     }
 
     public ArrayList<String> toStringArray() {

@@ -18,7 +18,7 @@ public class SeriarAnuncioController {
     }
 
     public List<String> getAnunciosPorSeriar() {
-        return plataforma.getRegistoAnuncios().getAnunciosPublicadosPor(user).toStringArray();
+        return plataforma.getRegistoAnuncios().getAnunciosPorSeriar(user).toStringArray();
     }
 
     public List<String> getCandidaturas(int anuncioId) {
@@ -38,17 +38,17 @@ public class SeriarAnuncioController {
         return getCandidaturas(anuncioId);
     }
 
-    public void getColaboradores() {
-    }
-
     public boolean addParticipante(int anuncioId, String emailPart) {
         Colaborador participante = plataforma.getRegistoOrganizacoes().getOrganizacaoByEmailUtilizador(emailPart).getListaColaboradores().getColaboradorByEmail(emailPart);
         return getAnuncio(anuncioId).getProcessoSeriacao().addParticipante(participante);
     }
-    public ArrayList<String> getSeriacoes() {
+    public List<String> getSeriacoes() {
         return Seriacao.mostrarOpcoes();
     }
     public void registaProcessoSeriacao(int anuncioId, String tipoSeriacao) {
         getAnuncio(anuncioId).novoProcessoSeriacao(user, tipoSeriacao);
+    }
+    public List<String> getParticipantes(int anuncioId) {
+        return getAnuncio(anuncioId).getProcessoSeriacao().getColaboradores();
     }
 }

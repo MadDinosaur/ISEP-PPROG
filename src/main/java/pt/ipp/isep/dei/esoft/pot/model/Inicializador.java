@@ -118,7 +118,7 @@ public class Inicializador {
             }
             try {
                 listTarefas.add(new Tarefa(params[0], params[1], params[2], params[3],
-                        Integer.parseInt(params[4]), Double.parseDouble(params[5])));
+                        Integer.parseInt(params[4]), Double.parseDouble(params[5]), Integer.parseInt(params[6])));
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Ficheiro " + tarefas + " mal formulado!");
             } catch (IllegalArgumentException e) {

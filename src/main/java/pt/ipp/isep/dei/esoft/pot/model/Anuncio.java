@@ -76,6 +76,7 @@ public class Anuncio {
 
         this.listaCandidaturas = new ListaCandidaturas();
         this.tipoRegimento = new TipoRegimento();
+        this.ps = null;
 
         this.colab = new Colaborador(strNome, strFuncao, strTelefone, strEmail);
     }
@@ -253,7 +254,7 @@ public class Anuncio {
      * @return o ProcessoSeriacao do anúncio
      */
     public ProcessoSeriacao getProcessoSeriacao() {
-        return new ProcessoSeriacao(this.ps);
+        return this.ps;
     }
 
     public void novoProcessoSeriacao(Colaborador colab, String seriacao) {

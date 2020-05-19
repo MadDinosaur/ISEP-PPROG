@@ -70,13 +70,17 @@ public class SeriarAnuncioUI {
     
     @FXML
     private void preencherAnuncios(Event event) {
-        ObservableList<String> options = FXCollections.observableArrayList();
-        options.addAll(appController.getAnunciosPorSeriar());
-        cmbBoxAnuncios.setItems(options);
+        atualizar();
     }
     
     public SeriarAnuncioController getAppController() {
         return appController;
+    }
+    
+    public void atualizar() {
+        ObservableList<String> options = FXCollections.observableArrayList();
+        options.addAll(appController.getAnunciosPorSeriar());
+        cmbBoxAnuncios.setItems(options);
     }
 
     private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {

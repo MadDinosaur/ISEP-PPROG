@@ -11,15 +11,15 @@ public class ProcessoSeriacao {
      * Data de realização do processo de seriação
      */
     private Date dataRealizacao;
-    
+
     private Seriacao seriacao;
-    
+
     private Anuncio anuncio;
-    
+
     private TipoRegimento tipoReg;
-    
-    private ArrayList<Colaborador> colab;
-    
+
+    private ArrayList<Colaborador> listaColabs = new ArrayList<>();
+
     /**
      * Cria um objeto da classe ProcessoSeriacao
      *
@@ -30,7 +30,7 @@ public class ProcessoSeriacao {
      */
     public ProcessoSeriacao(TipoRegimento tipoReg, Colaborador colab, String seriacao, Anuncio anuncio) {
         this.tipoReg = tipoReg;
-        this.colab.add(colab);
+        this.listaColabs.add(colab);
         this.seriacao = new Seriacao(seriacao);
         this.anuncio = anuncio;
         this.dataRealizacao = new Date();
@@ -50,31 +50,34 @@ public class ProcessoSeriacao {
      */
     public ProcessoSeriacao(ProcessoSeriacao ps) {
         this.tipoReg = ps.tipoReg;
-        this.colab = ps.colab;
+        this.listaColabs = ps.listaColabs;
         this.seriacao = ps.seriacao;
         this.anuncio = ps.anuncio;
         this.dataRealizacao = ps.dataRealizacao;
     }
 
-    public void addClassificacao(Candidatura cand, int ordem) {
-    }
-
-    private void validaClassificacao(Classificacao classif) {
-    }
-
-    private void addClassificacao(Classificacao classif) {
+    public List<String> getColaboradores() {
+        return toStringArray();
     }
 
     public boolean addParticipante(Colaborador part) {
-        return colab.add(part);
+        return listaColabs.add(part);
     }
 
     public void valida() {
     }
-    
-    public void ordenar(){
+
+    public void ordenar() {
         List<Candidatura> lista = anuncio.getListaCandidaturas().getCandidaturas();
         Comparator comparador = seriacao.getComparador();
         lista.sort(comparador);
+    }
+
+    private List<String> toStringArray() {
+        ArrayList<String> strColaboradores = new ArrayList<>();
+        for (Colaborador colab : listaColabs) {
+            strColaboradores.add(colab.toString());
+        }
+        return strColaboradores;
     }
 }

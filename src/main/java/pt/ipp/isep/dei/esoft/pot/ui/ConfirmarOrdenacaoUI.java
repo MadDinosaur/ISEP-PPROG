@@ -43,10 +43,7 @@ public class ConfirmarOrdenacaoUI implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Mostra a lista dos candidatos
-        ObservableList<String> items = FXCollections.observableArrayList();
-        items.addAll(appController.getCandidaturas(anuncioID));
-        lstViewCandidaturas.setItems(items);
+        
     }    
 
     @FXML
@@ -56,6 +53,12 @@ public class ConfirmarOrdenacaoUI implements Initializable {
 
     @FXML
     private void OKAction(ActionEvent event) {
+        //Atualizar a lista de anúncios disponíveis para seriar
+        classificarCandidaturaUI.getParent().atualizar();
+        //Fechar janela de confirmação
+        ((Stage) btnOK.getScene().getWindow()).close();
+        //Fechar janela de escolha de seriação
+        classificarCandidaturaUI.getStage().close();
     }
     
     public void associarParentUI(ClassificarCandidaturasUI classificarCandidaturaUI) {
@@ -67,4 +70,14 @@ public class ConfirmarOrdenacaoUI implements Initializable {
         this.anuncioID = anuncioID;
     }
     
+    public void preencherListas() {
+        //Mostra a lista dos candidatos
+        ObservableList<String> candList = FXCollections.observableArrayList();
+        candList.addAll(appController.getCandidaturas(anuncioID));
+        lstViewCandidaturas.setItems(candList);
+        //Mostra a lista dos participantes
+        ObservableList<String> partList = FXCollections.observableArrayList();
+        partList.addAll(appController.getParticipantes(anuncioID));
+        lstViewParticipantes.setItems(partList);
+    }
 }

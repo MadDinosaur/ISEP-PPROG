@@ -94,6 +94,7 @@ public class ClassificarCandidaturasUI implements Initializable {
             ConfirmarOrdenacaoUI confirmarOrdenacaoUI = loader.getController();
             confirmarOrdenacaoUI.associarParentUI(this);
             confirmarOrdenacaoUI.associarAnuncio(anuncioID);
+            confirmarOrdenacaoUI.preencherListas();
 
             confirmarOrdenacaoStage.show();
         } catch (IOException ex) {
@@ -115,5 +116,10 @@ public class ClassificarCandidaturasUI implements Initializable {
 
         return alerta;
     }
-
+    public Stage getStage() {
+        return (Stage) btnValidar.getScene().getWindow();
+    }
+    public SeriarAnuncioUI getParent() {
+        return seriarAnuncioUI;
+    }
 }
