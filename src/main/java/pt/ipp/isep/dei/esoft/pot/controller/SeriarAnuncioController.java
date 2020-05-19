@@ -5,7 +5,6 @@ import java.util.List;
 import pt.ipp.isep.dei.esoft.pot.model.Anuncio;
 import pt.ipp.isep.dei.esoft.pot.model.Colaborador;
 import pt.ipp.isep.dei.esoft.pot.model.Inicializador;
-import pt.ipp.isep.dei.esoft.pot.model.ListaCandidaturas;
 import pt.ipp.isep.dei.esoft.pot.model.Plataforma;
 import pt.ipp.isep.dei.esoft.pot.model.Seriacao;
 
@@ -42,7 +41,9 @@ public class SeriarAnuncioController {
     public void getColaboradores() {
     }
 
-    public void addParticipante(String emailPart) {
+    public boolean addParticipante(int anuncioId, String emailPart) {
+        Colaborador participante = plataforma.getRegistoOrganizacoes().getOrganizacaoByEmailUtilizador(emailPart).getListaColaboradores().getColaboradorByEmail(emailPart);
+        return getAnuncio(anuncioId).getProcessoSeriacao().addParticipante(participante);
     }
     public ArrayList<String> getSeriacoes() {
         return Seriacao.mostrarOpcoes();

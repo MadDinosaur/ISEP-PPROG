@@ -1,7 +1,6 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -19,20 +18,22 @@ public class ProcessoSeriacao {
     
     private TipoRegimento tipoReg;
     
-    private Colaborador colab;
+    private ArrayList<Colaborador> colab;
     
     /**
      * Cria um objeto da classe ProcessoSeriacao
      *
      * @param tipoReg o TipoRegimento do processo
      * @param colab o Colaborador que realiza o processo
+     * @param seriacao o tipo de seriação do processo
+     * @param anuncio o Anuncio a seriar
      */
-    public ProcessoSeriacao(TipoRegimento tipoReg, Colaborador colab, String seriacao, Anuncio anuncio, Date dataRealizacao) {
+    public ProcessoSeriacao(TipoRegimento tipoReg, Colaborador colab, String seriacao, Anuncio anuncio) {
         this.tipoReg = tipoReg;
-        this.colab = colab;
+        this.colab.add(colab);
         this.seriacao = new Seriacao(seriacao);
         this.anuncio = anuncio;
-        this.dataRealizacao = dataRealizacao;
+        this.dataRealizacao = new Date();
     }
 
     /**
@@ -64,7 +65,8 @@ public class ProcessoSeriacao {
     private void addClassificacao(Classificacao classif) {
     }
 
-    public void addParticipante(Colaborador part) {
+    public boolean addParticipante(Colaborador part) {
+        return colab.add(part);
     }
 
     public void valida() {

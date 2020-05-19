@@ -2,7 +2,7 @@ package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
 
-class ListaColaboradores {
+public class ListaColaboradores {
     /**
      * Lista de Colaboradores de uma dada Organizacao
      */

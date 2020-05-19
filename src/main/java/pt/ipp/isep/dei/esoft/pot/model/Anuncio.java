@@ -257,7 +257,7 @@ public class Anuncio {
     }
 
     public void novoProcessoSeriacao(Colaborador colab, String seriacao) {
-        this.ps = new ProcessoSeriacao(tipoRegimento, colab, seriacao, this, new Date());
+        this.ps = new ProcessoSeriacao(tipoRegimento, colab, seriacao, this);
     }
 
     public void registaProcessoSeracao(ProcessoSeriacao ps) {
