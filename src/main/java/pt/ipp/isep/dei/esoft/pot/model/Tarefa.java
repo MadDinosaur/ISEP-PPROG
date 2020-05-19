@@ -29,7 +29,7 @@ public class Tarefa {
     /**
      * O nível de porficiencia da tarefa
      */
-    private int nivelPorficiencia;
+    private int nivelProficiencia;
 
     /**
      * Cria um objeto da classe Tarefa
@@ -42,14 +42,14 @@ public class Tarefa {
      * @param custoEst o custo estimado da tarefa
      */
     public Tarefa(String referencia, String designacao, String descInformal, String descTecnica,
-            Integer duracaoEst, Double custoEst, int nivelPorficiencia) {
+            Integer duracaoEst, Double custoEst, int nivelProficiencia) {
         this.referencia = referencia;
         this.designacao = designacao;
         this.descInformal = descInformal;
         this.descTecnica = descTecnica;
         this.duracaoEst = duracaoEst;
         this.custoEst = custoEst;
-        this.nivelPorficiencia = nivelPorficiencia;
+        this.nivelProficiencia = nivelProficiencia;
     }
 
     /**
@@ -64,7 +64,7 @@ public class Tarefa {
         this.descTecnica = tarefa.getDescTecnica();
         this.duracaoEst = tarefa.getDuracaoEst();
         this.custoEst = tarefa.getCustoEst();
-        this.nivelPorficiencia = tarefa.getNivelPorficiencia();
+        this.nivelProficiencia = tarefa.getNivelProficiencia();
     }
 
     /**
@@ -178,14 +178,14 @@ public class Tarefa {
        /**
      * @return the nivelPorficiencia
      */
-    public int getNivelPorficiencia() {
+    public int getNivelProficiencia() {
         return nivelPorficiencia;
     }
 
     /**
      * @param nivelPorficiencia the nivelPorficiencia to set
      */
-    public void setNivelPorficiencia(int nivelPorficiencia) {
+    public void setNivelProficiencia(int nivelPorficiencia) {
         this.nivelPorficiencia = nivelPorficiencia;
     }
 
