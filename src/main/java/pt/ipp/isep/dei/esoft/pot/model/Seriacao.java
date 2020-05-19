@@ -96,8 +96,8 @@ public class Seriacao {
 
                 if (nivelProficiencia1 < nivelProficiencia2) {
                     return -1;
-                } else if (nivelProficiencia1 > nivelProficiencia2) {
-                    return 1;
+                } else if (nivelProficiencia1 > nivelProficiencia2) {                               
+                    return 1;                                                                            
                 } else {
                     return 0;
                 }
@@ -140,7 +140,7 @@ public class Seriacao {
     
     //SERIACAO 2
     
-    private static Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() { 
+    private static Comparator<Candidatura> menorDesvioProficiencia = new Comparator<Candidatura>() {                           
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {

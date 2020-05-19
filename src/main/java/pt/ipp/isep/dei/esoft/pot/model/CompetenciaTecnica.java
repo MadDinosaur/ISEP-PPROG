@@ -88,4 +88,10 @@ public class CompetenciaTecnica
         return String.format("%s - %s - %s  - Área Atividade: %s", this.m_strId, this.m_strDescricaoBreve, this.m_strDescricaoDetalhada, this.m_oAreaAtividade.toString());
     }
     
+    public boolean verificarCompetenciasIguais(CompetenciaTecnica p2){
+        if(nivelProficiencia.equalsIgnoreCase(p2.getNivelProficiencia())){
+            
+        }
+    }
+    
 }
