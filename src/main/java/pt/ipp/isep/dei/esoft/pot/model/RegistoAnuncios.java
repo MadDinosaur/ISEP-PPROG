@@ -33,7 +33,7 @@ public class RegistoAnuncios {
         }
     }
 
-    private boolean adicionarAnuncio(Anuncio a) {
+    public boolean adicionarAnuncio(Anuncio a) {
         if (this.listaAnuncios.add(a)) {
             a.setID(ID++);
             return true;
@@ -41,9 +41,11 @@ public class RegistoAnuncios {
             return false;
         }
     }
+
     private boolean add(Anuncio a) {
         return listaAnuncios.add(a);
     }
+
     public RegistoAnuncios getAnunciosPorSeriar(Colaborador colab) {
         RegistoAnuncios anunciosPorSeriar = new RegistoAnuncios();
         for (Anuncio anuncio : listaAnuncios) {
@@ -78,19 +80,30 @@ public class RegistoAnuncios {
         }
         return stringList;
     }
-    
+
     public Anuncio getAnuncioPorID(int ID) {
-        for(Anuncio a: listaAnuncios) {
-            if (a.getID() == ID)
+        for (Anuncio a : listaAnuncios) {
+            if (a.getID() == ID) {
                 return a;
+            }
         }
         return null;
     }
-    
-    public Anuncio getAnuncio (Anuncio anuncio) {
+
+    public Anuncio getAnuncio(Anuncio anuncio) {
         for (Anuncio a : listaAnuncios) {
-            if (a.equals(anuncio))
+            if (a.equals(anuncio)) {
                 return a;
+            }
+        }
+        return null;
+    }
+
+    public Anuncio getAnuncioPorTarefa(String nomeTarefa) {
+        for (Anuncio a : listaAnuncios) {
+            if (a.getTarefa().getDesignacao().equalsIgnoreCase(nomeTarefa)) {
+                return a;
+            }
         }
         return null;
     }

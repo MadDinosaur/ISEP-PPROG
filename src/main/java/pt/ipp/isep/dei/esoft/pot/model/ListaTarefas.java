@@ -16,10 +16,8 @@ public class ListaTarefas{
     
     private  ArrayList<Tarefa> lista;
     
-    private final ArrayList<Tarefa> LISTA_POR_EXCESSAO = new ArrayList();
-    
     public ListaTarefas(){
-        
+      this.lista = new ArrayList<>();
     }
     
     public ListaTarefas(ArrayList<Tarefa> lista){
@@ -33,4 +31,19 @@ public class ListaTarefas{
         return lista;
     }
     
+    public boolean adicionarTarefa(Tarefa novaTarefa) {
+        return lista.add(novaTarefa);
+    }
+    
+    public boolean adicionarTarefa(String referencia, String designacao, String descInformal, String descTecnica,
+            Integer duracaoEst, Double custoEst, ArrayList<String> competencias) {
+        return lista.add(new Tarefa(referencia, designacao, descInformal, descTecnica, duracaoEst, custoEst, competencias));
+    }
+    public Tarefa getTarefaPorNome(String nomeTarefa) {
+        for (Tarefa t : lista) {
+            if(t.getDesignacao().equalsIgnoreCase(nomeTarefa))
+                return t;
+        }
+        return null;
+    }
 }

@@ -1,0 +1,80 @@
+﻿----------------------------------------------------------------------------------
+Organização
+----------------------------------------------------------------------------------
+Nome;NIF;Website;Telefone;E-mail;Local;Cod.Postal;Localidade;Nome (Gestor);Função (Gestor);Telefone (Gestor);E-mail (Gestor)
+----------------------------------------------------------------------------------
+ISEP;123456789;www.isep.ipp.pt;123456789;dei@isep.ipp.pt;R. Dr. António;0000-000;Porto;Maria Viamonte;Presidente;123456789;geral@isep.ipp.pt
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Tarefas
+----------------------------------------------------------------------------------
+Categoria;Nome;Descrição Informal;Descrição Técnica;Duração Estimada;Custo Estimado
+----------------------------------------------------------------------------------
+Linguistica;Escrever artigo para revista;descrição 1;descrição 2;10;500
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+Vocabulário;descrição 1;descrição 2;3
+Gramática;descrição 1;descrição 2;4
+Filosofia;descrição 1;descrição 2;2
+----------------------------------------------------------------------------------
+Jardinagem;Arranjar jardim;descrição 1;descrição 2;20;600
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+Adubagem;descrição 1;descrição 2;2
+Uso equipamento mecânico;descrição 1;descrição 2;3
+Floricultura;descrição 1;descrição 2;3
+----------------------------------------------------------------------------------
+Programação Java;App para PPROG;descrição 1;descrição 2;30;700
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+Algoritmia;descrição 1;descrição 2;4
+Engenharia de software;descrição 1;descrição 2;3
+Java;descrição 1;descrição 2;3
+----------------------------------------------------------------------------------
+Arte;Fazer poster;descrição 1;descrição 2;1;20
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Colaboradores
+----------------------------------------------------------------------------------
+Nome;Função;Telefone;E-mail
+----------------------------------------------------------------------------------
+Bárbara;Estudante;123456789;1191507@isep.ipp.pt
+
+__Anúncios
+Início Publicitação;Fim Publicitação;Início Candidatura;Fim Candidatura;Início Seriação;Fim Seriação;Tarefa
+01/01/2020;31/01/2020;01/01/2020;31/01/2020;01/02/2020;28/02/2020;Escrever artigo para revista
+01/01/2020;31/01/2020;01/01/2020;31/01/2020;01/02/2020;28/02/2020;Arranjar jardim
+01/01/2020;31/01/2020;01/01/2020;31/01/2020;01/02/2020;28/02/2020;App para PPROG
+----------------------------------------------------------------------------------
+Francisco;Estudante;123456789;1181626@isep.ipp.pt
+
+__Anúncios
+Início Publicitação;Fim Publicitação;Início Candidatura;Fim Candidatura;Início Seriação;Fim Seriação;Tarefa
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Freelancers
+----------------------------------------------------------------------------------
+Nome;NIF;Telefone;E-mail
+----------------------------------------------------------------------------------
+João;123456789;123456789;joao@escritor.pt
+
+__Competências Técnicas
+Nome;Proficiência
+Vocabulário;descrição 1;descrição 2;5
+Filosofia;descrição 1;descrição 2;4
+Gramática;descrição 1;descrição 2;3
+Algoritmia;descrição 1;descrição 2;3
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2020;500;10;apresentação 1;motivação 1;Escrever artigo para revista
+01/01/2020;666;15;apresentação 2;motivação 2;App para PPROG
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------

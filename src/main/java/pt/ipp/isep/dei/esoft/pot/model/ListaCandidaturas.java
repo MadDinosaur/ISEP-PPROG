@@ -1,6 +1,7 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ListaCandidaturas {
@@ -46,6 +47,11 @@ public class ListaCandidaturas {
 
     public boolean adicionarCandidatura(Candidatura cand) {
         return listaCandidaturas.add(cand);
+    }
+
+    public boolean adicionarCandidatura(Date dataCandidatura, double valorPretendido, int nrDias,
+            String txtApresentacao, String txtMotivacao, Freelancer freelancer, Anuncio anuncio) {
+        return listaCandidaturas.add(new Candidatura(dataCandidatura, valorPretendido, nrDias, txtApresentacao, txtMotivacao, freelancer, anuncio));
     }
 
     public Candidatura get(int i) {

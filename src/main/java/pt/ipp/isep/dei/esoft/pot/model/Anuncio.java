@@ -51,6 +51,10 @@ public class Anuncio {
      * O nº de idenficação do Anuncio
      */
     private int id;
+    /**
+     * A tarefa a que se refere o Anúncio
+     */
+    private Tarefa tarefa;
 
     /**
      * Cria um objeto da classe Anuncio
@@ -66,7 +70,7 @@ public class Anuncio {
      */
     //SE ESTE CONSTRUTOR FOR ALTERADO: ALTERAR EM INICIALIZADOR.JAVA
     public Anuncio(Date dtInicioPublicitacao, Date dtFimPublicitacao, Date dtInicioCandidatura,
-            Date dtFimCandidatura, Date dtInicioSeriacao, Date dtFimSeriacao, String strNome, String strFuncao, String strTelefone, String strEmail) {
+            Date dtFimCandidatura, Date dtInicioSeriacao, Date dtFimSeriacao, Tarefa Tarefa, Colaborador colab) {
         this.dtInicioPublicitacao = dtInicioPublicitacao;
         this.dtFimPublicitacao = dtFimPublicitacao;
         this.dtInicioCandidatura = dtInicioCandidatura;
@@ -78,7 +82,8 @@ public class Anuncio {
         this.tipoRegimento = new TipoRegimento();
         this.ps = null;
 
-        this.colab = new Colaborador(strNome, strFuncao, strTelefone, strEmail);
+        this.tarefa = tarefa;
+        this.colab = colab;
     }
 
     /**
@@ -247,6 +252,11 @@ public class Anuncio {
     public boolean adicionarCandidatura(Candidatura cand) {
         return listaCandidaturas.adicionarCandidatura(cand);
     }
+    
+    public boolean adicionarCandidatura(Date dataCandidatura, double valorPretendido, int nrDias, 
+            String txtApresentacao, String txtMotivacao, Freelancer freelancer) {
+        return listaCandidaturas.adicionarCandidatura(dataCandidatura, valorPretendido, nrDias, txtApresentacao, txtMotivacao, freelancer, this);
+    }
 
     /**
      * Retorna uma cópia do processo de seriação criado pelo anúncio
@@ -268,6 +278,10 @@ public class Anuncio {
     }
 
     private void setProcessoSeriacao(ProcessoSeriacao ps) {
+    }
+    
+    public Tarefa getTarefa() {
+        return this.tarefa;
     }
     @Override
     public boolean equals(Object o) {

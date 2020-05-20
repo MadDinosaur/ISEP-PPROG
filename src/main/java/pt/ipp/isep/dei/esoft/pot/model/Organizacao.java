@@ -5,6 +5,7 @@
  */
 package pt.ipp.isep.dei.esoft.pot.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -45,6 +46,10 @@ public class Organizacao {
      * A lista de todos os Colaboradores
      */
     private ListaColaboradores listaColaboradores = new ListaColaboradores();
+    /**
+     * A lista de todas as Tarefas criadas pela organizacao
+     */
+    private ListaTarefas listaTarefas = new ListaTarefas();
 
     /**
      * A lista de todas as Tarefas da organização
@@ -118,6 +123,13 @@ public class Organizacao {
         this.listaColaboradores.adicionarColaborador(novoColab);
         return novoColab;
     }
+    
+    public Tarefa novaTarefa(String referencia, String designacao, String descInformal, String descTecnica,
+            Integer duracaoEst, Double custoEst, ArrayList<String> competencias) {
+        Tarefa novaTarefa = new Tarefa(referencia, designacao, descInformal, descTecnica, duracaoEst, custoEst, competencias);
+        this.listaTarefas.adicionarTarefa(novaTarefa);
+        return novaTarefa;
+    }
 
     public static EnderecoPostal novoEnderecoPostal(String strLocal, String strCodPostal, String strLocalidade) {
         return new EnderecoPostal(strLocal, strCodPostal, strLocalidade);
@@ -125,5 +137,9 @@ public class Organizacao {
 
     public ListaColaboradores getListaColaboradores() {
         return listaColaboradores;
+    }
+    
+    public ListaTarefas getListaTarefas() {
+        return listaTarefas;
     }
 }
