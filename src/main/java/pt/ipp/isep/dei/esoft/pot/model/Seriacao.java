@@ -87,12 +87,12 @@ public class Seriacao {
     
     //SERIACAO 1
     
-    private static Comparator<Candidatura> maiorMediaProficiencia = new Comparator<Candidatura>() {  //falta criar classe Freelancer
+    private static Comparator<Candidatura> maiorMediaProficiencia = new Comparator<Candidatura>() {  
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
-                double nivelProficiencia1 = f1.getFreelancer().getNivelProficiencia();
-                double nivelProficiencia2 = f2.getFreelancer().getNivelProficiencia();
+                double nivelProficiencia1 = f1.getFreelancer().getNivelProficiencia(1); //FALTA ADQUIRIR NIVEL ESPECIFICO
+                double nivelProficiencia2 = f2.getFreelancer().getNivelProficiencia(1);
 
                 if (nivelProficiencia1 < nivelProficiencia2) {
                     return -1;
@@ -144,8 +144,8 @@ public class Seriacao {
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
-                double nivelProficiencia1 = f1.getTarefa().getNivelPorficiencia() - f1.getFreelancer().getNivelProficiencia();
-                double nivelProficiencia2 = f2.getTarefa().getNivelPorficiencia() - f2.getFreelancer().getNivelProficiencia();
+                double nivelProficiencia1 = f1.getTarefa().getNivelProficiencia(1) - f1.getFreelancer().getNivelProficiencia(1); //FALTA ADQUIRIR NIVEL ESPECIFICO
+                double nivelProficiencia2 = f2.getTarefa().getNivelProficiencia(1) - f2.getFreelancer().getNivelProficiencia(1);
 
                 if (nivelProficiencia1 > nivelProficiencia2) {
                     return -1;

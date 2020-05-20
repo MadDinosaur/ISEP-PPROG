@@ -190,5 +190,9 @@ public class Tarefa {
     public void setCompetencias(ArrayList<CompetenciaTecnica> competencias) {
         this.competencias = competencias;
     }
+    
+    public int getNivelProficiencia(int i){
+        return competencias.get(i).getNivelProficiencia();
+    }
 
 }

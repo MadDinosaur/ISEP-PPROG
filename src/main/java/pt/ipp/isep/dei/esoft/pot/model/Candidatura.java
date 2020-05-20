@@ -184,4 +184,6 @@ public class Candidatura {
     public String toString() {
         return String.format("Data: %s, Valor: %.2f€, Dias: %d, Nome: %s", dataCandidatura, valorPretendido, nrDias, freelancer.getNome());
     }
+    
+    
 }

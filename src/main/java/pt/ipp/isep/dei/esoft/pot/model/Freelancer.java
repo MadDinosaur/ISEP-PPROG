@@ -130,12 +130,24 @@ public class Freelancer {
     public ArrayList<CompetenciaTecnica> getCompetencias() {
         return competencias;
     }
+    
+    public int getNivelProficiencia(int i){
+        return competencias.get(i).getNivelProficiencia();
+    }
 
     /**
      * @param competencias the competencias to set
      */
     public void setCompetencias(ArrayList<CompetenciaTecnica> competencias) {
         this.competencias = competencias;
+    }
+    
+    public float getMediaNiveisProficiencia(){
+        float media = 0;
+        for(int i = 0; i < competencias.size(); i++){
+            media = media + competencias.get(i).getNivelProficiencia();
+        }
+        return media / competencias.size();
     }
     
     
