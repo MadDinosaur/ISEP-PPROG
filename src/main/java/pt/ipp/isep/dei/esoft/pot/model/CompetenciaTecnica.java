@@ -89,9 +89,13 @@ public class CompetenciaTecnica
     }
     
     public boolean verificarCompetenciasIguais(CompetenciaTecnica p2){
-        if(nivelProficiencia.equalsIgnoreCase(p2.getNivelProficiencia())){
-            
+        if(nivelProficiencia == p2.getNivelProficiencia()){
+            return true;
+        }else{
+            return false;
         }
     }
+    
+    
     
 }
