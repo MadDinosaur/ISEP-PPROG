@@ -51,7 +51,8 @@ public class Candidatura {
      * @param freelancer o Freelancer que efetua a candidatura
      * @param anuncio o Anuncio para a qual a Candidatura se destina
      */
-    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias, String txtApresentacao, String txtMotivacao, Freelancer freelancer, Anuncio anuncio) {
+    public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias,
+            String txtApresentacao, String txtMotivacao, Freelancer freelancer, Anuncio anuncio) {
         if (dataCandidatura == null || txtApresentacao == null || txtMotivacao == null || freelancer == null)
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
         

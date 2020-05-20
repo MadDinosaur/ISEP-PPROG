@@ -22,7 +22,7 @@ public class Freelancer {
      */
     private String email;
     /**
-     * E-mail do freelancer.
+     * Lista de Competências Técnicas do freelancer.
      */
     private ArrayList<CompetenciaTecnica> competencias;
 
@@ -32,16 +32,19 @@ public class Freelancer {
      * @param NIF o nº de identificação fiscal do freelancer
      * @param telefone o nº de telefone do freelancer
      * @param email o e-mail do freelancer
+     * @param competencias a lista de competências técnicas associadas à tarefa
      */
-    public Freelancer(String nome, String NIF, String telefone, String email, int nivelProficiencia, ArrayList<CompetenciaTecnica> competencias){
-        if (nome == null || NIF == null || telefone == null || email == null || nivelProficiencia == 0)
+    public Freelancer(String nome, String NIF, String telefone, String email, ArrayList<String> competencias){
+        if (nome == null || NIF == null || telefone == null || email == null)
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
         
         this.nome = nome;
         this.NIF = NIF;
         this.telefone = telefone;
         this.email = email;
-        this.competencias = competencias;
+         for (String str : competencias) {
+            this.competencias.add(new CompetenciaTecnica(str));
+        }
     }
     /**
      * Cria um objeto da classe Freelancer como cópia do objeto recebido por parâmetro.

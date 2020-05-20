@@ -23,17 +23,32 @@ public class CompetenciaTecnica
      */
     private int nivelProficiencia;
     
-    public CompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoDetalhada, AreaAtividade oArea, int nivelProficiencia)
-    {
-        if ( (strId == null) || (strDescricaoBreve == null) || (strDescricaoDetalhada == null) ||
-                (oArea == null) || (strId.isEmpty())|| (strDescricaoBreve.isEmpty()) || (strDescricaoDetalhada.isEmpty()))
+    public CompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoDetalhada, int nivelProficiencia) {
+        if ((strId == null) || (strDescricaoBreve == null) || (strDescricaoDetalhada == null) || (strId.isEmpty()) || (strDescricaoBreve.isEmpty()) || (strDescricaoDetalhada.isEmpty())) {
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
-        
+        }
+
         this.m_strId = strId;
         this.m_strDescricaoBreve = strDescricaoBreve;
         this.m_strDescricaoDetalhada = strDescricaoDetalhada;
         this.nivelProficiencia = nivelProficiencia;
-        m_oAreaAtividade = oArea;
+    }
+
+    public CompetenciaTecnica(String linha) {
+        String[] params = linha.split(";");
+
+        if (linha.length() < 4) {
+            throw new IllegalArgumentException("O argumento não é válido.");
+        }
+
+        this.m_strId = params[0];
+        this.m_strDescricaoBreve = params[1];
+        this.m_strDescricaoDetalhada = params[2];
+        try {
+            this.nivelProficiencia = Integer.parseInt(params[3]);
+        } catch (NumberFormatException e) {
+            System.out.println("O nível de proficiência tem que ser um número inteiro!");
+        }
     }
     
     /**

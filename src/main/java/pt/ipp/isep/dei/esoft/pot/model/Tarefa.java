@@ -42,16 +42,19 @@ public class Tarefa {
      * @param descTecnica a descrição técnica da tarefa
      * @param duracaoEst a duração estimada da tarefa
      * @param custoEst o custo estimado da tarefa
+     * @param competencias a lista de competências técnicas associadas à tarefa
      */
     public Tarefa(String referencia, String designacao, String descInformal, String descTecnica,
-            Integer duracaoEst, Double custoEst, int nivelProficiencia, ArrayList<CompetenciaTecnica> competencias) {
+            Integer duracaoEst, Double custoEst, ArrayList<String> competencias) {
         this.referencia = referencia;
         this.designacao = designacao;
         this.descInformal = descInformal;
         this.descTecnica = descTecnica;
         this.duracaoEst = duracaoEst;
         this.custoEst = custoEst;
-        this.competencias = competencias;
+        for (String str : competencias) {
+            this.competencias.add(new CompetenciaTecnica(str));
+        }
     }
 
     /**
