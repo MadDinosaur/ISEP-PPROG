@@ -63,6 +63,7 @@ public class Candidatura {
         this.txtMotivacao = txtMotivacao;
         this.freelancer = new Freelancer(freelancer);
         this.anuncio = new Anuncio(anuncio);
+        this.tarefa = this.anuncio.getTarefa();
     }
     
     /**
@@ -207,7 +208,7 @@ public class Candidatura {
         float media = 0;
         int cont = 0;
         for(int i = 0; i < freelancer.getCompetencias().size(); i++){
-            for(int j = 0; j < anuncio.getTarefa().getCompetencias().size(); j++){
+            for(int j = 0; j < tarefa.getCompetencias().size(); j++){
                 if(freelancer.getCompetencias().get(i).equals(anuncio.getTarefa().getCompetencias().get(j))){
                     media = media + freelancer.getNivelProficiencia(i);
                     cont++;

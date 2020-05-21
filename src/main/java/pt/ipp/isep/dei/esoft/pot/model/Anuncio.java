@@ -67,8 +67,9 @@ public class Anuncio {
      * candidaturas
      * @param dtInicioSeriacao a data de início do período de seriação
      * @param dtFimSeriacao a data de fim do período de seriação
+     * @param tarefa a Tarefa à qual se refere o anúncio
+     * @param colab o Colaborador que publica o anúncio
      */
-    //SE ESTE CONSTRUTOR FOR ALTERADO: ALTERAR EM INICIALIZADOR.JAVA
     public Anuncio(Date dtInicioPublicitacao, Date dtFimPublicitacao, Date dtInicioCandidatura,
             Date dtFimCandidatura, Date dtInicioSeriacao, Date dtFimSeriacao, Tarefa tarefa, Colaborador colab) {
         this.dtInicioPublicitacao = dtInicioPublicitacao;
@@ -101,7 +102,9 @@ public class Anuncio {
         
         this.listaCandidaturas = anun.listaCandidaturas;
         this.tipoRegimento = anun.tipoRegimento;
-
+        this.ps = anun.ps;
+        
+        this.tarefa = anun.tarefa;
         this.colab = anun.colab;
     }
 
@@ -284,7 +287,7 @@ public class Anuncio {
     }
     
     public Tarefa getTarefa() {
-        return this.tarefa;
+        return new Tarefa(tarefa);
     }
     @Override
     public boolean equals(Object o) {
