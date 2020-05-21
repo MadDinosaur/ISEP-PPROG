@@ -91,8 +91,8 @@ public class Seriacao {
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
-                double nivelProficiencia1 = f1.getFreelancer().getNivelProficiencia(1); //FALTA ADQUIRIR NIVEL ESPECIFICO
-                double nivelProficiencia2 = f2.getFreelancer().getNivelProficiencia(1);
+                float nivelProficiencia1 = f1.getMediaNiveisProficiencia(); 
+                float nivelProficiencia2 = f2.getMediaNiveisProficiencia();
 
                 if (nivelProficiencia1 < nivelProficiencia2) {
                     return -1;
@@ -127,14 +127,7 @@ public class Seriacao {
             public int compare(Candidatura f1, Candidatura f2) {
                 Date dataRegisto1 = f1.getDataCandidatura();
                 Date dataRegisto2 = f2.getDataCandidatura();
-
-                if (dataRegisto1.compareTo(dataRegisto2) < 0) {
-                    return -1;
-                } else if (dataRegisto1.compareTo(dataRegisto2) > 0) {
-                    return 1;
-                } else {
-                    return 0;
-                }
+                return dataRegisto1.compareTo(dataRegisto2);
             }
     };
     
@@ -144,8 +137,8 @@ public class Seriacao {
 
             @Override
             public int compare(Candidatura f1, Candidatura f2) {
-                double nivelProficiencia1 = f1.getTarefa().getNivelProficiencia(1) - f1.getFreelancer().getNivelProficiencia(1); //FALTA ADQUIRIR NIVEL ESPECIFICO
-                double nivelProficiencia2 = f2.getTarefa().getNivelProficiencia(1) - f2.getFreelancer().getNivelProficiencia(1);
+                double nivelProficiencia1 = f1.getDesvioPadrao(); 
+                double nivelProficiencia2 = f2.getDesvioPadrao();
 
                 if (nivelProficiencia1 > nivelProficiencia2) {
                     return -1;

@@ -68,9 +68,8 @@ public class ProcessoSeriacao {
     }
 
     public void ordenar() {
-        List<Candidatura> lista = anuncio.getListaCandidaturas().getCandidaturas();
         Comparator comparador = seriacao.getComparador();
-        lista.sort(comparador);
+        anuncio.getListaCandidaturas().getCandidaturas().sort(comparador);
     }
 
     private List<String> toStringArray() {

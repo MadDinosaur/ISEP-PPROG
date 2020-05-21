@@ -186,5 +186,36 @@ public class Candidatura {
         return String.format("Data: %s, Valor: %.2f€, Dias: %d, Nome: %s", dataCandidatura, valorPretendido, nrDias, freelancer.getNome());
     }
     
+    public float getDesvioPadrao(){
+        float somatorio = 0;
+        int cont = 0;
+        float media = getMediaNiveisProficiencia();
+        for(int i = 0; i < freelancer.getCompetencias().size(); i++){
+            for(int j = 0; j < anuncio.getTarefa().getCompetencias().size(); j++){
+                if(freelancer.getCompetencias().get(i).equals(anuncio.getTarefa().getCompetencias().get(j))){
+                    somatorio = somatorio + freelancer.getNivelProficiencia(i) - media;
+                    cont++;
+                }
+            }
+        }
+        somatorio = (float) Math.pow(somatorio, 2);
+        somatorio = (float) somatorio / cont;
+        return (float) Math.sqrt(somatorio);
+    }
+    
+    public float getMediaNiveisProficiencia(){
+        float media = 0;
+        int cont = 0;
+        for(int i = 0; i < freelancer.getCompetencias().size(); i++){
+            for(int j = 0; j < anuncio.getTarefa().getCompetencias().size(); j++){
+                if(freelancer.getCompetencias().get(i).equals(anuncio.getTarefa().getCompetencias().get(j))){
+                    media = media + freelancer.getNivelProficiencia(i);
+                    cont++;
+                }
+            }
+        }
+        return (float) media / cont;
+    }
+    
     
 }

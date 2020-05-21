@@ -145,13 +145,7 @@ public class Freelancer {
         this.competencias = competencias;
     }
     
-    public float getMediaNiveisProficiencia(){
-        float media = 0;
-        for(int i = 0; i < competencias.size(); i++){
-            media = media + competencias.get(i).getNivelProficiencia();
-        }
-        return media / competencias.size();
-    }
+    
     
     
 }
