@@ -35,13 +35,12 @@ public class Inicializador {
     private static final String NOME_PLATAFORMA = "T4J";
     private static Plataforma plataforma;
     private static Organizacao organizacao;
-    private static RegistoAnuncios registoAnuncios;
+    private static RegistoAnuncios registoAnuncios = new RegistoAnuncios();
 
     /**
      * Cria um objeto da classe Inicializador
      */
     public Inicializador() {
-        lerFicheiro();
     }
 
     /**
@@ -60,11 +59,19 @@ public class Inicializador {
         }
     }
 
-    private void iniciarPlataforma() {
+    public Plataforma iniciarPlataforma() {
+        lerFicheiro();
+        iniciarOrganizacao();
+        iniciarTarefas();
+        iniciarColaboradores();
+        iniciarFreelancers();
+        
         RegistoOrganizacoes registoOrganizacoes = new RegistoOrganizacoes();
         registoOrganizacoes.adicionarOrganizacao(organizacao);
 
         this.plataforma = new Plataforma(NOME_PLATAFORMA, registoOrganizacoes, registoAnuncios);
+        
+        return this.plataforma;
     }
 
     /**
@@ -72,7 +79,9 @@ public class Inicializador {
      * texto
      */
     private static void iniciarOrganizacao() {
-        String[] params = dados.get(procurar("Organização") + SEPARADOR_TITULO).split(";");
+        int linha = procurar("Organizacao") + SEPARADOR_TITULO;
+        
+        String[] params = dados.get(linha).split(";");
 
         try {
             organizacao = new Organizacao(params[0], params[1], params[2],
@@ -155,7 +164,7 @@ public class Inicializador {
     private static void iniciarAnuncios(int linha, Colaborador colab) throws IndexOutOfBoundsException {
         for (int i = linha; i < getProximoDelimitador(linha); i++) {
 
-            String[] params = dados.get(linha).split(";");
+            String[] params = dados.get(i).split(";");
 
             Anuncio novoAnuncio = new Anuncio(new Date(params[0]), new Date(params[1]), new Date(params[2]),
                     new Date(params[3]), new Date(params[4]), new Date(params[5]), organizacao.getListaTarefas().getTarefaPorNome(params[6]), colab);
@@ -208,9 +217,9 @@ public class Inicializador {
     private static void iniciarCandidaturas(int linha, Freelancer freelancer) throws IndexOutOfBoundsException {
         for (int i = linha; i < getProximoDelimitador(linha); i++) {
 
-            String[] params = dados.get(linha).split(";");
+            String[] params = dados.get(i).split(";");
 
-            registoAnuncios.getAnuncioPorTarefa(params[4]).adicionarCandidatura(new Date(params[0]), 
+            registoAnuncios.getAnuncioPorTarefa(params[5]).adicionarCandidatura(new Date(params[0]), 
                     Double.parseDouble(params[1]), Integer.parseInt(params[2]), params[3], params[4], freelancer);
         }
     }

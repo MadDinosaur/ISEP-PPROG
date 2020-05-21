@@ -1,5 +1,5 @@
 ﻿----------------------------------------------------------------------------------
-Organização
+Organizacao
 ----------------------------------------------------------------------------------
 Nome;NIF;Website;Telefone;E-mail;Local;Cod.Postal;Localidade;Nome (Gestor);Função (Gestor);Telefone (Gestor);E-mail (Gestor)
 ----------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ Freelancers
 ----------------------------------------------------------------------------------
 Nome;NIF;Telefone;E-mail
 ----------------------------------------------------------------------------------
-João;123456789;123456789;joao@escritor.pt
+Joao;123456789;123456789;joao@escritor.pt
 
 __Competências Técnicas
 Nome;Proficiência
@@ -75,6 +75,19 @@ __Candidaturas
 Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
 01/01/2020;500;10;apresentação 1;motivação 1;Escrever artigo para revista
 01/01/2020;666;15;apresentação 2;motivação 2;App para PPROG
+----------------------------------------------------------------------------------
+Manel;123456789;123456789;manel@escritor.pt
+
+__Competências Técnicas
+Nome;Proficiência
+Vocabulário;descrição 1;descrição 2;4
+Filosofia;descrição 1;descrição 2;4
+Gramática;descrição 1;descrição 2;4
+Inglês;descrição 1;descrição 2;4
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2020;500;10;apresentação 1;motivação 1;Escrever artigo para revista
 ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------

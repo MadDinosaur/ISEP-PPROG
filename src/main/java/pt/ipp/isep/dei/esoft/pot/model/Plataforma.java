@@ -127,8 +127,8 @@ public class Plataforma {
         return null;
     }
 
-    public CompetenciaTecnica novaCompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoCompleta, AreaAtividade oArea) {
-        return new CompetenciaTecnica(strId, strDescricaoBreve, strDescricaoCompleta, oArea);
+    public CompetenciaTecnica novaCompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoCompleta, int nvlProficiencia) {
+        return new CompetenciaTecnica(strId, strDescricaoBreve, strDescricaoCompleta, nvlProficiencia);
     }
 
     public boolean registaCompetenciaTecnica(CompetenciaTecnica oCompTecnica) {

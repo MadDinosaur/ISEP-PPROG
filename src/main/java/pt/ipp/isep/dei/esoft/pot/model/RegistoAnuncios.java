@@ -49,7 +49,7 @@ public class RegistoAnuncios {
     public RegistoAnuncios getAnunciosPorSeriar(Colaborador colab) {
         RegistoAnuncios anunciosPorSeriar = new RegistoAnuncios();
         for (Anuncio anuncio : listaAnuncios) {
-            if (anuncio.getColaborador().equals(colab) && anuncio.getProcessoSeriacao() == null) {
+            if (anuncio.getColaborador().equals(colab) && anuncio.getProcessoSeriacao().getSeriacao() == null) {
                 anunciosPorSeriar.add(anuncio);
             }
         }

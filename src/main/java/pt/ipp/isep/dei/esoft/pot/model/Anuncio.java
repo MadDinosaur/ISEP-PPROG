@@ -70,7 +70,7 @@ public class Anuncio {
      */
     //SE ESTE CONSTRUTOR FOR ALTERADO: ALTERAR EM INICIALIZADOR.JAVA
     public Anuncio(Date dtInicioPublicitacao, Date dtFimPublicitacao, Date dtInicioCandidatura,
-            Date dtFimCandidatura, Date dtInicioSeriacao, Date dtFimSeriacao, Tarefa Tarefa, Colaborador colab) {
+            Date dtFimCandidatura, Date dtInicioSeriacao, Date dtFimSeriacao, Tarefa tarefa, Colaborador colab) {
         this.dtInicioPublicitacao = dtInicioPublicitacao;
         this.dtFimPublicitacao = dtFimPublicitacao;
         this.dtInicioCandidatura = dtInicioCandidatura;
@@ -80,7 +80,7 @@ public class Anuncio {
 
         this.listaCandidaturas = new ListaCandidaturas();
         this.tipoRegimento = new TipoRegimento();
-        this.ps = null;
+        this.ps = new ProcessoSeriacao();
 
         this.tarefa = tarefa;
         this.colab = colab;
@@ -268,7 +268,10 @@ public class Anuncio {
     }
 
     public void novoProcessoSeriacao(Colaborador colab, String seriacao) {
-        this.ps = new ProcessoSeriacao(tipoRegimento, colab, seriacao, this);
+        this.ps.setTipoRegimento(tipoRegimento);
+        this.ps.setColaborador(colab);
+        this.ps.setSeriacao(seriacao);
+        this.ps.setAnuncio(this);
     }
 
     public void registaProcessoSeracao(ProcessoSeriacao ps) {
@@ -301,6 +304,6 @@ public class Anuncio {
     }
     @Override
     public String toString() {
-        return String.format("ID: %d, Data de publicação: %s", id, dtInicioPublicitacao);
+        return String.format("ID: %d, Data de publicação: %s, Tarefa: %s", id, dtInicioPublicitacao, tarefa.getDesignacao());
     }
 }

@@ -50,6 +50,7 @@ public class AdicionarParticipanteUI implements Initializable {
     private void confirmar(ActionEvent event) {
         appController.addParticipante(anuncioID, txtEmail.getText());
         //FALTA VALIDAÇÃO
+        ((Stage) btnConfirmar.getScene().getWindow()).close();
     }
 
     public void associarParentUI(SeriarAnuncioUI seriarAnuncioUI) {
