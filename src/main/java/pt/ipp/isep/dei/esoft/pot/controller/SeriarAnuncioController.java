@@ -11,10 +11,10 @@ import pt.ipp.isep.dei.esoft.pot.model.Seriacao;
 public class SeriarAnuncioController {
 
     private Plataforma plataforma;
-    private Colaborador user = new Colaborador("nome 1", "funcao 1", "111111111", "nome1@org1.pt");//TEMPORARIO
+    private Colaborador user = new Colaborador("Bárbara","Estudante","123456789","1191507@isep.ipp.pt");//TEMPORARIO
 
     public SeriarAnuncioController() {
-        plataforma = Inicializador.iniciarPlataforma("T4J");
+        this.plataforma = new Inicializador().iniciarPlataforma();
     }
 
     public List<String> getAnunciosPorSeriar() {
@@ -22,7 +22,11 @@ public class SeriarAnuncioController {
     }
 
     public List<String> getCandidaturas(int anuncioId) {
-        return getAnuncio(anuncioId).getListaCandidaturas().toStringArray();
+        List<String> candidaturas = getAnuncio(anuncioId).getListaCandidaturas().toStringArray();
+        if (candidaturas.isEmpty()) {
+            candidaturas.add("SEM CANDIDATURAS");
+        }
+        return candidaturas;
     }
     private Anuncio getAnuncio (int anuncioId) {
         return plataforma.getRegistoAnuncios().getAnuncioPublicadoPor(user, anuncioId);

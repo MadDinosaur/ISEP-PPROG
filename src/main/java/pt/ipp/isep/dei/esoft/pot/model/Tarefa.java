@@ -31,7 +31,7 @@ public class Tarefa {
     /**
      * O nível de porficiencia da tarefa
      */
-    private ArrayList<CompetenciaTecnica> competencias;
+    private ArrayList<CompetenciaTecnica> competencias = new ArrayList<>();
 
     /**
      * Cria um objeto da classe Tarefa

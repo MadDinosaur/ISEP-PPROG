@@ -24,7 +24,7 @@ public class Freelancer {
     /**
      * Lista de Competências Técnicas do freelancer.
      */
-    private ArrayList<CompetenciaTecnica> competencias;
+    private ArrayList<CompetenciaTecnica> competencias = new ArrayList<>();
 
     /**
      * Cria um objeto da classe Freelancer

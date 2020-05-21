@@ -41,6 +41,7 @@ public class ProcessoSeriacao {
      *
      */
     public ProcessoSeriacao() {
+        
     }
 
     /**
@@ -55,9 +56,31 @@ public class ProcessoSeriacao {
         this.anuncio = ps.anuncio;
         this.dataRealizacao = ps.dataRealizacao;
     }
-
+    public void setTipoRegimento(TipoRegimento reg) {
+        this.tipoReg = reg;
+    }
+    
+    public void setColaborador(Colaborador colab) {
+        this.listaColabs.add(colab);
+    }
+    
+    public void setSeriacao(String seriacao) {
+        this.seriacao = new Seriacao(seriacao);
+    }
+    
+    public void setAnuncio(Anuncio anuncio) {
+        this.anuncio = anuncio;
+    }
+    
     public List<String> getColaboradores() {
         return toStringArray();
+    }
+    
+    public String getSeriacao() {
+        if (seriacao == null) 
+            return null;
+        else
+            return seriacao.toString();
     }
 
     public boolean addParticipante(Colaborador part) {
