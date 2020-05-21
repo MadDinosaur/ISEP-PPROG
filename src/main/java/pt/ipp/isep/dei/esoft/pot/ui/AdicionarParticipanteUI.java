@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
 
@@ -48,9 +49,15 @@ public class AdicionarParticipanteUI implements Initializable {
 
     @FXML
     private void confirmar(ActionEvent event) {
-        appController.addParticipante(anuncioID, txtEmail.getText());
-        //FALTA VALIDAÇÃO
-        ((Stage) btnConfirmar.getScene().getWindow()).close();
+        try {
+            appController.addParticipante(anuncioID, txtEmail.getText());
+            criarAlerta(Alert.AlertType.INFORMATION, "Participante adicionado com sucesso!", "");
+            ((Stage) btnConfirmar.getScene().getWindow()).close();
+        } catch (NullPointerException e) {
+            criarAlerta(Alert.AlertType.ERROR, "E-mail não existente!",
+                    "O participante que pretende adicionar não está registado.\n"
+                    + "Por favor insira novamente o e-mail.");
+        }
     }
 
     public void associarParentUI(SeriarAnuncioUI seriarAnuncioUI) {
@@ -71,5 +78,12 @@ public class AdicionarParticipanteUI implements Initializable {
         alerta.showAndWait();
 
         return alerta;
+    }
+
+    @FXML
+    private void triggerBtnConfirmar(KeyEvent event) {
+        if (!txtEmail.getText().isEmpty()) {
+            btnConfirmar.setDisable(false);
+        }
     }
 }

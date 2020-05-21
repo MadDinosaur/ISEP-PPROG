@@ -7,19 +7,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.esoft.pot.ui.AdicionarParticipanteUI">
    <children>
       <FlowPane alignment="CENTER" hgap="20.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Label text="Insira o e-mail do participante:" />
-            <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="164.0" />
+            <TextField fx:id="txtEmail" onKeyTyped="#triggerBtnConfirmar" prefHeight="25.0" prefWidth="164.0" />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" hgap="100.0" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-            <Button fx:id="btnConfirmar" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+            <Button fx:id="btnConfirmar" disable="true" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
          </children>
       </FlowPane>
    </children>

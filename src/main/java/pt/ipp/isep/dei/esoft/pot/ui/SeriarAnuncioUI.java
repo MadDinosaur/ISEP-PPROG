@@ -39,9 +39,8 @@ public class SeriarAnuncioUI {
             ClassificarCandidaturasUI classificarUI = loader.getController();
             classificarUI.associarParentUI(this);
             classificarUI.associarAnuncio(appController.getIdFromString(cmbBoxAnuncios.getValue()));
-            classificarUI.preencherLista();
-            
-            classificarStage.show();
+            if(classificarUI.preencherLista())
+                classificarStage.show();
         } catch (IOException ex) {
             criarAlerta(Alert.AlertType.ERROR, "Erro", ex.getMessage());
         }
@@ -92,5 +91,11 @@ public class SeriarAnuncioUI {
         alerta.showAndWait();
 
         return alerta;
+    }
+
+    @FXML
+    private void triggerBtn(ActionEvent event) {
+            btnAdicionarParticipante.setDisable(false);
+            btnClassificar.setDisable(false);
     }
 }

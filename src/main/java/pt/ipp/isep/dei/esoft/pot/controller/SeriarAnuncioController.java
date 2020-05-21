@@ -23,9 +23,6 @@ public class SeriarAnuncioController {
 
     public List<String> getCandidaturas(int anuncioId) {
         List<String> candidaturas = getAnuncio(anuncioId).getListaCandidaturas().toStringArray();
-        if (candidaturas.isEmpty()) {
-            candidaturas.add("SEM CANDIDATURAS");
-        }
         return candidaturas;
     }
     private Anuncio getAnuncio (int anuncioId) {

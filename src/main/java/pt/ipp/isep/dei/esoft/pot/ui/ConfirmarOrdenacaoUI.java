@@ -73,7 +73,7 @@ public class ConfirmarOrdenacaoUI implements Initializable {
     public void preencherListas() {
         //Mostra a lista dos candidatos
         ObservableList<String> candList = FXCollections.observableArrayList();
-        candList.addAll(appController.getCandidaturas(anuncioID));
+        candList.addAll(appController.classifica(anuncioID));
         lstViewCandidaturas.setItems(candList);
         //Mostra a lista dos participantes
         ObservableList<String> partList = FXCollections.observableArrayList();

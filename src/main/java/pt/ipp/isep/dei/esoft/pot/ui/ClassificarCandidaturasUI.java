@@ -59,10 +59,16 @@ public class ClassificarCandidaturasUI implements Initializable {
         this.anuncioID = anuncioID;
     }
 
-    public void preencherLista() {
+    public boolean preencherLista() {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(appController.getCandidaturas(anuncioID));
         lstViewCandidaturas.setItems(items);
+        
+        if (items.isEmpty()) {
+            criarAlerta(Alert.AlertType.WARNING, "Sem Candidaturas!", "Ainda não existem candidaturas para este anúncio.");
+            return false;
+        }
+        return true;
     }
 
     @FXML
@@ -121,5 +127,10 @@ public class ClassificarCandidaturasUI implements Initializable {
     }
     public SeriarAnuncioUI getParent() {
         return seriarAnuncioUI;
+    }
+
+    @FXML
+    private void triggerBtnValidar(ActionEvent event) {
+        btnValidar.setDisable(false);
     }
 }

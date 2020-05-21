@@ -14,7 +14,7 @@
       <FlowPane alignment="CENTER_RIGHT" hgap="20.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Label text="Escolha a o tipo de seriação pretendida:" />
-            <ComboBox fx:id="cmbBoxSeriacao" onShown="#preencherCmbBoxSeriacao" prefHeight="25.0" prefWidth="240.0" />
+            <ComboBox fx:id="cmbBoxSeriacao" onAction="#triggerBtnValidar" onShown="#preencherCmbBoxSeriacao" prefHeight="25.0" prefWidth="240.0" />
          </children>
          <padding>
             <Insets right="30.0" />
@@ -23,7 +23,7 @@
       <FlowPane alignment="CENTER" hgap="100.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Button fx:id="btnValidar" mnemonicParsing="false" onAction="#validar" text="Validar" />
+            <Button fx:id="btnValidar" disable="true" mnemonicParsing="false" onAction="#validar" text="Validar" />
          </children>
       </FlowPane>
    </children>
