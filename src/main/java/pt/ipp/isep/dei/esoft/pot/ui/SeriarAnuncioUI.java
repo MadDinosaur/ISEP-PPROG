@@ -80,6 +80,9 @@ public class SeriarAnuncioUI {
         ObservableList<String> options = FXCollections.observableArrayList();
         options.addAll(appController.getAnunciosPorSeriar());
         cmbBoxAnuncios.setItems(options);
+        
+        btnAdicionarParticipante.setDisable(true);
+        btnClassificar.setDisable(true);
     }
 
     private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {

@@ -97,7 +97,10 @@ public class ProcessoSeriacao {
      * @param tipoSeriacao o nome do tipo de seriação
      */
     public void setSeriacao(String tipoSeriacao) {
-        this.seriacao = new Seriacao(tipoSeriacao);
+        if (tipoSeriacao == null) 
+            this.seriacao = null;
+        else
+            this.seriacao = new Seriacao(tipoSeriacao);
     }
 
     /**

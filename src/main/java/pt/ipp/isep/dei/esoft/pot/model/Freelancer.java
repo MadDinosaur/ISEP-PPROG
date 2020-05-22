@@ -1,10 +1,9 @@
-
 package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
 
-
 public class Freelancer {
+
     /**
      * Nome do freelancer.
      */
@@ -28,43 +27,48 @@ public class Freelancer {
 
     /**
      * Cria um objeto da classe Freelancer
+     *
      * @param nome o nome do freelancer
      * @param NIF o nº de identificação fiscal do freelancer
      * @param telefone o nº de telefone do freelancer
      * @param email o e-mail do freelancer
      * @param competencias a lista de competências técnicas associadas à tarefa
      */
-    public Freelancer(String nome, String NIF, String telefone, String email, ArrayList<String> competencias){
-        if (nome == null || NIF == null || telefone == null || email == null)
+    public Freelancer(String nome, String NIF, String telefone, String email, ArrayList<String> competencias) {
+        if (nome == null || NIF == null || telefone == null || email == null) {
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
-        
+        }
+
         this.nome = nome;
         this.NIF = NIF;
         this.telefone = telefone;
         this.email = email;
-         for (String str : competencias) {
+        for (String str : competencias) {
             this.competencias.add(new CompetenciaTecnica(str));
         }
     }
+
     /**
-     * Cria um objeto da classe Freelancer como cópia do objeto recebido por parâmetro.
+     * Cria um objeto da classe Freelancer como cópia do objeto recebido por
+     * parâmetro.
+     *
      * @param freelancer objeto da classe Freelancer
      */
-    public Freelancer(Freelancer freelancer){
-        if (freelancer == null)
+    public Freelancer(Freelancer freelancer) {
+        if (freelancer == null) {
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
-        
+        }
+
         this.nome = freelancer.getNome();
         this.NIF = freelancer.getNIF();
         this.telefone = freelancer.getTelefone();
         this.email = freelancer.getEmail();
         this.competencias = freelancer.getCompetencias();
     }
-    
-    
 
     /**
      * Retorna o nome do freelancer
+     *
      * @return the nome
      */
     public String getNome() {
@@ -73,6 +77,7 @@ public class Freelancer {
 
     /**
      * Retorna o nº de identificação fiscal
+     *
      * @return the NIF
      */
     public String getNIF() {
@@ -81,6 +86,7 @@ public class Freelancer {
 
     /**
      * Retorna o nº de telefone
+     *
      * @return the telefone
      */
     public String getTelefone() {
@@ -89,6 +95,7 @@ public class Freelancer {
 
     /**
      * Retorna o e-mail
+     *
      * @return the email
      */
     public String getEmail() {
@@ -97,6 +104,7 @@ public class Freelancer {
 
     /**
      * Modifica o nome do freelancer
+     *
      * @param nome
      */
     public void setNome(String nome) {
@@ -105,6 +113,7 @@ public class Freelancer {
 
     /**
      * Modifica o nº de identificação fiscal
+     *
      * @param NIF
      */
     public void setNIF(String NIF) {
@@ -113,6 +122,7 @@ public class Freelancer {
 
     /**
      * Modifica o nº de telefone
+     *
      * @param telefone
      */
     public void setTelefone(String telefone) {
@@ -121,6 +131,7 @@ public class Freelancer {
 
     /**
      * Modifica o e-mail
+     *
      * @param email
      */
     public void setEmail(String email) {
@@ -133,8 +144,8 @@ public class Freelancer {
     public ArrayList<CompetenciaTecnica> getCompetencias() {
         return competencias;
     }
-    
-    public int getNivelProficiencia(int i){
+
+    public int getNivelProficiencia(int i) {
         return competencias.get(i).getNivelProficiencia();
     }
 
@@ -144,8 +155,22 @@ public class Freelancer {
     public void setCompetencias(ArrayList<CompetenciaTecnica> competencias) {
         this.competencias = competencias;
     }
-    
-    
-    
-    
+
+    public boolean equals(Object o) {
+        // self check
+        if (this == o) {
+            return true;
+        }
+        // null check
+        if (o == null) {
+            return false;
+        }
+        // type check and cast
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        // field comparison
+        return this.email.equals(((Freelancer) o).email);
+    }
+
 }

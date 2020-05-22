@@ -185,36 +185,54 @@ public class Candidatura {
         return String.format("Data: %s, Valor: %.2f€, Dias: %d, Nome: %s", dataCandidatura, valorPretendido, nrDias, freelancer.getNome());
     }
     
-    public float getDesvioPadrao(){
-        float somatorio = 0;
+    public double getDesvioPadrao(){
+        double somatorio = 0;
         int cont = 0;
         float media = getMediaNiveisProficiencia();
-        for(int i = 0; i < freelancer.getCompetencias().size(); i++){
-            for(int j = 0; j < anuncio.getTarefa().getCompetencias().size(); j++){
-                if(freelancer.getCompetencias().get(i).equals(anuncio.getTarefa().getCompetencias().get(j))){
-                    somatorio = somatorio + freelancer.getNivelProficiencia(i) - media;
+        for(int i = 0; i < tarefa.getCompetencias().size(); i++){
+            for(int j = 0; j < freelancer.getCompetencias().size(); j++){
+                if(freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))){
+                    somatorio = somatorio + Math.pow(freelancer.getNivelProficiencia(i) - media, 2);
                     cont++;
+                    break;
                 }
             }
         }
-        somatorio = (float) Math.pow(somatorio, 2);
-        somatorio = (float) somatorio / cont;
-        return (float) Math.sqrt(somatorio);
+        somatorio = somatorio / cont;
+        return Math.sqrt(somatorio);
     }
     
     public float getMediaNiveisProficiencia(){
         float media = 0;
         int cont = 0;
-        for(int i = 0; i < freelancer.getCompetencias().size(); i++){
-            for(int j = 0; j < tarefa.getCompetencias().size(); j++){
-                if(freelancer.getCompetencias().get(i).equals(anuncio.getTarefa().getCompetencias().get(j))){
+        for(int i = 0; i < tarefa.getCompetencias().size(); i++){
+            for(int j = 0; j < freelancer.getCompetencias().size(); j++){
+                if(freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))){
                     media = media + freelancer.getNivelProficiencia(i);
                     cont++;
+                    break;
                 }
             }
         }
         return (float) media / cont;
     }
     
-    
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o) {
+            return true;
+        }
+        // null check
+        if (o == null) {
+            return false;
+        }
+        // type check and cast
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        // field comparison
+        Candidatura other = (Candidatura) o;
+        return this.anuncio.equals(other.anuncio) && this.freelancer.equals(other.freelancer);
+    }
 }

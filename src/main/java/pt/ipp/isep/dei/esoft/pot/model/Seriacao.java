@@ -3,7 +3,6 @@ package pt.ipp.isep.dei.esoft.pot.model;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Classe que cria um Comparator com os critérios de seriação pretendidos para
@@ -91,9 +90,9 @@ public class Seriacao {
             float nivelProficiencia1 = f1.getMediaNiveisProficiencia();
             float nivelProficiencia2 = f2.getMediaNiveisProficiencia();
 
-            if (nivelProficiencia1 < nivelProficiencia2) {
+            if (nivelProficiencia1 > nivelProficiencia2) {
                 return -1;
-            } else if (nivelProficiencia1 > nivelProficiencia2) {
+            } else if (nivelProficiencia1 < nivelProficiencia2) {
                 return 1;
             } else {
                 return 0;
@@ -110,9 +109,9 @@ public class Seriacao {
             double precoServico1 = f1.getValorPretendido();
             double precoServico2 = f2.getValorPretendido();
 
-            if (precoServico1 > precoServico2) {
+            if (precoServico1 < precoServico2) {
                 return -1;
-            } else if (precoServico1 < precoServico2) {
+            } else if (precoServico1 > precoServico2) {
                 return 1;
             } else {
                 return 0;
@@ -142,9 +141,9 @@ public class Seriacao {
             double nivelProficiencia1 = f1.getDesvioPadrao();
             double nivelProficiencia2 = f2.getDesvioPadrao();
 
-            if (nivelProficiencia1 > nivelProficiencia2) {
+            if (nivelProficiencia1 < nivelProficiencia2) {
                 return -1;
-            } else if (nivelProficiencia1 < nivelProficiencia2) {
+            } else if (nivelProficiencia1 > nivelProficiencia2) {
                 return 1;
             } else {
                 return 0;

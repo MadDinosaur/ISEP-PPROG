@@ -48,6 +48,7 @@ public class ConfirmarOrdenacaoUI implements Initializable {
 
     @FXML
     private void cancelar(ActionEvent event) {
+        appController.limpaProcessoSeriacao(anuncioID);
         ((Stage) btnCancelar.getScene().getWindow()).close();
     }
 

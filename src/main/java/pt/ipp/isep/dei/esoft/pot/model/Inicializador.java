@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.io.File;
@@ -37,11 +32,6 @@ public class Inicializador {
     private static Organizacao organizacao;
     private static RegistoAnuncios registoAnuncios = new RegistoAnuncios();
 
-    /**
-     * Cria um objeto da classe Inicializador
-     */
-    public Inicializador() {
-    }
 
     /**
      * Lê o conteudo de um dado ficheiro de texto
@@ -59,7 +49,7 @@ public class Inicializador {
         }
     }
 
-    public Plataforma iniciarPlataforma() {
+    public static Plataforma iniciarPlataforma() {
         lerFicheiro();
         iniciarOrganizacao();
         iniciarTarefas();
@@ -69,9 +59,9 @@ public class Inicializador {
         RegistoOrganizacoes registoOrganizacoes = new RegistoOrganizacoes();
         registoOrganizacoes.adicionarOrganizacao(organizacao);
 
-        this.plataforma = new Plataforma(NOME_PLATAFORMA, registoOrganizacoes, registoAnuncios);
+        plataforma = new Plataforma(NOME_PLATAFORMA, registoOrganizacoes, registoAnuncios);
         
-        return this.plataforma;
+        return plataforma;
     }
 
     /**

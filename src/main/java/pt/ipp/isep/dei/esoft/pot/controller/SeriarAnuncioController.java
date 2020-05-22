@@ -14,7 +14,7 @@ public class SeriarAnuncioController {
     private Colaborador user = new Colaborador("Bárbara","Estudante","123456789","1191507@isep.ipp.pt");//TEMPORARIO
 
     public SeriarAnuncioController() {
-        this.plataforma = new Inicializador().iniciarPlataforma();
+        this.plataforma = Inicializador.iniciarPlataforma();
     }
 
     public List<String> getAnunciosPorSeriar() {
@@ -48,6 +48,9 @@ public class SeriarAnuncioController {
     }
     public void registaProcessoSeriacao(int anuncioId, String tipoSeriacao) {
         getAnuncio(anuncioId).novoProcessoSeriacao(tipoSeriacao);
+    }
+    public void limpaProcessoSeriacao(int anuncioId) {
+        getAnuncio(anuncioId).limparProcessoSeriacao();
     }
     public List<String> getParticipantes(int anuncioId) {
         return getAnuncio(anuncioId).getProcessoSeriacao().getParticipantes();

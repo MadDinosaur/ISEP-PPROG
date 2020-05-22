@@ -69,4 +69,22 @@ public class ListaCandidaturas {
     public int getSize() {
         return listaCandidaturas.size();
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o) {
+            return true;
+        }
+        // null check
+        if (o == null) {
+            return false;
+        }
+        // type check and cast
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        // field comparison
+        return this.listaCandidaturas.equals(((ListaCandidaturas) o).listaCandidaturas);
+    }
 }

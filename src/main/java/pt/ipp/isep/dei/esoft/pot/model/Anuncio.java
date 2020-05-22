@@ -178,6 +178,10 @@ public class Anuncio {
         this.processoSeriacao.setSeriacao(seriacao);
         this.processoSeriacao.setDataRealizacao();
     }
+    
+    public void limparProcessoSeriacao() {
+        this.processoSeriacao.setSeriacao(null);
+    }
 
     /**
      * Retorna uma cópia da Tarefa associada ao Anuncio
