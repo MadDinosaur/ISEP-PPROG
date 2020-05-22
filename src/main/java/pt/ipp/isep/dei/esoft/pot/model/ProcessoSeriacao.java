@@ -85,7 +85,7 @@ public class ProcessoSeriacao {
      */
     public String getSeriacao() {
         if (seriacao == null) {
-            return "Sem seriação";
+            return null;
         } else {
             return seriacao.toString();
         }
