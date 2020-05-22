@@ -47,9 +47,9 @@ public class SeriarAnuncioController {
         return Seriacao.mostrarOpcoes();
     }
     public void registaProcessoSeriacao(int anuncioId, String tipoSeriacao) {
-        getAnuncio(anuncioId).novoProcessoSeriacao(user, tipoSeriacao);
+        getAnuncio(anuncioId).novoProcessoSeriacao(tipoSeriacao);
     }
     public List<String> getParticipantes(int anuncioId) {
-        return getAnuncio(anuncioId).getProcessoSeriacao().getColaboradores();
+        return getAnuncio(anuncioId).getProcessoSeriacao().getParticipantes();
     }
 }

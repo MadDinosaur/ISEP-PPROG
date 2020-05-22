@@ -14,7 +14,12 @@ public class ListaColaboradores {
         this.listaColaboradores = new ArrayList<>();
     }
 
-    public void getColaboradores() {
+    public ArrayList<String> getColaboradores() {
+        ArrayList<String> strColaboradores = new ArrayList<>();
+        for (Colaborador colab : listaColaboradores) {
+            strColaboradores.add(colab.toString());
+        }
+        return strColaboradores;
     }
 
     /**

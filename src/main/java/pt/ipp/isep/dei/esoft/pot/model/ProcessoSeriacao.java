@@ -1,6 +1,5 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -11,37 +10,44 @@ public class ProcessoSeriacao {
      * Data de realização do processo de seriação
      */
     private Date dataRealizacao;
-
+    /**
+     * Tipo de Seriação associada ao processo de seriação
+     */
     private Seriacao seriacao;
-
+    /**
+     * Anúncio que espoleta o processo de seriação
+     */
     private Anuncio anuncio;
-
-    private TipoRegimento tipoReg;
-
-    private ArrayList<Colaborador> listaColabs = new ArrayList<>();
+    /**
+     * A lista de Participantes no processo de seriação
+     */
+    private ListaColaboradores listaColabs = new ListaColaboradores();
 
     /**
      * Cria um objeto da classe ProcessoSeriacao
      *
-     * @param tipoReg o TipoRegimento do processo
      * @param colab o Colaborador que realiza o processo
      * @param seriacao o tipo de seriação do processo
      * @param anuncio o Anuncio a seriar
      */
-    public ProcessoSeriacao(TipoRegimento tipoReg, Colaborador colab, String seriacao, Anuncio anuncio) {
-        this.tipoReg = tipoReg;
-        this.listaColabs.add(colab);
+    public ProcessoSeriacao(Colaborador colab, String seriacao, Anuncio anuncio) {
+        this.listaColabs.adicionarColaborador(colab);
         this.seriacao = new Seriacao(seriacao);
-        this.anuncio = anuncio;
+        this.anuncio = new Anuncio(anuncio);
         this.dataRealizacao = new Date();
     }
 
     /**
-     * Cria um objeto da classe ProcessoSeriacao
+     * Cria um objeto da classe ProcessoSeriacao. Este constutor é utilizado
+     * quando um Anuncio é criado e ainda está por seriar, não tendo por isso
+     * data de realização nem tipo de seriação
      *
+     * @param colab o Colaborador que realiza o processo
+     * @param anuncio o Anuncio a seriar
      */
-    public ProcessoSeriacao() {
-        
+    public ProcessoSeriacao(Colaborador colab, Anuncio anuncio) {
+        this.listaColabs.adicionarColaborador(colab);
+        this.anuncio = new Anuncio(anuncio);
     }
 
     /**
@@ -50,56 +56,66 @@ public class ProcessoSeriacao {
      * @param ps o ProcessoSeriacao a copiar
      */
     public ProcessoSeriacao(ProcessoSeriacao ps) {
-        this.tipoReg = ps.tipoReg;
         this.listaColabs = ps.listaColabs;
         this.seriacao = ps.seriacao;
         this.anuncio = ps.anuncio;
         this.dataRealizacao = ps.dataRealizacao;
     }
-    public void setTipoRegimento(TipoRegimento reg) {
-        this.tipoReg = reg;
+
+    /**
+     * Define a data de realização do processo como a data atual do sistema
+     */
+    public void setDataRealizacao() {
+        this.dataRealizacao = new Date();
     }
-    
-    public void setColaborador(Colaborador colab) {
-        this.listaColabs.add(colab);
+
+    /**
+     * Retorna a lista de participantes, como uma lista de Strings
+     *
+     * @return a lista de participantes
+     */
+    public List<String> getParticipantes() {
+        return this.listaColabs.getColaboradores();
     }
-    
-    public void setSeriacao(String seriacao) {
-        this.seriacao = new Seriacao(seriacao);
-    }
-    
-    public void setAnuncio(Anuncio anuncio) {
-        this.anuncio = anuncio;
-    }
-    
-    public List<String> getColaboradores() {
-        return toStringArray();
-    }
-    
+
+    /**
+     * Retorna o tipo de Seriacao
+     *
+     * @return a descrição textual do tipo de seriação
+     */
     public String getSeriacao() {
-        if (seriacao == null) 
-            return null;
-        else
+        if (seriacao == null) {
+            return "Sem seriação";
+        } else {
             return seriacao.toString();
+        }
     }
 
+    /**
+     * Define o tipo de Seriacao
+     *
+     * @param tipoSeriacao o nome do tipo de seriação
+     */
+    public void setSeriacao(String tipoSeriacao) {
+        this.seriacao = new Seriacao(tipoSeriacao);
+    }
+
+    /**
+     * Adiciona um Colaborador como participante
+     *
+     * @param part o participante a adicionar
+     * @return true se a operação for bem sucedida, false caso contrário
+     */
     public boolean addParticipante(Colaborador part) {
-        return listaColabs.add(part);
+        return listaColabs.adicionarColaborador(part);
     }
 
-    public void valida() {
-    }
-
+    /**
+     * Efetua o processo de seriação, ordenando a lista de Candidaturas
+     * associada de acordo com os critérios de Seriacao
+     */
     public void ordenar() {
         Comparator comparador = seriacao.getComparador();
         anuncio.getListaCandidaturas().getCandidaturas().sort(comparador);
-    }
-
-    private List<String> toStringArray() {
-        ArrayList<String> strColaboradores = new ArrayList<>();
-        for (Colaborador colab : listaColabs) {
-            strColaboradores.add(colab.toString());
-        }
-        return strColaboradores;
     }
 }

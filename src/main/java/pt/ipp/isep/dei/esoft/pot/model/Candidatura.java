@@ -1,7 +1,5 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
-import java.text.DateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Candidatura {
