@@ -14,15 +14,36 @@ import java.util.Objects;
  */
 public class CompetenciaTecnica
 {
+    /**
+     * O número de identificação da Competência Técnica 
+     */
     private String m_strId;
+    /**
+     * Descrição breve da Competência Técnica
+     */
     private String m_strDescricaoBreve;
+    /**
+     * Descrição detalhada da Competência Técnica
+     */
     private String m_strDescricaoDetalhada;
+    /**
+     * Área de atividade da Competência Técnica
+     */
     private AreaAtividade m_oAreaAtividade;
     /**
      * O nível de porficiencia do freelancer.
      */
     private int nivelProficiencia;
     
+    /**
+     * Cria um objeto da classe Competência Técnica
+     *
+     * @param strId  O número de identificação da Competência Técnica
+     * @param strDescricaoBreve  a descrição breve da Competência Técnica
+     * @param strDescricaoDetalhada  a descrição detalhada da Competência Técnica
+     * @param nivelProficiencia  O nível de porficiencia do freelancer
+     * 
+     */
     public CompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoDetalhada, int nivelProficiencia) {
         if ((strId == null) || (strDescricaoBreve == null) || (strDescricaoDetalhada == null) || (strId.isEmpty()) || (strDescricaoBreve.isEmpty()) || (strDescricaoDetalhada.isEmpty())) {
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
@@ -65,7 +86,11 @@ public class CompetenciaTecnica
         this.nivelProficiencia = nivelPorficiencia;
     }
     
-    
+    /**
+     * Verifica se duas Competências Técnicas têm o mesmo id
+     * @param strId
+     * @return 
+     */
     public boolean hasId(String strId)
     {
         return this.m_strId.equalsIgnoreCase(strId);
@@ -79,6 +104,11 @@ public class CompetenciaTecnica
         return hash;
     }
     
+    /**
+     * Verifica se duas Competências Técnicas são semelhantes
+     * @param o
+     * @return 
+     */
     @Override
     public boolean equals(Object o) {
         // Inspirado em https://www.sitepoint.com/implement-javas-equals-method-correctly/
@@ -97,12 +127,21 @@ public class CompetenciaTecnica
         return (Objects.equals(m_strId, obj.m_strId));
     }
     
+    /**
+     * Retorna um texto descritivo das características da Competência Técnica
+     * @return 
+     */
     @Override
     public String toString()
     {
         return String.format("%s - %s - %s  - Área Atividade: %s", this.m_strId, this.m_strDescricaoBreve, this.m_strDescricaoDetalhada, this.m_oAreaAtividade.toString());
     }
     
+    /**
+     * Verifica se duas Competências Técnicas são semelhantes
+     * @param p2
+     * @return 
+     */
     public boolean verificarCompetenciasIguais(CompetenciaTecnica p2){
         if(nivelProficiencia == p2.getNivelProficiencia()){
             return true;

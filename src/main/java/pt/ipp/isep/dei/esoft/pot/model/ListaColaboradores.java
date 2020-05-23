@@ -13,7 +13,10 @@ public class ListaColaboradores {
     public ListaColaboradores() {
         this.listaColaboradores = new ArrayList<>();
     }
-
+/**
+ * Retorna a Lista de Colaboradores em formato ArrayList
+ * @return 
+ */
     public ArrayList<String> getColaboradores() {
         ArrayList<String> strColaboradores = new ArrayList<>();
         for (Colaborador colab : listaColaboradores) {

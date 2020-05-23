@@ -14,12 +14,22 @@ import pt.ipp.isep.dei.esoft.pot.model.Tarefa;
  */
 public class ListaTarefas{
     
+    /**
+     * Lista que contém uma ou mais Tarefas
+     */
     private  ArrayList<Tarefa> lista;
     
+    /**
+     * Elimina todas as Tarefas da Lista de Tarefas 
+     */
     public ListaTarefas(){
       this.lista = new ArrayList<>();
     }
-    
+    /**
+     * Cria um objeto da classe ListaTarefas
+     *
+     * @param lista lista que contém uma ou mais Tarefasa data de início do período de publicitação
+     */
     public ListaTarefas(ArrayList<Tarefa> lista){
         this.lista = lista;
     }
@@ -31,14 +41,36 @@ public class ListaTarefas{
         return lista;
     }
     
+    /**
+     * Adiciona uma Tarefa á Lista de Tarefas
+     * @param novaTarefa
+     * @return 
+     */
     public boolean adicionarTarefa(Tarefa novaTarefa) {
         return lista.add(novaTarefa);
     }
     
+    /**
+     * Adiciona uma Tarefa á Lista de Tarefas
+     * @param referencia
+     * @param designacao
+     * @param descInformal
+     * @param descTecnica
+     * @param duracaoEst
+     * @param custoEst
+     * @param competencias
+     * @return 
+     */
     public boolean adicionarTarefa(String referencia, String designacao, String descInformal, String descTecnica,
             Integer duracaoEst, Double custoEst, ArrayList<String> competencias) {
         return lista.add(new Tarefa(referencia, designacao, descInformal, descTecnica, duracaoEst, custoEst, competencias));
     }
+    
+    /**
+     * Retorna uma Tarefa com um determinado nome
+     * @param nomeTarefa
+     * @return 
+     */
     public Tarefa getTarefaPorNome(String nomeTarefa) {
         for (Tarefa t : lista) {
             if(t.getDesignacao().equalsIgnoreCase(nomeTarefa))

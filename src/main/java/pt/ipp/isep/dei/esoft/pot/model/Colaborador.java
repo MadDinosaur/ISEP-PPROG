@@ -8,11 +8,33 @@ import java.util.Objects;
  */
 public class Colaborador {
 
+    /**
+     * O nome do Colaborador
+     */
     private String m_strNome;
+    /**
+     * A função do Colaborador
+     */
     private String m_strFuncao;
+    /**
+     * O número de telefone do Colaborador
+     */
     private String m_strTelefone;
+    /**
+     * o email do Colaborador
+     */
     private String m_strEmail;
 
+    
+    /**
+     * Cria um objeto da classe Colaborador
+     *
+     * @param strNome o nome do Colaborador
+     * @param strFuncao a função do Colaborador
+     * @param strTelefone o numero de telefone do Colaborador
+     * @param strEmail o email do Colaborador
+     * 
+     */
     public Colaborador(String strNome, String strFuncao, String strTelefone, String strEmail) {
         if ((strNome == null) || (strFuncao == null) || (strTelefone == null) || (strEmail == null)
                 || (strNome.isEmpty()) || (strFuncao.isEmpty()) || (strTelefone.isEmpty()) || (strEmail.isEmpty())) {
@@ -37,14 +59,29 @@ public class Colaborador {
         this.m_strEmail = colab.m_strEmail;
     }
 
+    /**
+     * Confirma se existem dois Colaboradores com o mesmo email
+     * @param strId
+     * @return 
+     */
     public boolean hasId(String strId) {
         return this.m_strEmail.equalsIgnoreCase(strId);
     }
 
+     /**
+     * Retorna o nome do Colaborador
+     *
+     * @return o nome do Colaborador
+     */
     public String getNome() {
         return this.m_strNome;
     }
 
+     /**
+     * Retorna o email do Colaborador
+     *
+     * @return o email do Colaborador
+     */
     public String getEmail() {
         return this.m_strEmail;
     }
@@ -56,6 +93,11 @@ public class Colaborador {
         return hash;
     }
 
+    /**
+     * Verifica se dois Colaboradores são semelhantes
+     * @param o
+     * @return 
+     */
     @Override
     public boolean equals(Object o) {
         // Inspirado em https://www.sitepoint.com/implement-javas-equals-method-correctly/
@@ -77,6 +119,10 @@ public class Colaborador {
         return (Objects.equals(m_strEmail, obj.m_strEmail));
     }
 
+    /**
+     * Retorna um texto descritivo das características do Colaborador
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("%s - %s - %s - %s", this.m_strNome, this.m_strFuncao, this.m_strTelefone, this.m_strEmail);

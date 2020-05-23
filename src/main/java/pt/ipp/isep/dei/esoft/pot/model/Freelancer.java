@@ -156,6 +156,11 @@ public class Freelancer {
         this.competencias = competencias;
     }
 
+    /**
+     * Verifica se dois Freelancers têm características semelhantes 
+     * @param o
+     * @return 
+     */
     public boolean equals(Object o) {
         // self check
         if (this == o) {

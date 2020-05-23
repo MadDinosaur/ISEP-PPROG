@@ -192,6 +192,11 @@ public class Anuncio {
         return new Tarefa(tarefa);
     }
 
+    /**
+     * Confirma se dois anúncios são semelhantes
+     * @param o
+     * @return se os anúncios são semelhantes ou não
+     */
     @Override
     public boolean equals(Object o) {
         if (o == null || o.getClass() != this.getClass()) {
@@ -212,6 +217,10 @@ public class Anuncio {
         }
     }
 
+    /**
+     * Retorna um texto descritivo das características do Anúncio
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("ID %d - %s - %s", id, dtInicioPublicitacao, tarefa.getDesignacao());

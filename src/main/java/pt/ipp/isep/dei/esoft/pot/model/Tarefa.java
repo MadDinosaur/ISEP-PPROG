@@ -194,6 +194,11 @@ public class Tarefa {
         this.competencias = competencias;
     }
     
+    /**
+     * Retorna um Nível de Proficiencia referido na Tarefa
+     * @param i
+     * @return 
+     */
     public int getNivelProficiencia(int i){
         return competencias.get(i).getNivelProficiencia();
     }
