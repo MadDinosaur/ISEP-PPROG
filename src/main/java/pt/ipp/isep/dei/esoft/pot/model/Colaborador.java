@@ -3,6 +3,8 @@ package pt.ipp.isep.dei.esoft.pot.model;
 import java.util.Objects;
 
 /**
+ * Classe que modela um Colaborador de uma dada Organização, responsável por
+ * criar Anúncios e iniciar Seriações.
  *
  * @author paulomaio
  */
@@ -25,7 +27,6 @@ public class Colaborador {
      */
     private String m_strEmail;
 
-    
     /**
      * Cria um objeto da classe Colaborador
      *
@@ -33,7 +34,7 @@ public class Colaborador {
      * @param strFuncao a função do Colaborador
      * @param strTelefone o numero de telefone do Colaborador
      * @param strEmail o email do Colaborador
-     * 
+     *
      */
     public Colaborador(String strNome, String strFuncao, String strTelefone, String strEmail) {
         if ((strNome == null) || (strFuncao == null) || (strTelefone == null) || (strEmail == null)
@@ -60,15 +61,6 @@ public class Colaborador {
     }
 
     /**
-     * Confirma se existem dois Colaboradores com o mesmo email
-     * @param strId
-     * @return 
-     */
-    public boolean hasId(String strId) {
-        return this.m_strEmail.equalsIgnoreCase(strId);
-    }
-
-     /**
      * Retorna o nome do Colaborador
      *
      * @return o nome do Colaborador
@@ -77,7 +69,7 @@ public class Colaborador {
         return this.m_strNome;
     }
 
-     /**
+    /**
      * Retorna o email do Colaborador
      *
      * @return o email do Colaborador
@@ -94,9 +86,11 @@ public class Colaborador {
     }
 
     /**
-     * Verifica se dois Colaboradores são semelhantes
-     * @param o
-     * @return 
+     * Verifica se dois Colaboradores são iguais. Os Colaboradores são
+     * considerados iguais se tiverem o mesmo e-mail.
+     *
+     * @param o Objeto a comparar
+     * @return true se os Colaboradores forem iguais, false caso contrário
      */
     @Override
     public boolean equals(Object o) {
@@ -121,7 +115,8 @@ public class Colaborador {
 
     /**
      * Retorna um texto descritivo das características do Colaborador
-     * @return 
+     *
+     * @return a descrição textual
      */
     @Override
     public String toString() {

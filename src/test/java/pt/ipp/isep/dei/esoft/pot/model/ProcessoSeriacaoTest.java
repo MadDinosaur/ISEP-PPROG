@@ -13,13 +13,13 @@ public class ProcessoSeriacaoTest {
 
     private final Plataforma APP = Inicializador.iniciarPlataforma();
 
-    private final Colaborador COLAB = APP.getRegistoOrganizacoes().getOrganizacaoByEmailUtilizador("1191507@isep.ipp.pt").getListaColaboradores().getColaboradorByEmail("1191507@isep.ipp.pt");
+    private final Colaborador COLAB = APP.getRegistoOrganizacoes().getOrganizacaoByEmailUtilizador("1191507@isep.ipp.pt").
+            getListaColaboradores().getColaboradorByEmail("1191507@isep.ipp.pt"); //TEMPORÁRIO
     private final RegistoAnuncios ANUNCIOS = APP.getRegistoAnuncios().getAnunciosPorSeriar(COLAB);
 
-    private final Anuncio ANUNCIO1 = ANUNCIOS.getAnuncioPorID(0);
-    private final Anuncio ANUNCIO2 = ANUNCIOS.getAnuncioPorID(1);
-    private final Anuncio ANUNCIO3 = ANUNCIOS.getAnuncioPorID(2);
-    private final Anuncio anuncio4 = ANUNCIOS.getAnuncioPorID(3); //REMOVER
+    private  Anuncio ANUNCIO1 = ANUNCIOS.getAnuncioPorID(0);
+    private  Anuncio ANUNCIO2 = ANUNCIOS.getAnuncioPorID(1);
+    private  Anuncio ANUNCIO3 = ANUNCIOS.getAnuncioPorID(2);
 
     private final Candidatura CAND11 = ANUNCIO1.getListaCandidaturas().get(0);
     private final Candidatura CAND12 = ANUNCIO1.getListaCandidaturas().get(1);
@@ -37,7 +37,28 @@ public class ProcessoSeriacaoTest {
     public ProcessoSeriacaoTest() {
     }
     
+   
+    
     /**
+     * Test of ordenar method, of class ProcessoSeriacao.
+     */
+    @Test
+    public void testOrdenarSeriacao2Caso1() {
+        System.out.println("ordenar - Seriação 2 - Caso 1");
+
+        ProcessoSeriacao instance = new ProcessoSeriacao(COLAB, SERIACAO_2, ANUNCIO1);
+        instance.ordenar();
+
+        ListaCandidaturas expResult = new ListaCandidaturas();
+        expResult.adicionarCandidatura(CAND13);
+        expResult.adicionarCandidatura(CAND12);
+        expResult.adicionarCandidatura(CAND11);
+
+        ListaCandidaturas result = ANUNCIO1.getListaCandidaturas();
+
+        assertEquals(expResult, result);
+    }
+ /**
      * Test of ordenar method, of class ProcessoSeriacao.
      */
     @Test
@@ -56,7 +77,6 @@ public class ProcessoSeriacaoTest {
 
         assertEquals(expResult, result);
     }
-
     /**
      * Test of ordenar method, of class ProcessoSeriacao.
      */

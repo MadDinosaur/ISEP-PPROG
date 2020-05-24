@@ -2,6 +2,11 @@ package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.Date;
 
+/**
+ * Classe que modela um Anúncio na plataforma, consistindo na publicitação de
+ * uma Tarefa por parte de um Colaborador, ao qual Freelancers se poderão
+ * candidatar.
+ */
 public class Anuncio {
 
     /**
@@ -178,7 +183,11 @@ public class Anuncio {
         this.processoSeriacao.setSeriacao(seriacao);
         this.processoSeriacao.setDataRealizacao();
     }
-    
+
+    /**
+     * Elimina o processo de seriação em vigor do anúncio, substituindo-o por
+     * null
+     */
     public void limparProcessoSeriacao() {
         this.processoSeriacao.setSeriacao(null);
     }
@@ -193,9 +202,10 @@ public class Anuncio {
     }
 
     /**
-     * Confirma se dois anúncios são semelhantes
-     * @param o
-     * @return se os anúncios são semelhantes ou não
+     * Confirma se dois anúncios são iguais
+     *
+     * @param o o Objeto a comparar
+     * @return true se os Anúncios forem iguais, false caso contrário
      */
     @Override
     public boolean equals(Object o) {
@@ -219,7 +229,8 @@ public class Anuncio {
 
     /**
      * Retorna um texto descritivo das características do Anúncio
-     * @return 
+     *
+     * @return a descrição textual do Anúncio
      */
     @Override
     public String toString() {

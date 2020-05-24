@@ -3,6 +3,9 @@ package pt.ipp.isep.dei.esoft.pot.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que modela a lista de organizações registadas na plataforma
+ */
 public class RegistoOrganizacoes {
 
     /**
@@ -35,13 +38,16 @@ public class RegistoOrganizacoes {
     public boolean adicionarOrganizacao(Organizacao org) {
         return listaOrganizacoes.add(org);
     }
+
     /**
-     * Retorna a Organizacao do utilizador, procurando a equivalência entre as extensões do endereço (o que sucede o "@")
-     * Ex.: E-mail do utilizador: aaa@isep.pt
-     *      E-mail da Organização: info@isep.pt
-     *      Retorna a Organização ISEP
+     * Retorna a Organizacao do utilizador, procurando a equivalência entre as
+     * extensões do endereço (o que sucede o "@") Ex.: E-mail do utilizador:
+     * aaa@isep.pt E-mail da Organização: info@isep.pt Retorna a Organização
+     * ISEP
+     *
      * @param email o endereço de e-mail do utilizador
-     * @return a Organizacao a que pertence o utilizador ou null se não existir correspondência
+     * @return a Organizacao a que pertence o utilizador ou null se não existir
+     * correspondência
      */
     public Organizacao getOrganizacaoByEmailUtilizador(String email) {
         for (Organizacao org : listaOrganizacoes) {

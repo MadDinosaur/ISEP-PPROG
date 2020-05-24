@@ -2,21 +2,37 @@ package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
 
+/**
+ * Classe que modela uma lista de Colaboradores
+ */
 public class ListaColaboradores {
+
     /**
-     * Lista de Colaboradores de uma dada Organizacao
+     * A lista de Colaboradores de uma dada Organizacao
      */
     private ArrayList<Colaborador> listaColaboradores;
+
     /**
      * Cria um objeto da classe ListaColaboradores, com um ArrayList vazio.
      */
     public ListaColaboradores() {
         this.listaColaboradores = new ArrayList<>();
     }
-/**
- * Retorna a Lista de Colaboradores em formato ArrayList
- * @return 
- */
+
+    /**
+     * Cria uma cópia de um objeto da classe ListaColaboradores
+     *
+     * @param outraLista a ListaColaboradores a copiar
+     */
+    public ListaColaboradores(ListaColaboradores outraLista) {
+        this.listaColaboradores = new ArrayList<>(outraLista.listaColaboradores);
+    }
+
+    /**
+     * Retorna a Lista de Colaboradores em formato ArrayList<String>
+     *
+     * @return a lista de colaboradores, em formato de texto
+     */
     public ArrayList<String> getColaboradores() {
         ArrayList<String> strColaboradores = new ArrayList<>();
         for (Colaborador colab : listaColaboradores) {

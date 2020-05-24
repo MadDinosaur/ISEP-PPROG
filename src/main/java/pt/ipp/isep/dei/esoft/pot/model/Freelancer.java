@@ -2,6 +2,11 @@ package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
 
+/**
+ * Classe que modela um Freelancer, que pode efetuar candidaturas a Tarefas com
+ * base nas suas Competências Técnicas
+ *
+ */
 public class Freelancer {
 
     /**
@@ -32,7 +37,8 @@ public class Freelancer {
      * @param NIF o nº de identificação fiscal do freelancer
      * @param telefone o nº de telefone do freelancer
      * @param email o e-mail do freelancer
-     * @param competencias a lista de competências técnicas associadas à tarefa
+     * @param competencias a lista de competências técnicas associadas ao
+     * freelancer
      */
     public Freelancer(String nome, String NIF, String telefone, String email, ArrayList<String> competencias) {
         if (nome == null || NIF == null || telefone == null || email == null) {
@@ -139,27 +145,33 @@ public class Freelancer {
     }
 
     /**
+     * Retorna uma cópia da lista de competências
+     *
      * @return the competencias
      */
     public ArrayList<CompetenciaTecnica> getCompetencias() {
-        return competencias;
+        return new ArrayList<>(competencias);
     }
 
+    /**
+     * Retorna o nível de proficiencia numa dada competência técnica
+     *
+     * @param i a posição da Competencia Tecnica no ArrayList competencias
+     * @return o nível de proficiência
+     */
     public int getNivelProficiencia(int i) {
+        if (i >= competencias.size()) {
+            throw new IndexOutOfBoundsException("Competência não encontrada no índice " + i + ".");
+        }
         return competencias.get(i).getNivelProficiencia();
     }
 
     /**
-     * @param competencias the competencias to set
-     */
-    public void setCompetencias(ArrayList<CompetenciaTecnica> competencias) {
-        this.competencias = competencias;
-    }
-
-    /**
-     * Verifica se dois Freelancers têm características semelhantes 
-     * @param o
-     * @return 
+     * Verifica se dois Freelancers são iguais. Os Freelancers consideram-se
+     * iguais se tiverem o mesmo endereço de e-mail.
+     *
+     * @param o Objeto a comparar
+     * @return true se os Freelancers forem iguais, falso caso contrário
      */
     public boolean equals(Object o) {
         // self check
@@ -177,5 +189,4 @@ public class Freelancer {
         // field comparison
         return this.email.equals(((Freelancer) o).email);
     }
-
 }

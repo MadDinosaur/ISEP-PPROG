@@ -138,8 +138,8 @@ public class Seriacao {
 
         @Override
         public int compare(Candidatura f1, Candidatura f2) {
-            double nivelProficiencia1 = f1.getDesvioPadrao();
-            double nivelProficiencia2 = f2.getDesvioPadrao();
+            double nivelProficiencia1 = f1.getDesvioPadraoNiveisProficiencia();
+            double nivelProficiencia2 = f2.getDesvioPadraoNiveisProficiencia();
 
             if (nivelProficiencia1 < nivelProficiencia2) {
                 return -1;

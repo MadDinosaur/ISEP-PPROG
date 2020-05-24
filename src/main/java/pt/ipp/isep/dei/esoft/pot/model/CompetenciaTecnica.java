@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.ipp.isep.dei.esoft.pot.model;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
+ * Classe que modela uma Competência Técnica associada a uma Tarefa ou a um
+ * Freelancer
  *
  * @author paulomaio
  */
-public class CompetenciaTecnica
-{
+public class CompetenciaTecnica {
+
     /**
-     * O número de identificação da Competência Técnica 
+     * Nome da Competência Técnica
      */
     private String m_strId;
     /**
@@ -27,22 +23,18 @@ public class CompetenciaTecnica
      */
     private String m_strDescricaoDetalhada;
     /**
-     * Área de atividade da Competência Técnica
-     */
-    private AreaAtividade m_oAreaAtividade;
-    /**
-     * O nível de porficiencia do freelancer.
+     * O nível de proficiencia do freelancer.
      */
     private int nivelProficiencia;
-    
+
     /**
      * Cria um objeto da classe Competência Técnica
      *
-     * @param strId  O número de identificação da Competência Técnica
-     * @param strDescricaoBreve  a descrição breve da Competência Técnica
-     * @param strDescricaoDetalhada  a descrição detalhada da Competência Técnica
-     * @param nivelProficiencia  O nível de porficiencia do freelancer
-     * 
+     * @param strId o nome da Competência Técnica
+     * @param strDescricaoBreve a descrição breve da Competência Técnica
+     * @param strDescricaoDetalhada a descrição detalhada da Competência Técnica
+     * @param nivelProficiencia o nível de proficiencia de referência
+     *
      */
     public CompetenciaTecnica(String strId, String strDescricaoBreve, String strDescricaoDetalhada, int nivelProficiencia) {
         if ((strId == null) || (strDescricaoBreve == null) || (strDescricaoDetalhada == null) || (strId.isEmpty()) || (strDescricaoBreve.isEmpty()) || (strDescricaoDetalhada.isEmpty())) {
@@ -55,6 +47,12 @@ public class CompetenciaTecnica
         this.nivelProficiencia = nivelProficiencia;
     }
 
+    /**
+     * Cria um objeto da classe Competência Técnica
+     *
+     * @param linha uma String com o seguinte formato: *
+     * identificador;descricao_breve;descricao_detalhada;nivel_proficiencia
+     */
     public CompetenciaTecnica(String linha) {
         String[] params = linha.split(";");
 
@@ -71,19 +69,14 @@ public class CompetenciaTecnica
             System.out.println("O nível de proficiência tem que ser um número inteiro!");
         }
     }
-    
+
     /**
-     * @return the nivelPorficiencia
+     * Retorna o nível de proficiência da Competencia Tecnica
+     *
+     * @return the nivelProficiencia
      */
     public int getNivelProficiencia() {
         return nivelProficiencia;
-    }
-
-    /**
-     * @param nivelPorficiencia the nivelPorficiencia to set
-     */
-    public void setNivelProficiencia(int nivelPorficiencia) {
-        this.nivelProficiencia = nivelPorficiencia;
     }
     
     /**
@@ -97,59 +90,47 @@ public class CompetenciaTecnica
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int hash = 7;
         hash = 23 * hash + Objects.hashCode(this.m_strId);
         return hash;
     }
-    
+
     /**
-     * Verifica se duas Competências Técnicas são semelhantes
-     * @param o
-     * @return 
+     * Verifica se duas Competências Técnicas são iguais. As Competências
+     * Técnicas são consideradas iguais se tiverem o mesmo nome.
+     *
+     * @param o Objeto a comparar
+     * @return true se as competências forem iguais, false caso contrário
      */
     @Override
     public boolean equals(Object o) {
         // Inspirado em https://www.sitepoint.com/implement-javas-equals-method-correctly/
-        
+
         // self check
-        if (this == o)
+        if (this == o) {
             return true;
+        }
         // null check
-        if (o == null)
-            return false;
-        // type check and cast
-        if (getClass() != o.getClass())
-            return false;
-        // field comparison
-        CompetenciaTecnica obj = (CompetenciaTecnica) o;
-        return (Objects.equals(m_strId, obj.m_strId));
-    }
-    
-    /**
-     * Retorna um texto descritivo das características da Competência Técnica
-     * @return 
-     */
-    @Override
-    public String toString()
-    {
-        return String.format("%s - %s - %s  - Área Atividade: %s", this.m_strId, this.m_strDescricaoBreve, this.m_strDescricaoDetalhada, this.m_oAreaAtividade.toString());
-    }
-    
-    /**
-     * Verifica se duas Competências Técnicas são semelhantes
-     * @param p2
-     * @return 
-     */
-    public boolean verificarCompetenciasIguais(CompetenciaTecnica p2){
-        if(nivelProficiencia == p2.getNivelProficiencia()){
-            return true;
-        }else{
+        if (o == null) {
             return false;
         }
+        // type check and cast
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        // field comparison
+        CompetenciaTecnica obj = (CompetenciaTecnica) o;
+        return this.m_strId.equalsIgnoreCase(obj.m_strId);
     }
-    
-    
-    
+
+    /**
+     * Retorna um texto descritivo das características da Competência Técnica
+     *
+     * @return a descrição textual
+     */
+    @Override
+    public String toString() {
+        return String.format("%s - %s - %s", this.m_strId, this.m_strDescricaoBreve, this.m_strDescricaoDetalhada);
+    }
 }

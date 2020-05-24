@@ -3,6 +3,10 @@ package pt.ipp.isep.dei.esoft.pot.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que modela a lista de Anuncios da plataforma
+ *
+ */
 public class RegistoAnuncios {
 
     /**
@@ -10,7 +14,8 @@ public class RegistoAnuncios {
      */
     private List<Anuncio> listaAnuncios;
     /**
-     * O nº de idenficação do Anuncio, atribuído sequencialmente
+     * O nº de idenficação do Anuncio, atribuído sequencialmente por ordem de
+     * criação
      */
     private int ID = 0;
 
@@ -33,6 +38,24 @@ public class RegistoAnuncios {
         }
     }
 
+    /**
+     * Adiciona um Anuncio ao registo de anúncios, sem atribuição de ID. Este
+     * método é utilizado para adicionar anúncios aos registos de anúncios
+     * secundário, como o registo de anúncios por seriar.
+     *
+     * @param a o Anuncio a adicionar
+     * @return true se o Anuncio for adicionado, false caso contrário
+     */
+    private boolean add(Anuncio a) {
+        return listaAnuncios.add(a);
+    }
+
+    /**
+     * Adiciona um novo Anuncio ao registo de anúncios, atribuíndo-lhe um ID
+     *
+     * @param a o Anuncio a adicionar
+     * @return true se o Anuncio for adicionado, false caso contrário
+     */
     public boolean adicionarAnuncio(Anuncio a) {
         if (this.listaAnuncios.add(a)) {
             a.setID(ID++);
@@ -42,10 +65,13 @@ public class RegistoAnuncios {
         }
     }
 
-    private boolean add(Anuncio a) {
-        return listaAnuncios.add(a);
-    }
-
+    /**
+     * Retorna um Registo de Anúncios por seriar, ou seja, cuja Seriação está
+     * por definifir (null)
+     *
+     * @param colab o Colaborador que publicou os Anúncios
+     * @return o registo de anúncios por seriar
+     */
     public RegistoAnuncios getAnunciosPorSeriar(Colaborador colab) {
         RegistoAnuncios anunciosPorSeriar = new RegistoAnuncios();
         for (Anuncio anuncio : listaAnuncios) {
@@ -73,23 +99,12 @@ public class RegistoAnuncios {
         return null;
     }
 
-    public ArrayList<String> toStringArray() {
-        ArrayList<String> stringList = new ArrayList<>();
-        for (Anuncio a : listaAnuncios) {
-            stringList.add(a.toString());
-        }
-        return stringList;
-    }
-
-    public Anuncio getAnuncioPorID(int ID) {
-        for (Anuncio a : listaAnuncios) {
-            if (a.getID() == ID) {
-                return a;
-            }
-        }
-        return null;
-    }
-
+    /**
+     * Retorna o Anúncio igual ao especificado dentro do Registo
+     *
+     * @param anuncio o Anúncio a procurar
+     * @return o Anúncio correspondente em Registo
+     */
     public Anuncio getAnuncio(Anuncio anuncio) {
         for (Anuncio a : listaAnuncios) {
             if (a.equals(anuncio)) {
@@ -99,6 +114,27 @@ public class RegistoAnuncios {
         return null;
     }
 
+    /**
+     * Retorna o Anuncio com o ID especificado
+     *
+     * @param ID o nº de identificação do Anúncio
+     * @return o Anúncio
+     */
+    public Anuncio getAnuncioPorID(int ID) {
+        for (Anuncio a : listaAnuncios) {
+            if (a.getID() == ID) {
+                return a;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Retorna o Anúncio associado à Tarefa especificada
+     *
+     * @param nomeTarefa o nome da Tarefa a procurar
+     * @return o Anúncio
+     */
     public Anuncio getAnuncioPorTarefa(String nomeTarefa) {
         for (Anuncio a : listaAnuncios) {
             if (a.getTarefa().getDesignacao().equalsIgnoreCase(nomeTarefa)) {
@@ -106,5 +142,18 @@ public class RegistoAnuncios {
             }
         }
         return null;
+    }
+
+    /**
+     * Retorna o RegistoAnuncios em formato ArrayList<String>
+     *
+     * @return o registo de anúncio, em formato de texto
+     */
+    public ArrayList<String> toStringArray() {
+        ArrayList<String> stringList = new ArrayList<>();
+        for (Anuncio a : listaAnuncios) {
+            stringList.add(a.toString());
+        }
+        return stringList;
     }
 }

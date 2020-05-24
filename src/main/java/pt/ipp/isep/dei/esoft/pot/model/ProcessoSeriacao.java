@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Classe que modela o processo de seriação de um dado Anúncio
+ */
 public class ProcessoSeriacao {
 
     /**
@@ -17,7 +20,7 @@ public class ProcessoSeriacao {
     /**
      * Anúncio que espoleta o processo de seriação
      */
-    private Anuncio anuncio;
+    private final Anuncio ANUNCIO;
     /**
      * A lista de Participantes no processo de seriação
      */
@@ -33,7 +36,7 @@ public class ProcessoSeriacao {
     public ProcessoSeriacao(Colaborador colab, String seriacao, Anuncio anuncio) {
         this.listaColabs.adicionarColaborador(colab);
         this.seriacao = new Seriacao(seriacao);
-        this.anuncio = new Anuncio(anuncio);
+        this.ANUNCIO = new Anuncio(anuncio);
         this.dataRealizacao = new Date();
     }
 
@@ -47,7 +50,7 @@ public class ProcessoSeriacao {
      */
     public ProcessoSeriacao(Colaborador colab, Anuncio anuncio) {
         this.listaColabs.adicionarColaborador(colab);
-        this.anuncio = new Anuncio(anuncio);
+        this.ANUNCIO = new Anuncio(anuncio);
     }
 
     /**
@@ -58,7 +61,7 @@ public class ProcessoSeriacao {
     public ProcessoSeriacao(ProcessoSeriacao ps) {
         this.listaColabs = ps.listaColabs;
         this.seriacao = ps.seriacao;
-        this.anuncio = ps.anuncio;
+        this.ANUNCIO = ps.ANUNCIO;
         this.dataRealizacao = ps.dataRealizacao;
     }
 
@@ -97,10 +100,11 @@ public class ProcessoSeriacao {
      * @param tipoSeriacao o nome do tipo de seriação
      */
     public void setSeriacao(String tipoSeriacao) {
-        if (tipoSeriacao == null) 
+        if (tipoSeriacao == null) {
             this.seriacao = null;
-        else
+        } else {
             this.seriacao = new Seriacao(tipoSeriacao);
+        }
     }
 
     /**
@@ -119,6 +123,6 @@ public class ProcessoSeriacao {
      */
     public void ordenar() {
         Comparator comparador = seriacao.getComparador();
-        anuncio.getListaCandidaturas().getCandidaturas().sort(comparador);
+        ANUNCIO.getListaCandidaturas().sort(comparador);
     }
 }

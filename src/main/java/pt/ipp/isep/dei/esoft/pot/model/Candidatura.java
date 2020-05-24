@@ -2,6 +2,10 @@ package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.Date;
 
+/**
+ * Classe que modela uma Candidatura a um dado Anúncio por parte de um
+ * Freelancer.
+ */
 public class Candidatura {
 
     /**
@@ -34,7 +38,7 @@ public class Candidatura {
     private Anuncio anuncio;
     /**
      * O Tarefa para a qual a Candidatura se destina
-    */
+     */
     private Tarefa tarefa;
 
     /**
@@ -51,9 +55,10 @@ public class Candidatura {
      */
     public Candidatura(Date dataCandidatura, double valorPretendido, int nrDias,
             String txtApresentacao, String txtMotivacao, Freelancer freelancer, Anuncio anuncio) {
-        if (dataCandidatura == null || txtApresentacao == null || txtMotivacao == null || freelancer == null)
+        if (dataCandidatura == null || txtApresentacao == null || txtMotivacao == null || freelancer == null) {
             throw new IllegalArgumentException("Nenhum dos argumentos pode ser nulo ou vazio.");
-        
+        }
+
         this.dataCandidatura = dataCandidatura;
         this.valorPretendido = valorPretendido;
         this.nrDias = nrDias;
@@ -63,13 +68,13 @@ public class Candidatura {
         this.anuncio = new Anuncio(anuncio);
         this.tarefa = this.anuncio.getTarefa();
     }
-    
+
     /**
      * Retorna a Tarefa para a qual se destina a candidatura
      *
      * @return o Tarefa
      */
-    public Tarefa getTarefa(){
+    public Tarefa getTarefa() {
         return new Tarefa(tarefa);
     }
 
@@ -110,88 +115,18 @@ public class Candidatura {
     }
 
     /**
-     * Retorna o nº de dias para executar a tarefa alvo da candidatura
+     * Retorna o desvio padrão dos níveis de proficiência do Freelancer nas
+     * Competências Técnicas exigidas pela Tarefa à qual de candidata.
      *
-     * @return o número de dias
+     * @return o desvio padrão das proficiências
      */
-    public int getNrDias() {
-        return nrDias;
-    }
-
-    /**
-     * Retorna o texto de apresentação do candidato
-     *
-     * @return o texto de apresentação
-     */
-    public String getTxtApresentacao() {
-        return txtApresentacao;
-    }
-
-    /**
-     * Retorna o texto de motivação do candidato
-     *
-     * @return o texto de motivação
-     */
-    public String getTxtMotivacao() {
-        return txtMotivacao;
-    }
-
-    /**
-     * Modifica a data de candidatura
-     *
-     * @param dataCandidatura
-     */
-    public void setDataCandidatura(Date dataCandidatura) {
-        this.dataCandidatura = dataCandidatura;
-    }
-
-    /**
-     * Modifica o valor pretendido constante na candidatura
-     *
-     * @param valorPretendido
-     */
-    public void setValorPretendido(double valorPretendido) {
-        this.valorPretendido = valorPretendido;
-    }
-
-    /**
-     * Modifica o número de dias constante na candidatura
-     *
-     * @param nrDias
-     */
-    public void setNrDias(int nrDias) {
-        this.nrDias = nrDias;
-    }
-
-    /**
-     * Modifica o texto de apresentação constante na candidatura
-     *
-     * @param txtApresentacao
-     */
-    public void setTxtApresentacao(String txtApresentacao) {
-        this.txtApresentacao = txtApresentacao;
-    }
-
-    /**
-     * Modifica o texto de motivação constante na candidatura
-     *
-     * @param txtMotivacao
-     */
-    public void setTxtMotivacao(String txtMotivacao) {
-        this.txtMotivacao = txtMotivacao;
-    }
-    @Override
-    public String toString() {
-        return String.format("Data: %s, Valor: %.2f€, Dias: %d, Nome: %s", dataCandidatura, valorPretendido, nrDias, freelancer.getNome());
-    }
-    
-    public double getDesvioPadrao(){
+    public double getDesvioPadraoNiveisProficiencia() {
         double somatorio = 0;
         int cont = 0;
         float media = getMediaNiveisProficiencia();
-        for(int i = 0; i < tarefa.getCompetencias().size(); i++){
-            for(int j = 0; j < freelancer.getCompetencias().size(); j++){
-                if(freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))){
+        for (int i = 0; i < tarefa.getCompetencias().size(); i++) {
+            for (int j = 0; j < freelancer.getCompetencias().size(); j++) {
+                if (freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))) {
                     somatorio = somatorio + Math.pow(freelancer.getNivelProficiencia(i) - media, 2);
                     cont++;
                     break;
@@ -201,13 +136,19 @@ public class Candidatura {
         somatorio = somatorio / cont;
         return Math.sqrt(somatorio);
     }
-    
-    public float getMediaNiveisProficiencia(){
+
+    /**
+     * Retorna a média dos níveis de proficiência do Freelancer nas Competências
+     * Técnicas exigidas pela Tarefa à qual de candidata.
+     *
+     * @return a média das proficiências
+     */
+    public float getMediaNiveisProficiencia() {
         float media = 0;
         int cont = 0;
-        for(int i = 0; i < tarefa.getCompetencias().size(); i++){
-            for(int j = 0; j < freelancer.getCompetencias().size(); j++){
-                if(freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))){
+        for (int i = 0; i < tarefa.getCompetencias().size(); i++) {
+            for (int j = 0; j < freelancer.getCompetencias().size(); j++) {
+                if (freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))) {
                     media = media + freelancer.getNivelProficiencia(i);
                     cont++;
                     break;
@@ -216,7 +157,18 @@ public class Candidatura {
         }
         return (float) media / cont;
     }
-    
+
+    /**
+     * Verifica se duas Candidaturas são iguais. As Candidaturas são
+     * consideradas iguais se tiverem em comum:
+     *
+     ** O Anúncio de referência;
+     *
+     ** O Freelancer candidato.
+     *
+     * @param o Objeto a comparar
+     * @return true se as Candidaturas forem iguais, false caso contrário
+     */
     @Override
     public boolean equals(Object o) {
         // self check
@@ -234,5 +186,15 @@ public class Candidatura {
         // field comparison
         Candidatura other = (Candidatura) o;
         return this.anuncio.equals(other.anuncio) && this.freelancer.equals(other.freelancer);
+    }
+
+    /**
+     * Retorna a descrição textual de uma Candidatura
+     *
+     * @return a descrição da Candidatura
+     */
+    @Override
+    public String toString() {
+        return String.format("Data: %s, Valor: %.2f€, Dias: %d, Nome: %s", dataCandidatura, valorPretendido, nrDias, freelancer.getNome());
     }
 }

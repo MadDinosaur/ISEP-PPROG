@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
@@ -16,6 +11,7 @@ import pt.ipp.isep.dei.esoft.autorizacao.AutorizacaoFacade;
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
 public class Plataforma {
+
     /**
      * O nome da plataforma
      */
@@ -23,11 +19,18 @@ public class Plataforma {
     private final AutorizacaoFacade m_oAutorizacao;
     private final Set<AreaAtividade> m_lstAreasAtividade;
     private final Set<CompetenciaTecnica> m_lstCompetencias;
-
-    //VERIFICAR SE PODEMOS ADICIONAR ESTE ATRIBUTO
+    /**
+     * O Registo de Anuncios associados à plataforma
+     */
     private final RegistoAnuncios listaAnuncios;
+    /**
+     * O Registo de Organizações associadas à plataforma
+     */
     private final RegistoOrganizacoes listaOrganizacoes;
-   
+
+    /**
+     * Cria um objeto da classe Plataforma por omissão
+     */
     public Plataforma() {
         this.designacao = "";
         this.m_oAutorizacao = new AutorizacaoFacade();
@@ -37,6 +40,11 @@ public class Plataforma {
         this.listaOrganizacoes = new RegistoOrganizacoes();
     }
 
+    /**
+     * Cria um objeto da classe Plataforma com registos vazios
+     *
+     * @param strDesignacao o nome da plataforma a criar
+     */
     public Plataforma(String strDesignacao) {
         if ((strDesignacao == null)
                 || (strDesignacao.isEmpty())) {
@@ -46,13 +54,20 @@ public class Plataforma {
         this.designacao = strDesignacao;
 
         this.m_oAutorizacao = new AutorizacaoFacade();
-        
+
         this.m_lstAreasAtividade = new HashSet<>();
         this.m_lstCompetencias = new HashSet<>();
         this.listaAnuncios = new RegistoAnuncios();
         this.listaOrganizacoes = new RegistoOrganizacoes();
     }
 
+    /**
+     * Cria um objeto da classe Plataforma
+     *
+     * @param strDesignacao o nome da plataforma a criar
+     * @param listaOrganizacoes a lista de organizações registadas na plataforma
+     * @param listaAnuncios a lista de anúncios registadas na plataforma
+     */
     public Plataforma(String strDesignacao, RegistoOrganizacoes listaOrganizacoes, RegistoAnuncios listaAnuncios) {
         this.designacao = strDesignacao;
         this.listaAnuncios = listaAnuncios;
