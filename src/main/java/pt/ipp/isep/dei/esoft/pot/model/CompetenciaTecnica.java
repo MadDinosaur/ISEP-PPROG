@@ -78,16 +78,6 @@ public class CompetenciaTecnica {
     public int getNivelProficiencia() {
         return nivelProficiencia;
     }
-    
-    /**
-     * Verifica se duas Competências Técnicas têm o mesmo id
-     * @param strId
-     * @return 
-     */
-    public boolean hasId(String strId)
-    {
-        return this.m_strId.equalsIgnoreCase(strId);
-    }
 
     @Override
     public int hashCode() {

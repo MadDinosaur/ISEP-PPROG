@@ -42,7 +42,7 @@ public class SeriarAnuncioUI {
     /**
      * Abre a janela de classificação de candidaturas
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void classificar(ActionEvent event) {
@@ -69,7 +69,7 @@ public class SeriarAnuncioUI {
     /**
      * Abre a janela de adição de participante
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void adicionarParticipante(ActionEvent event) {
@@ -95,7 +95,7 @@ public class SeriarAnuncioUI {
     /**
      * Preenche a Combo Box de seleção do anúncio com as respetivas opções
      *
-     * @param event
+     * @param event o clique do utilizador na Combo Box
      */
     @FXML
     private void preencherAnuncios(Event event) {
@@ -106,7 +106,7 @@ public class SeriarAnuncioUI {
      * Define a ativação/desativação dos botões conforme a seleção ativa da
      * Combo Box
      *
-     * @param event
+     * @param event o clique do utilizador na Combo Box
      */
     @FXML
     private void triggerBtn(ActionEvent event) {

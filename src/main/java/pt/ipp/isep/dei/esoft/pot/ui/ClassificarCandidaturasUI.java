@@ -78,7 +78,7 @@ public class ClassificarCandidaturasUI implements Initializable {
     /**
      * Associa à classe o nº de identificação do Anuncio correpondente
      *
-     * @param anuncioID
+     * @param anuncioID o nº de identificação do Anuncio
      */
     public void associarAnuncio(int anuncioID) {
         this.anuncioID = anuncioID;
@@ -107,7 +107,7 @@ public class ClassificarCandidaturasUI implements Initializable {
      * Preenche a Combo Box de seleção do tipo de seriação com as respetivas
      * opções
      *
-     * @param event
+     * @param event o clique do utilizador na Combo Box
      */
     @FXML
     private void preencherCmbBoxSeriacao(Event event) {
@@ -119,7 +119,7 @@ public class ClassificarCandidaturasUI implements Initializable {
     /**
      * Cancela a operação e fecha a janela
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void voltar(ActionEvent event) {
@@ -129,7 +129,7 @@ public class ClassificarCandidaturasUI implements Initializable {
     /**
      * Confirma a operação e fecha a janela
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void validar(ActionEvent event) {
@@ -160,7 +160,7 @@ public class ClassificarCandidaturasUI implements Initializable {
      * Define a ativação/desativação do botão de confirmação conforme a seleção
      * na ComboBox
      *
-     * @param event
+     * @param event o clique do utilizador na Combo Box
      */
     @FXML
     private void triggerBtnValidar(ActionEvent event) {

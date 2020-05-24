@@ -57,7 +57,7 @@ public class AdicionarParticipanteUI implements Initializable {
     /**
      * Cancela a operação e fecha a janela
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void cancelar(ActionEvent event) {
@@ -67,7 +67,7 @@ public class AdicionarParticipanteUI implements Initializable {
     /**
      * Confirma a operação e fecha a janela
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void confirmar(ActionEvent event) {
@@ -85,7 +85,7 @@ public class AdicionarParticipanteUI implements Initializable {
      * Define a ativação/desativação do botão de confirmação conforme o conteúdo
      * do campo de texto
      *
-     * @param event
+     * @param event o premir de tecla de teclado do utilizador
      */
     @FXML
     private void triggerBtnConfirmar(KeyEvent event) {
@@ -107,7 +107,7 @@ public class AdicionarParticipanteUI implements Initializable {
     /**
      * Associa à classe o nº de identificação do Anuncio correpondente
      *
-     * @param anuncioID
+     * @param anuncioID o nº de identificação do Anuncio
      */
     public void associarAnuncio(int anuncioID) {
         this.anuncioID = anuncioID;

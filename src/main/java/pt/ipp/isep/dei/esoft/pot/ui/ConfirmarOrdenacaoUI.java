@@ -61,7 +61,7 @@ public class ConfirmarOrdenacaoUI implements Initializable {
     /**
      * Cancela a operação e fecha a janela
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void cancelar(ActionEvent event) {
@@ -72,7 +72,7 @@ public class ConfirmarOrdenacaoUI implements Initializable {
     /**
      * Confirma a operação e fecha a janela
      *
-     * @param event
+     * @param event o clique do utilizador no botão
      */
     @FXML
     private void OKAction(ActionEvent event) {
@@ -98,7 +98,7 @@ public class ConfirmarOrdenacaoUI implements Initializable {
     /**
      * Associa à classe o nº de identificação do Anuncio correpondente
      *
-     * @param anuncioID
+     * @param anuncioID o nº de identificação do anúncio
      */
     public void associarAnuncio(int anuncioID) {
         this.anuncioID = anuncioID;

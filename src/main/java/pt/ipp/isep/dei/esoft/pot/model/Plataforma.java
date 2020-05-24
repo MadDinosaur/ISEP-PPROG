@@ -3,7 +3,7 @@ package pt.ipp.isep.dei.esoft.pot.model;
 /**
  * Classe que modela a plataforma que contém toda a informação da aplicação
  *
- * @author Paulo Maio <pam@isep.ipp.pt>
+ * @author Paulo Maio pam@isep.ipp.pt
  */
 public class Plataforma {
 

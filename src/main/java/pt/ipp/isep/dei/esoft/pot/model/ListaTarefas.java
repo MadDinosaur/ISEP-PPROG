@@ -20,7 +20,7 @@ public class ListaTarefas {
     }
 
     /**
-     * Cria um objeto da classe ListaTarefas a partir de um ArrayList<Tarefa>
+     * Cria um objeto da classe ListaTarefas a partir de um ArrayList(Tarefa)
      *
      * @param lista o ArrayList de Tarefas
      */

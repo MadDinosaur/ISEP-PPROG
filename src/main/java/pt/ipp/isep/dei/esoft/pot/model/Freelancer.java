@@ -111,7 +111,7 @@ public class Freelancer {
     /**
      * Modifica o nome do freelancer
      *
-     * @param nome
+     * @param nome o nome do freelancer
      */
     public void setNome(String nome) {
         this.nome = nome;
@@ -120,7 +120,7 @@ public class Freelancer {
     /**
      * Modifica o nº de identificação fiscal
      *
-     * @param NIF
+     * @param NIF o NIF do freelancer
      */
     public void setNIF(String NIF) {
         this.NIF = NIF;
@@ -129,7 +129,7 @@ public class Freelancer {
     /**
      * Modifica o nº de telefone
      *
-     * @param telefone
+     * @param telefone o nº de telefone do freelancer
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
@@ -138,7 +138,7 @@ public class Freelancer {
     /**
      * Modifica o e-mail
      *
-     * @param email
+     * @param email o e-mail do freelancer
      */
     public void setEmail(String email) {
         this.email = email;

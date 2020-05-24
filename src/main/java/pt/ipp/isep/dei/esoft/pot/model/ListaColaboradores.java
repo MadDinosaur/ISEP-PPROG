@@ -29,7 +29,7 @@ public class ListaColaboradores {
     }
 
     /**
-     * Retorna a Lista de Colaboradores em formato ArrayList<String>
+     * Retorna a Lista de Colaboradores em formato ArrayList(String)
      *
      * @return a lista de colaboradores, em formato de texto
      */

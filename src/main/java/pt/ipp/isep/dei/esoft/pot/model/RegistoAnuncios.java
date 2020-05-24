@@ -130,7 +130,7 @@ public class RegistoAnuncios {
     }
 
     /**
-     * Retorna o RegistoAnuncios em formato ArrayList<String>
+     * Retorna o RegistoAnuncios em formato ArrayList(String)
      *
      * @return o registo de anúncio, em formato de texto
      */

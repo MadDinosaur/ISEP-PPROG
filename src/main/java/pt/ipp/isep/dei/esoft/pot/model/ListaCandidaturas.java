@@ -134,7 +134,7 @@ public class ListaCandidaturas {
     }
 
     /**
-     * Retorna a Lista de Candidaturas mas em formato ArrayList<String>
+     * Retorna a Lista de Candidaturas mas em formato ArrayList(String)
      *
      * @return a lista de candidatura, em formato de texto
      */
