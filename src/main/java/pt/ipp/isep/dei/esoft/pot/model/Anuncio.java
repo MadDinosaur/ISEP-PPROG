@@ -1,5 +1,6 @@
 package pt.ipp.isep.dei.esoft.pot.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -234,6 +235,6 @@ public class Anuncio {
      */
     @Override
     public String toString() {
-        return String.format("ID %d - %s - %s", id, dtInicioPublicitacao, tarefa.getDesignacao());
+        return String.format("ID %d - %s - %s", id, new SimpleDateFormat("dd-MM-yyyy").format(dtInicioPublicitacao), tarefa.getDesignacao());
     }
 }
