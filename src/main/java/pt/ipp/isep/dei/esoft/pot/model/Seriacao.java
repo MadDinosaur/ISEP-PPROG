@@ -133,7 +133,7 @@ public class Seriacao {
         public int compare(Candidatura f1, Candidatura f2) {
             Date dataRegisto1 = f1.getDataCandidatura();
             Date dataRegisto2 = f2.getDataCandidatura();
-            return dataRegisto1.compareTo(dataRegisto2);
+            return -dataRegisto1.compareTo(dataRegisto2);
         }
     };
     /**

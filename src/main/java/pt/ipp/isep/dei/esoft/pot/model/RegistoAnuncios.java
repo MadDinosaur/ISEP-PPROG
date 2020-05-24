@@ -98,22 +98,7 @@ public class RegistoAnuncios {
         }
         return null;
     }
-
-    /**
-     * Retorna o Anúncio igual ao especificado dentro do Registo
-     *
-     * @param anuncio o Anúncio a procurar
-     * @return o Anúncio correspondente em Registo
-     */
-    public Anuncio getAnuncio(Anuncio anuncio) {
-        for (Anuncio a : listaAnuncios) {
-            if (a.equals(anuncio)) {
-                return a;
-            }
-        }
-        return null;
-    }
-
+    
     /**
      * Retorna o Anuncio com o ID especificado
      *

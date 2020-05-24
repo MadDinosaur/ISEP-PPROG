@@ -127,7 +127,7 @@ public class Candidatura {
         for (int i = 0; i < tarefa.getCompetencias().size(); i++) {
             for (int j = 0; j < freelancer.getCompetencias().size(); j++) {
                 if (freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))) {
-                    somatorio = somatorio + Math.pow(freelancer.getNivelProficiencia(i) - media, 2);
+                    somatorio = somatorio + Math.pow(freelancer.getNivelProficiencia(j) - media, 2);
                     cont++;
                     break;
                 }
@@ -149,7 +149,7 @@ public class Candidatura {
         for (int i = 0; i < tarefa.getCompetencias().size(); i++) {
             for (int j = 0; j < freelancer.getCompetencias().size(); j++) {
                 if (freelancer.getCompetencias().get(j).equals(tarefa.getCompetencias().get(i))) {
-                    media = media + freelancer.getNivelProficiencia(i);
+                    media = media + freelancer.getNivelProficiencia(j);
                     cont++;
                     break;
                 }
