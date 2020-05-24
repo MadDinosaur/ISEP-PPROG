@@ -2,6 +2,9 @@ package pt.ipp.isep.dei.esoft.pot.model;
 
 import java.util.ArrayList;
 
+/**
+ * Classe que modela uma Tarefa de uma dada Organização
+ */
 public class Tarefa {
 
     /**
@@ -181,25 +184,23 @@ public class Tarefa {
     }
 
     /**
-     * @return the competencias
+     * Retorna uma cópia da lista de Competencias Tecnicas associadas à Tarefa
+     *
+     * @return a lista de competencias
      */
     public ArrayList<CompetenciaTecnica> getCompetencias() {
-        return competencias;
+        return new ArrayList<>(competencias);
     }
 
     /**
-     * @param competencias the competencias to set
+     * Retorna o nível de proficiência da Competencia Tecnica na posição i da
+     * lista
+     *
+     * @param i o índice da Competencia Tecnica na lista de competências da
+     * Tarefa
+     * @return o nível de proficiência
      */
-    public void setCompetencias(ArrayList<CompetenciaTecnica> competencias) {
-        this.competencias = competencias;
-    }
-    
-    /**
-     * Retorna um Nível de Proficiencia referido na Tarefa
-     * @param i
-     * @return 
-     */
-    public int getNivelProficiencia(int i){
+    public int getNivelProficiencia(int i) {
         return competencias.get(i).getNivelProficiencia();
     }
 

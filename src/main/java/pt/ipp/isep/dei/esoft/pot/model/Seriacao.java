@@ -14,7 +14,13 @@ public class Seriacao {
      * O Comparator que contêm os critérios de seriação pretendidos
      */
     private Comparator comparador;
+    /**
+     * O nome da primeira seriação
+     */
     private static final String STRING_SERIACAO_1 = "Seriação 1";
+    /**
+     * O nome da segunda seriação
+     */
     private static final String STRING_SERIACAO_2 = "Seriação 2";
     //SERIACOES
     /**
