@@ -66,31 +66,13 @@ public class Tarefa {
      * @param tarefa a Tarefa a copiar
      */
     public Tarefa(Tarefa tarefa) {
-        this.referencia = tarefa.getReferencia();
-        this.designacao = tarefa.getDesignacao();
-        this.descInformal = tarefa.getDescInformal();
-        this.descTecnica = tarefa.getDescTecnica();
-        this.duracaoEst = tarefa.getDuracaoEst();
-        this.custoEst = tarefa.getCustoEst();
-        this.competencias = tarefa.getCompetencias();
-    }
-
-    /**
-     * Retorna a referência da tarefa
-     *
-     * @return a referencia
-     */
-    public String getReferencia() {
-        return referencia;
-    }
-
-    /**
-     * Modifica a referência da tarefa
-     *
-     * @param referencia
-     */
-    public void setReferencia(String referencia) {
-        this.referencia = referencia;
+        this.referencia = tarefa.referencia;
+        this.designacao = tarefa.designacao;
+        this.descInformal = tarefa.descInformal;
+        this.descTecnica = tarefa.descTecnica;
+        this.duracaoEst = tarefa.duracaoEst;
+        this.custoEst = tarefa.custoEst;
+        this.competencias = tarefa.competencias;
     }
 
     /**
@@ -100,87 +82,6 @@ public class Tarefa {
      */
     public String getDesignacao() {
         return designacao;
-    }
-
-    /**
-     * Modifica a designação da tarefa
-     *
-     * @param designacao
-     */
-    public void setDesignacao(String designacao) {
-        this.designacao = designacao;
-    }
-
-    /**
-     * Retorna a descrição informal da tarefa
-     *
-     * @return a descrição informal
-     */
-    public String getDescInformal() {
-        return descInformal;
-    }
-
-    /**
-     * Modifica a descrição informal da tarefa
-     *
-     * @param descInformal
-     */
-    public void setDescInformal(String descInformal) {
-        this.descInformal = descInformal;
-    }
-
-    /**
-     * Retorna a descrição técnica da tarefa
-     *
-     * @return a descrição técnica
-     */
-    public String getDescTecnica() {
-        return descTecnica;
-    }
-
-    /**
-     * Modifica a descrição técnica da tarefa
-     *
-     * @param descTecnica
-     */
-    public void setDescTecnica(String descTecnica) {
-        this.descTecnica = descTecnica;
-    }
-
-    /**
-     * Retorna a duração estimada da tarefa
-     *
-     * @return a duração estimada
-     */
-    public Integer getDuracaoEst() {
-        return duracaoEst;
-    }
-
-    /**
-     * Modifica a duração estimada da tarefa
-     *
-     * @param duracaoEst
-     */
-    public void setDuracaoEst(Integer duracaoEst) {
-        this.duracaoEst = duracaoEst;
-    }
-
-    /**
-     * Retorna o custo estimado
-     *
-     * @return o custo
-     */
-    public Double getCustoEst() {
-        return custoEst;
-    }
-
-    /**
-     * Modifica o custo estimado
-     *
-     * @param custoEst
-     */
-    public void setCustoEst(Double custoEst) {
-        this.custoEst = custoEst;
     }
 
     /**

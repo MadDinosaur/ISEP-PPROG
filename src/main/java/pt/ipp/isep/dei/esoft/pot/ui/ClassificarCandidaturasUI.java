@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.ipp.isep.dei.esoft.pot.ui;
 
 import java.io.IOException;
@@ -25,21 +20,40 @@ import javafx.stage.Stage;
 import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
 
 /**
- * FXML Controller class
- *
- * @author bdian
+ * Classe que controla a janela de seleção do tipo de seriação das Candidaturas
  */
 public class ClassificarCandidaturasUI implements Initializable {
 
+    /**
+     * Objeto da classe Controller da interface gráfica
+     */
     private SeriarAnuncioController appController;
+    /**
+     * Objeto da classe SeriarAnuncioUI da interface gráfica
+     */
     private SeriarAnuncioUI seriarAnuncioUI;
+    /**
+     * O nº de identificação do anúncio
+     */
     private int anuncioID;
+    /**
+     * O botão para cancelar a operação
+     */
     @FXML
     private Button btnVoltar;
+    /**
+     * A Combo Box para seleção do tipo de seriação
+     */
     @FXML
     private ComboBox<String> cmbBoxSeriacao;
+    /**
+     * A Lista para visualização das candidaturas do Anuncio
+     */
     @FXML
     private ListView<String> lstViewCandidaturas;
+    /**
+     * O botão para confirmar a operação
+     */
     @FXML
     private Button btnValidar;
 
@@ -50,20 +64,38 @@ public class ClassificarCandidaturasUI implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * Associa à classe o Controller e janela-mãe correspondentes
+     *
+     * @param seriarAnuncioUI a classe que controla a interface gráfica que faz
+     * a ligação a esta classe
+     */
     public void associarParentUI(SeriarAnuncioUI seriarAnuncioUI) {
         this.seriarAnuncioUI = seriarAnuncioUI;
         this.appController = seriarAnuncioUI.getAppController();
     }
 
+    /**
+     * Associa à classe o nº de identificação do Anuncio correpondente
+     *
+     * @param anuncioID
+     */
     public void associarAnuncio(int anuncioID) {
         this.anuncioID = anuncioID;
     }
 
+    /**
+     * Preenche a lista de visualização de candidaturas com a informação
+     * respetiva
+     *
+     * @return false se não existirem candidaturas para visualizar, true caso
+     * contrário
+     */
     public boolean preencherLista() {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(appController.getCandidaturas(anuncioID));
         lstViewCandidaturas.setItems(items);
-        
+
         if (items.isEmpty()) {
             criarAlerta(Alert.AlertType.WARNING, "Sem Candidaturas!", "Ainda não existem candidaturas para este anúncio.");
             return false;
@@ -71,6 +103,12 @@ public class ClassificarCandidaturasUI implements Initializable {
         return true;
     }
 
+    /**
+     * Preenche a Combo Box de seleção do tipo de seriação com as respetivas
+     * opções
+     *
+     * @param event
+     */
     @FXML
     private void preencherCmbBoxSeriacao(Event event) {
         ObservableList<String> options = FXCollections.observableArrayList();
@@ -78,11 +116,21 @@ public class ClassificarCandidaturasUI implements Initializable {
         cmbBoxSeriacao.setItems(options);
     }
 
+    /**
+     * Cancela a operação e fecha a janela
+     *
+     * @param event
+     */
     @FXML
     private void voltar(ActionEvent event) {
         ((Stage) btnVoltar.getScene().getWindow()).close();
     }
 
+    /**
+     * Confirma a operação e fecha a janela
+     *
+     * @param event
+     */
     @FXML
     private void validar(ActionEvent event) {
         appController.registaProcessoSeriacao(anuncioID, cmbBoxSeriacao.getValue());
@@ -108,10 +156,52 @@ public class ClassificarCandidaturasUI implements Initializable {
         }
     }
 
+    /**
+     * Define a ativação/desativação do botão de confirmação conforme a seleção
+     * na ComboBox
+     *
+     * @param event
+     */
+    @FXML
+    private void triggerBtnValidar(ActionEvent event) {
+        btnValidar.setDisable(false);
+    }
+
+    /**
+     * Retorna o objeto da classe Controller da interface gráfica
+     *
+     * @return o objeto da classe SeriarAnuncioController
+     */
     public SeriarAnuncioController getAppController() {
         return appController;
     }
 
+    /**
+     * Retorna o Stage da classe
+     *
+     * @return o Stage
+     */
+    public Stage getStage() {
+        return (Stage) btnValidar.getScene().getWindow();
+    }
+
+    /**
+     * Retorna o objeto da classe SeriarAnuncioUI associado à classe
+     *
+     * @return a classe que controla a janela-mãe
+     */
+    public SeriarAnuncioUI getParent() {
+        return seriarAnuncioUI;
+    }
+
+    /**
+     * Gera uma janela de confirmação/aviso/erro
+     *
+     * @param tipoAlerta o tipo de janela a mostrar
+     * @param cabecalho o texto no cabeçalho da janela
+     * @param mensagem o texto no corpo da janela
+     * @return o Alerta
+     */
     private Alert criarAlerta(Alert.AlertType tipoAlerta, String cabecalho, String mensagem) {
         Alert alerta = new Alert(tipoAlerta);
 
@@ -121,16 +211,5 @@ public class ClassificarCandidaturasUI implements Initializable {
         alerta.showAndWait();
 
         return alerta;
-    }
-    public Stage getStage() {
-        return (Stage) btnValidar.getScene().getWindow();
-    }
-    public SeriarAnuncioUI getParent() {
-        return seriarAnuncioUI;
-    }
-
-    @FXML
-    private void triggerBtnValidar(ActionEvent event) {
-        btnValidar.setDisable(false);
     }
 }

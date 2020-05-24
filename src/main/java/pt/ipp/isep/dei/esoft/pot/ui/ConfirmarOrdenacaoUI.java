@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.ipp.isep.dei.esoft.pot.ui;
 
 import java.net.URL;
@@ -18,23 +13,40 @@ import javafx.stage.Stage;
 import pt.ipp.isep.dei.esoft.pot.controller.SeriarAnuncioController;
 
 /**
- * FXML Controller class
- *
- * @author Francisco
+ * Classe que controla a janela de confirmação da seriação das Candidaturas
  */
 public class ConfirmarOrdenacaoUI implements Initializable {
-    
-    private SeriarAnuncioController appController;
-    
-    private ClassificarCandidaturasUI classificarCandidaturaUI;
 
+    /**
+     * Objeto da classe Controller da interface gráfica
+     */
+    private SeriarAnuncioController appController;
+    /**
+     * Objeto da classe ClassificarCandidaturasUI da interface gráfica
+     */
+    private ClassificarCandidaturasUI classificarCandidaturaUI;
+    /**
+     * O nº de identificação do anúncio
+     */
     private int anuncioID;
+    /**
+     * O botão para cancelar a operação
+     */
     @FXML
     private Button btnCancelar;
+    /**
+     * O botão para confirmar a operação
+     */
     @FXML
     private Button btnOK;
+    /**
+     * A Lista para visualização das candidaturas seriadas do Anuncio
+     */
     @FXML
     private ListView<String> lstViewCandidaturas;
+    /**
+     * A Lista para visualização dos Participantes na seriação do Anuncio
+     */
     @FXML
     private ListView<String> lstViewParticipantes;
 
@@ -43,15 +55,25 @@ public class ConfirmarOrdenacaoUI implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
 
+    }
+
+    /**
+     * Cancela a operação e fecha a janela
+     *
+     * @param event
+     */
     @FXML
     private void cancelar(ActionEvent event) {
         appController.limpaProcessoSeriacao(anuncioID);
         ((Stage) btnCancelar.getScene().getWindow()).close();
     }
 
+    /**
+     * Confirma a operação e fecha a janela
+     *
+     * @param event
+     */
     @FXML
     private void OKAction(ActionEvent event) {
         //Atualizar a lista de anúncios disponíveis para seriar
@@ -61,16 +83,32 @@ public class ConfirmarOrdenacaoUI implements Initializable {
         //Fechar janela de escolha de seriação
         classificarCandidaturaUI.getStage().close();
     }
-    
+
+    /**
+     * Associa à classe o Controller e janela-mãe correspondentes
+     *
+     * @param classificarCandidaturaUI a classe que controla a interface gráfica
+     * que faz a ligação a esta classe
+     */
     public void associarParentUI(ClassificarCandidaturasUI classificarCandidaturaUI) {
         this.classificarCandidaturaUI = classificarCandidaturaUI;
         this.appController = classificarCandidaturaUI.getAppController();
     }
-    
+
+    /**
+     * Associa à classe o nº de identificação do Anuncio correpondente
+     *
+     * @param anuncioID
+     */
     public void associarAnuncio(int anuncioID) {
         this.anuncioID = anuncioID;
     }
-    
+
+    /**
+     * Preenche as listas de visualização de candidaturas e participantes com a
+     * informação respetiva
+     *
+     */
     public void preencherListas() {
         //Mostra a lista dos candidatos
         ObservableList<String> candList = FXCollections.observableArrayList();
