@@ -71,17 +71,19 @@ public class Inicializador {
      * @return a Plataforma
      */
     public static Plataforma iniciarPlataforma() {
-        lerFicheiro();
-        iniciarOrganizacao();
-        iniciarTarefas();
-        iniciarColaboradores();
-        iniciarFreelancers();
+        if (plataforma == null) {
+            lerFicheiro();
+            iniciarOrganizacao();
+            iniciarTarefas();
+            iniciarColaboradores();
+            iniciarFreelancers();
+        
 
         RegistoOrganizacoes registoOrganizacoes = new RegistoOrganizacoes();
         registoOrganizacoes.adicionarOrganizacao(organizacao);
 
         plataforma = new Plataforma(NOME_PLATAFORMA, registoOrganizacoes, registoAnuncios);
-
+        }
         return plataforma;
     }
 
