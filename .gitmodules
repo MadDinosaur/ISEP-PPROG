@@ -4,3 +4,6 @@
 [submodule "1dm_tp2_1181626_1191507"]
 	path = 1dm_tp2_1181626_1191507
 	url = https://BarbaraDP@bitbucket.org/1181626/1dm_tp2_1181626_1191507.git
+[submodule "1dm_tp3_1181626_1191507"]
+	path = 1dm_tp3_1181626_1191507
+	url = https://BarbaraDP@bitbucket.org/1181626/1dm_tp3_1181626_1191507.git
