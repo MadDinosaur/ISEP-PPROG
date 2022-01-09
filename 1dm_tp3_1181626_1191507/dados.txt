@@ -1,0 +1,161 @@
+﻿----------------------------------------------------------------------------------
+Organizacao
+----------------------------------------------------------------------------------
+Nome;NIF;Website;Telefone;E-mail;Local;Cod.Postal;Localidade;Nome (Gestor);Função (Gestor);Telefone (Gestor);E-mail (Gestor)
+----------------------------------------------------------------------------------
+ISEP;123456789;www.isep.ipp.pt;123456789;dei@isep.ipp.pt;R. Dr. António;0000-000;Porto;Maria Viamonte;Presidente;123456789;geral@isep.ipp.pt
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Tarefas
+----------------------------------------------------------------------------------
+Categoria;Nome;Descrição Informal;Descrição Técnica;Duração Estimada;Custo Estimado
+----------------------------------------------------------------------------------
+Linguistica;Escrever artigo para revista;descrição 1;descrição 2;10;500
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+Vocabulário;descrição 1;descrição 2;1
+Gramática;descrição 1;descrição 2;1
+Filosofia;descrição 1;descrição 2;1
+----------------------------------------------------------------------------------
+Jardinagem;Arranjar jardim;descrição 1;descrição 2;20;600
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+Adubagem;descrição 1;descrição 2;1
+Uso equipamento mecânico;descrição 1;descrição 2;1
+Floricultura;descrição 1;descrição 2;1
+----------------------------------------------------------------------------------
+Programação Java;App para PPROG;descrição 1;descrição 2;30;700
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+Algoritmia;descrição 1;descrição 2;1
+Engenharia de software;descrição 1;descrição 2;1
+Java;descrição 1;descrição 2;1
+----------------------------------------------------------------------------------
+Arte;Fazer poster;descrição 1;descrição 2;1;20
+
+__Competências Obrigatórias
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência Mín.
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Colaboradores
+----------------------------------------------------------------------------------
+Nome;Função;Telefone;E-mail
+----------------------------------------------------------------------------------
+Bárbara;Estudante;123456789;1191507@isep.ipp.pt
+
+__Anúncios
+Início Publicitação;Fim Publicitação;Início Candidatura;Fim Candidatura;Início Seriação;Fim Seriação;Tarefa
+01/01/2020;31/01/2020;01/01/2020;31/01/2020;01/02/2020;28/02/2020;Escrever artigo para revista
+01/01/2020;31/01/2020;01/01/2020;31/01/2020;01/02/2020;28/02/2020;Arranjar jardim
+01/01/2020;31/01/2020;01/01/2020;31/01/2020;01/02/2020;28/02/2020;App para PPROG
+21/05/2020;21/05/2020;21/05/2020;21/05/2020;21/05/2020;21/05/2020;Fazer poster
+----------------------------------------------------------------------------------
+Francisco;Estudante;123456789;1181626@isep.ipp.pt
+
+__Anúncios
+Início Publicitação;Fim Publicitação;Início Candidatura;Fim Candidatura;Início Seriação;Fim Seriação;Tarefa
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Freelancers
+----------------------------------------------------------------------------------
+Nome;NIF;Telefone;E-mail
+----------------------------------------------------------------------------------
+Joao;123456789;123456789;joao@escritor.pt
+
+__Competências Técnicas
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência
+Vocabulário;descrição 1;descrição 2;5
+Filosofia;descrição 1;descrição 2;4
+Gramática;descrição 1;descrição 2;3
+Algoritmia;descrição 1;descrição 2;3
+Engenharia de software;descrição 1;descrição 2;3
+Java;descrição 1;descrição 2;3
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2020;400;10;apresentação 1;motivação 1;Escrever artigo para revista
+01/01/2020;666;15;apresentação 2;motivação 2;App para PPROG
+----------------------------------------------------------------------------------
+Manel;123456789;123456789;manel@escritor.pt
+
+__Competências Técnicas
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência
+Vocabulário;descrição 1;descrição 2;4
+Filosofia;descrição 1;descrição 2;4
+Gramática;descrição 1;descrição 2;4
+Inglês;descrição 1;descrição 2;4
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2020;500;10;apresentação 1;motivação 1;Escrever artigo para revista
+----------------------------------------------------------------------------------
+Ze;123456789;123456789;ze@escritor.pt
+
+__Competências Técnicas
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência
+Vocabulário;descrição 1;descrição 2;4
+Filosofia;descrição 1;descrição 2;5
+Gramática;descrição 1;descrição 2;5
+Francês;descrição 1;descrição 2;4
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2020;500;10;apresentação 1;motivação 1;Escrever artigo para revista
+----------------------------------------------------------------------------------
+Xico das Couves;123456789;123456789;xico@couves.pt
+
+__Competências Técnicas
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência
+Adubagem;descrição 1;descrição 2;4
+Uso equipamento mecânico;descrição 1;descrição 2;2
+Floricultura;descrição 1;descrição 2;2
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2019;501;10;apresentação 1;motivação 1;Arranjar jardim
+----------------------------------------------------------------------------------
+Quim da Horta;123456789;123456789;quim@horta.pt
+
+__Competências Técnicas
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência
+Adubagem;descrição 1;descrição 2;1
+Uso equipamento mecânico;descrição 1;descrição 2;2
+Floricultura;descrição 1;descrição 2;2
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2019;500;10;apresentação 1;motivação 1;Arranjar jardim
+----------------------------------------------------------------------------------
+Manel Cebolas;123456789;123456789;manel@cebolas.pt
+
+__Competências Técnicas
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência
+Adubagem;descrição 1;descrição 2;2
+Uso equipamento mecânico;descrição 1;descrição 2;2
+Floricultura;descrição 1;descrição 2;2
+Algoritmia;descrição 1;descrição 2;3
+Engenharia de software;descrição 1;descrição 2;3
+Java;descrição 1;descrição 2;3
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+01/01/2019;502;10;apresentação 1;motivação 1;Arranjar jardim
+31/12/2019;555;15;apresentação 2;motivação 2;App para PPROG
+----------------------------------------------------------------------------------
+Catia Vanessa;123456789;123456789;catia@vanessa.pt
+
+__Competências Técnicas
+Nome;Descrição Breve;Descrição Detalhada;Nível Proficiência
+Algoritmia;descrição 1;descrição 2;3
+Engenharia de software;descrição 1;descrição 2;3
+Java;descrição 1;descrição 2;3
+
+__Candidaturas
+Data;Valor;Nº Dias;Txt Apresentação;Txt Motivação;Tarefa
+30/12/2019;666;15;apresentação 1;motivação 1;App para PPROG
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
